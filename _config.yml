@@ -7,7 +7,7 @@ baseurl: # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
 street_address: Indian Institute of Science Education and Research
-city: Bhopal-Indore bypass road, Bhopal
+city: Bhopal bypass road, Bhopal
 state: Madhya Pradesh
 zip_code: 462066
 country: India
