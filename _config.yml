@@ -7,12 +7,12 @@ description: Welcome to my webpage. It is nice to meet you!!.
 baseurl: # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
-street_address: 1234 Somewhere Road
-city: Nashville
-state: TN
-zip_code: 55555
-country: United States of America
-phone: (716) 555-5555
+street_address: Indian Institute of Science Education and Research Bhopal
+city: Bhopal-Indore bypass road, Bhopal
+state: Madhya Pradesh
+zip_code: 462066
+country: India
+phone: 
 
 # homepage tiles
 tiles-source: pages # accepts "posts" or "pages"
@@ -25,7 +25,7 @@ tiles-count: 6
 socials:
   GitHub: https://github.com/Kartav33
   GitLab:
-  Google-Plus: https://plus.google.com/u/0/+AndrewBanchich
+  Google-Plus: 
   Instagram:
   LinkedIn: https://www.linkedin.com/in/kartav-kesri-622718219/
   Twitter: https://twitter.com/KartavK87350
