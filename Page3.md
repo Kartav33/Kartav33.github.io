@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Research Interests and Publications
-image: assets/images/pic01.jpg
+title: Interests and Publications
+image: assets/images/pic03.jpg
 nav-menu: true
 ---
 
@@ -12,10 +12,23 @@ nav-menu: true
 <section id="one">
 	<div class="inner">
 		<header class="major">
-			<h1>Research Experience</h1>
+			<h1>Research Interests</h1>
+		</header>
+	
+
+<!-- Content -->
+
+<p>section is under construction</p>
+
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h1>Publications</h1>
 		</header>
 
 <!-- Content -->
 
-<p>page under construction</p>
+<p>section is under construction</p>
+
+
 

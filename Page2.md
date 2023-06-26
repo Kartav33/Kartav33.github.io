@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Research Experience
-image: assets/images/pic01.jpg
+image: assets/images/pic02.jpg
 nav-menu: true
 ---
 
