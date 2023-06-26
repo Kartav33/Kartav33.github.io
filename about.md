@@ -1,30 +1,71 @@
 ---
 layout: page
 title: About
+image: assets/images/pic01.jpg
+nav-menu: true
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+<!-- Main -->
+<div id="main" class="alt">
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+<!-- One -->
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h1>About</h1>
+		</header>
 
-There are currently two themes built on Poole:
+<!-- Content -->
+<h2 id="content">A brief about me</h2>
+<p>Hi!, I am Kartav Kesri, an incoming fourth year student at IISER Bhpal, India. I was born in the city of the three holy rivers, Allahabad (Now, Prayagraj), Uttar Pradesh. I lived here my entire life and completed my schooling, before moving out to Bhopal for further studies. Currently, I am living in the capital city of Karnataka, for my summer internship at Indian Institute of Astrophysics, Bengaluru, Koramangala. <b>Scroll down to know more about me!!</b></p> 
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+<h2 id="content">Education</h2>
+<div class="row">
+	<div class="12u 12u$(medium)">
+		<dl>
+		<h3><dt>Indian Institute of Science Education and Research Bhopal</dt></h3>
+		<dd>
+		<p>Integrated BS-MS dual degree. <br/> 2020-2025 (<i>Expected graduation</i>) </p>
+		</dd>
+		</dl>
+		<dl>
+		<h3><dt>Ewing Christian Public School, Allahabad</dt></h3>
+		<dd>
+		<p>Central Board of Secondary Education (<b>CBSE</b>) <br /> Intermediate/+2 (<i> Class XII </i>) <br/> 2020 (<i>Graduated</i>) </p>
+		</dd>
+		</dl>
+		<dl>
+		<h3><dt>Ewing Christian Public School, Allahabad</dt></h3>
+		<dd>
+		<p>Central Board of Secondary Education (<b>CBSE</b>) <br /> Matriculation (<i> Class X </i>) <br/> 2018 (<i>Graduated</i>) </p>
+		</dd>
+		</dl>
+	</div>
+</div>
 
-Learn more and contribute on [GitHub](https://github.com/poole).
 
-## Setup
+<h2 id="content">Few Awards and Acievements</h2>
+<!-- Lists -->
+<h3>University level (<i>IISERB</i>)</h3>
+<div class="row">
+	<div class="12u 12u$(medium)">
+		<ul>
+			<li>Selected as a VSP student intern at <i>Inter University Center of Astronomy and Astrophysics, Pune, '23 </i></li>
+			<li>Selected as a VSP student intern at <i>Indian Institute of Astrophysics, Bengaluru, '23</i></li>
+			<li>Finalist in Model Solavy Conference '21 conducted at IISER Bhopal</li>
+			<li>Finalist in Science Quizzing League '21 conducted at IISER Bhopal</li>
+			<li> Top 1.6% in Annual International Astronomy and Physics Competition. </li>
+		</ul>
+	</div>
+</div>
 
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+<h3>School level (<i>ECPS, Alld</i>)</h3>
+<div class="row">
+	<div class="12u 12u$(medium)">
+		<ul>
+			<li> Stage 1 qualified in National Talent Search Examination (<b>NTSE '18</b>) conducted by CBSE. </li>
+			<li>Stage 1 qualified in National standrad exams of Junior Science (<b>NSEJS '18</b>), Physics (<b>NSEP '20</b>) and Chemistry (<b>NSEC '20</b>) conducted by Homi Bhabha Center for Science Education (<b>HBCSE</b>) </li>
+			<li>International and National ranker in various <i> Science olympiad Foundation</i> exams through class 4 to 11</li>			
+		</ul>
+	</div>
+</div>

@@ -1,11 +1,7 @@
-# frozen_string_literal: true
+source 'https://rubygems.org'
 
-source "https://rubygems.org"
+gem 'jekyll', '~> 4.2'
 
-# gem "rails"
-
-gem "jekyll", "~> 3.9.3"
-gem "jekyll-gist"
-gem "github-pages", "~> 228"
-gem "pygments.rb"
-gem "webrick"
+group :jekyll_plugins do
+  gem 'jekyll-timeago', '~> 0.13.1'
+end
