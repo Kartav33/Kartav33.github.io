@@ -17,7 +17,7 @@ nav-menu: true
 
 <!-- Content -->
 <h2 id="content">A brief about me</h2>
-<p>Hi!, I am Kartav Kesri, an incoming fourth year student at IISER Bhopal, India. I was born in the city of the three holy rivers, Allahabad (Now, Prayagraj), Uttar Pradesh. I lived here my entire life and completed my schooling, before moving out to Bhopal for further studies. Currently, I am living in the capital city of Karnataka, for my summer internship at Indian Institute of Astrophysics, Bengaluru, Koramangala. <b>Scroll down to know more about me!!</b></p> 
+<p>Hi!, I am Kartav Kesri, an incoming fourth year student at IISER Bhopal, India. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh. I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, for further studies. Currently, I am living in the capital city of Karnataka, for my summer internship at Indian Institute of Astrophysics, Koramangala, Bengaluru. <b>Scroll down to know more about me!!</b></p> 
 
 <h2 id="content">Education</h2>
 <div class="row">
@@ -38,7 +38,7 @@ nav-menu: true
 </div>
 
 
-<h2 id="content">Few Awards and Achievements</h2>
+<h2 id="content">Few Awards and Acievements</h2>
 <!-- Lists -->
 <h3>University level (<i>IISERB</i>)</h3>
 <div class="row">
