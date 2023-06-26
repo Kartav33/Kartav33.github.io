@@ -17,7 +17,7 @@ nav-menu: true
 
 <!-- Content -->
 <h2 id="content">A brief about me</h2>
-<p>Hi!, I am Kartav Kesri, an incoming fourth year student at IISER Bhpal, India. I was born in the city of the three holy rivers, Allahabad (Now, Prayagraj), Uttar Pradesh. I lived here my entire life and completed my schooling, before moving out to Bhopal for further studies. Currently, I am living in the capital city of Karnataka, for my summer internship at Indian Institute of Astrophysics, Bengaluru, Koramangala. <b>Scroll down to know more about me!!</b></p> 
+<p>Hi!, I am Kartav Kesri, an incoming fourth year student at IISER Bhopal, India. I was born in the city of the three holy rivers, Allahabad (Now, Prayagraj), Uttar Pradesh. I lived here my entire life and completed my schooling, before moving out to Bhopal for further studies. Currently, I am living in the capital city of Karnataka, for my summer internship at Indian Institute of Astrophysics, Bengaluru, Koramangala. <b>Scroll down to know more about me!!</b></p> 
 
 <h2 id="content">Education</h2>
 <div class="row">
@@ -31,27 +31,21 @@ nav-menu: true
 		<dl>
 		<h3><dt>Ewing Christian Public School, Allahabad</dt></h3>
 		<dd>
-		<p>Central Board of Secondary Education (<b>CBSE</b>) <br /> Intermediate/+2 (<i> Class XII </i>) <br/> 2020 (<i>Graduated</i>) </p>
-		</dd>
-		</dl>
-		<dl>
-		<h3><dt>Ewing Christian Public School, Allahabad</dt></h3>
-		<dd>
-		<p>Central Board of Secondary Education (<b>CBSE</b>) <br /> Matriculation (<i> Class X </i>) <br/> 2018 (<i>Graduated</i>) </p>
+		<p>Central Board of Secondary Education (<b>CBSE</b>) <br /> Intermediate/+2 (<i> Class XII </i>) - 2020 (<i>Graduation year</i>) <br /> Matriculation (<i> Class X </i>) - 2018 (<i>Graduation year</i>)</p>
 		</dd>
 		</dl>
 	</div>
 </div>
 
 
-<h2 id="content">Few Awards and Acievements</h2>
+<h2 id="content">Few Awards and Achievements</h2>
 <!-- Lists -->
 <h3>University level (<i>IISERB</i>)</h3>
 <div class="row">
 	<div class="12u 12u$(medium)">
 		<ul>
 			<li>Selected as a VSP student intern at <i>Inter University Center of Astronomy and Astrophysics, Pune, '23 </i></li>
-			<li>Selected as a VSP student intern at <i>Indian Institute of Astrophysics, Bengaluru, '23</i></li>
+			<li>Selected as a VSP student intern at <i>Indian Institute of Astrophysics, Bengaluru, '23</i>, <a href="https://drive.google.com/file/d/1Rm5TE16ZV34OoNVVI_8i64qSaOgeykiZ/view">Offer letter</a></li>
 			<li>Finalist in Model Solavy Conference '21 conducted at IISER Bhopal</li>
 			<li>Finalist in Science Quizzing League '21 conducted at IISER Bhopal</li>
 			<li> Top 1.6% in Annual International Astronomy and Physics Competition. </li>
