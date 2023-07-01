@@ -1,5 +1,5 @@
 ---
-layout: Interests
+layout: page
 title: Interests and Publications
 image: assets/images/pic03.jpg
 nav-menu: true
