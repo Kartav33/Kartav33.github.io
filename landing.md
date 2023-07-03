@@ -22,25 +22,21 @@ nav-menu: true
 <!-- Two -->
 <section id="two" class="spotlights">
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic08.jpg %}" alt="" data-position="center center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
 					<h3>Pune (Dec '23 - Jan '24)</h3>
 				</header>
-				<p></p>
+				<p>I will be heading to the city of Pune for my internship at IUCAA for 6-7 weeks. Hoping to explore this city to the fullest</p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Captures</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic09.jpg %}" alt="" data-position="top center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
@@ -48,15 +44,13 @@ nav-menu: true
 				</header>
 				<p></p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Captures</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic08.jpg %}" alt="" data-position="center center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
@@ -64,15 +58,13 @@ nav-menu: true
 				</header>
 				<p></p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Captures</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic09.jpg %}" alt="" data-position="top center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
@@ -80,15 +72,13 @@ nav-menu: true
 				</header>
 				<p></p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Captures</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic08.jpg %}" alt="" data-position="center center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
@@ -96,15 +86,13 @@ nav-menu: true
 				</header>
 				<p></p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Captures</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic09.jpg %}" alt="" data-position="top center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
@@ -112,15 +100,13 @@ nav-menu: true
 				</header>
 				<p></p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Captures</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic08.jpg %}" alt="" data-position="center center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
@@ -128,15 +114,13 @@ nav-menu: true
 				</header>
 				<p></p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Caputres</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="generic.html" class="image">
 			<img src="{% link assets/images/pic09.jpg %}" alt="" data-position="top center" />
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
@@ -144,7 +128,7 @@ nav-menu: true
 				</header>
 				<p></p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="generic.html" class="button">Few Captures</a></li>
 				</ul>
 			</div>
 		</div>
@@ -160,6 +144,19 @@ nav-menu: true
 		<p></p>
 		<ul class="actions">
 			<li><a href="generic.html" class="button next">Click to see a few pics of the food I have cooked</a></li>
+		</ul>
+	</div>
+</section>
+
+<!-- Three -->
+<section id="three">
+	<div class="inner">
+		<header class="major">
+			<h2>Guess what! I also like to play musical instruments</h2>
+		</header>
+		<p>I haven't really had any proper training, just learnt few bits and pieces from YouTube. Currently, I can play a Piano and a Congo, but be warned that I am a noob.</p>
+		<ul class="actions">
+			<li><a href="generic.html" class="button next">A few recordings</a></li>
 		</ul>
 	</div>
 </section>

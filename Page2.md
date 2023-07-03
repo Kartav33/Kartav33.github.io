@@ -49,7 +49,7 @@ nav-menu: true
 		</dd>
 		<h3><dt>Constraining λCDM model using SLSNe Type-Ic</dt></h3>
 		<dd>
-		<p> Remote, (<i> Jun '21 - Sept '21 </i>) <br/> Miranda House, University of Delhi, Delhi <br /> Advisor(s): <i><b> Dr AbhaDev Habib, Associate Professor </b></i> and <i><b> Dr Nisha Rani, Assistant Professor</b></i> <br/> <a href="https://drive.google.com/file/d/1mqpA_cCThByqpEO6ZV_03a8CU_5JJS1Q/view"> Project Summary</a>,  <a href="https://drive.google.com/file/d/1TOhDXJ9eeBFZR4Ahb0mVgwYkqQ7VoYVC/view?usp=drive_link"> Project Link </a> </p>
+		<p> Remote, (<i> Jun '21 - Sept '21 </i>) <br/> Miranda House, University of Delhi, Delhi <br /> Advisor(s): <i><b> Dr AbhaDev Habib, Associate Professor </b></i> and <i><b> Dr Nisha Rani, Assistant Professor</b></i> <br/> <a href="https://drive.google.com/file/d/1P6gLRskwGlm5_dmcQTB28oca558OObzk/view">Certificate</a>, <a href="https://drive.google.com/file/d/1mqpA_cCThByqpEO6ZV_03a8CU_5JJS1Q/view"> Project Summary</a>,  <a href="https://drive.google.com/file/d/1TOhDXJ9eeBFZR4Ahb0mVgwYkqQ7VoYVC/view?usp=drive_link"> Project Link </a> </p>
 		</dd>
 		</dl>
 	</div>
