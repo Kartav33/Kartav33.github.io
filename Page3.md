@@ -30,7 +30,7 @@ nav-menu: true
 		<header class="major">
 			<h1>Research Interests</h1>
 		</header>
-		<p>As I am still an undergrad student, therefore, I really don't have a very <b>specific</b> interest but I do recognize a few areas where I think I can move forward. I am particularly interested towards the domains of Astronomy and Astrophysics, you can find a brief about few of my current my interests, but not limited to, in the following sections. I would love to expand my understanding in more interdiscilinary topics, if possible. </p>
+		<p>As I am still an undergrad student, therefore, I have a very broad range of interests but I do recognize a few areas where I think I can move forward. I am particularly interested towards the domains of Astronomy and Astrophysics, you can find a brief about few of my current my interests, but not limited to, in the following sections. I would love to expand my understanding in more interdiscilinary topics, if possible. </p>
 	</div>
 </section>
 

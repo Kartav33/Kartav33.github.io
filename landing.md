@@ -40,6 +40,34 @@ nav-menu: true
 		<div class="content">
 			<div class="inner">
 				<header class="major">
+					<h3>Mount Abu (Aug '23)</h3>
+				</header>
+				<p></p>
+				<ul class="actions">
+					<li><a href="generic.html" class="button">Few Captures</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section>
+			<img src="{% link assets/images/pic09.jpg %}" alt="" data-position="top center" />
+		<div class="content">
+			<div class="inner">
+				<header class="major">
+					<h3>Hyderabad (Aug '23)</h3>
+				</header>
+				<p></p>
+				<ul class="actions">
+					<li><a href="generic.html" class="button">Few Captures</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section>
+			<img src="{% link assets/images/pic09.jpg %}" alt="" data-position="top center" />
+		<div class="content">
+			<div class="inner">
+				<header class="major">
 					<h3>Gokarna (July '23)</h3>
 				</header>
 				<p></p>
