@@ -25,7 +25,7 @@ nav-menu: true
 	<h2 id="content">Internships</h2>
 		<dl>
 		<h4><u>Current Internship(s):</u></h4>
-		<h3><dt>Magnetic field dependence on the properties of simulated Solar Spicules</dt></h3>
+		<h3><dt>Dependence of the properties of simulated solar spicules on imposed magnetic field</dt></h3>
 		<dd>
 		<p>On-site, (<i>May '23 - July '23, Extending it online</i>) <br/> Indian Institute of Astrophysics, Bengaluru<br/> Advisor(s): <i><b> Dr Piyali Chatterjee, Associate Professor</b> </i> <br/><a href="https://drive.google.com/file/d/1KfpoydTX3sucVcIH1zVCasE1EFXR6bSd/view?usp=sharing">Project Link</a>, <a href="https://drive.google.com/file/d/1ladhthAdRM0DRxe-q7fb45iXnaZYtAxM/view?usp=sharing">Project Certificate</a> </p>
 		</dd>
