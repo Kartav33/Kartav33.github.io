@@ -1,7 +1,7 @@
 ---
 title: Tourism
 layout: landing
-description: 'Whenever I find time, I&#39;d like to go on exploring new places and people. Below you can find few pics of all the places that I have cisited so far (PS: these are the only places for which have pictures)'
+description: 'Whenever I find time, I&#39;d like to go on exploring new places and people. Below you can find few pics of all the places that I have visited so far (PS: these are the only places for which have pictures)'
 image: assets/images/pic07.jpg
 nav-menu: true
 ---

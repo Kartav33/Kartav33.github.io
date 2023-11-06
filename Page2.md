@@ -25,9 +25,9 @@ nav-menu: true
 	<h2 id="content">Internships</h2>
 		<dl>
 		<h4><u>Current Internship(s):</u></h4>
-		<h3><dt>Dependence of the properties of simulated solar spicules on imposed magnetic field</dt></h3>
+		<h3><dt>Study of compact stars in the Buchdahl limit</dt></h3>
 		<dd>
-		<p>On-site, (<i>May '23 - July '23, Extending it online</i>) <br/> Indian Institute of Astrophysics, Bengaluru<br/> Advisor(s): <i><b> Dr Piyali Chatterjee, Associate Professor</b> </i> <br/><a href="https://drive.google.com/file/d/1KfpoydTX3sucVcIH1zVCasE1EFXR6bSd/view?usp=sharing">Project Link</a>, <a href="https://drive.google.com/file/d/1ladhthAdRM0DRxe-q7fb45iXnaZYtAxM/view?usp=sharing">Project Certificate</a> </p>
+		<p>Hybrid, (<i> Date: Oct '23- Present </i>) <br/> Inter-University Center for Astronomy and Astrophysics (<i>IUCAA</i>), Pune <br /> Advisor(s): <i><b> Dr Debarati Chatterjee, Associate Professor </b></i>  <br/> </p>
 		</dd>
 		<h3><dt>Analyzing <i>JWST/HST</i> data using DS9 and Python</dt></h3>
 		<dd>
@@ -35,14 +35,11 @@ nav-menu: true
 		</dd>
 		</dl>
 		<dl>
-		<h4><u>Upcoming:</u></h4>
-		<h3><dt>Study of compact stars in the Buchdahl limit</dt></h3>
-		<dd>
-		<p>Hybrid, (<i> Date: Sept '23 </i>) <br/> Inter-University Center for Astronomy and Astrophysics (<i>IUCAA</i>), Pune <br /> Advisor(s): <i><b> Dr Debarati Chatterjee, Associate Professor </b></i>  <br/> </p>
-		</dd>
-		</dl>
-		<dl>
 		<h4><u>Past Internship(s):</u></h4>
+		<h3><dt>Dependence of the properties of simulated solar spicules on imposed magnetic field</dt></h3>
+		<dd>
+		<p>On-site, (<i>May '23 - July '23, Extended online</i>) <br/> Indian Institute of Astrophysics, Bengaluru<br/> Advisor(s): <i><b> Dr Piyali Chatterjee, Associate Professor</b> </i> <br/><a href="https://drive.google.com/file/d/1KfpoydTX3sucVcIH1zVCasE1EFXR6bSd/view?usp=sharing">Project Link</a>, <a href="https://drive.google.com/file/d/1ladhthAdRM0DRxe-q7fb45iXnaZYtAxM/view?usp=sharing">Project Certificate</a> </p>
+		</dd>
 		<h3><dt>Stellar Spectrum, Atmospheres, Structures, Polytropic models, and the Lane-Emden Equation</dt></h3>
 		<dd>
 		<p> Hybrid, (<i> Apr '22 - Mar '23 </i>) <br/> National Institute of Science Education and Research (<i>NISER</i>), Bhubaneswar <br /> Advisor(s): <i><b> Dr Nishikanta Khandai, Associate Professor </b></i> <br/> <a href="https://drive.google.com/file/d/1dAZRr_H61Fn4JysHARnx6Ua9VJHmJshn/view">Project Summary</a>, <a href="https://drive.google.com/file/d/1PRUfBfN2ah_GLeydA4oJxT3InVRe1SNf/view?usp=drive_link">Project Link</a> </p>
