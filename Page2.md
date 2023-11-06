@@ -80,7 +80,8 @@ nav-menu: true
 <div class="row">
 	<div class="12u 12u$(small)">
 		<ul>
-			<li>Onsite workshop on MHD simulations using PLUTO code, to be held at <i><b>Indian Institute of Science</b></i> (IISc) Bengaluru, between 10<sup>th</sup>-14<sup>th</sup> July '23. </li>
+			<li>Onsite workshop/conference on solar physics and <b>Aditya L1</b>, held at <i><b> Indian Institute of Technology Kanpur </b></i> (IITK) Kanpur, between 30<sup>th</sup> Oct - <sup>1</sup> Nov '23. </li>
+			<li>Onsite workshop on MHD simulations using PLUTO code, held at <i><b>Indian Institute of Science</b></i> (IISc) Bengaluru, between 10<sup>th</sup>-14<sup>th</sup> July '23. </li>
 			<li>Remote workshop on Exoplanets and Starlight Suppression, to be held between 8<sup>th</sup>-10<sup>th</sup> August '23 (Collaborative online workshop by NExSCi, IPAC, CalTech)  </li>
 			<li>Remote workshop on handling FITS file, held on 15<sup>th</sup>-16<sup>th</sup> June '21 (Collaborative workshop by RAD@home and IIT Mandi)</li>
 		</ul>
