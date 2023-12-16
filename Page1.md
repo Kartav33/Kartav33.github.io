@@ -17,7 +17,7 @@ nav-menu: true
 
 <!-- Content -->
 <h2 id="content">A brief about me</h2>
-<p>Hi!, I am Kartav Kesri, a fourth year student at IISER Bhopal, India. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh. I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, for further studies. I recently lived in the capital city of Karnataka, for my summer internship at Indian Institute of Astrophysics, Koramangala, Bengaluru. This winter I will be heading to Pune for my another internship. <b>Scroll down to know more about me!!</b></p> 
+<p>Hi!, I am Kartav Kesri, a fourth year student at IISER Bhopal, India. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh. I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, for further studies. Curretly, I am here at Pune for my VSP internship at IUCAA Post bag 4, Ganeshkhind. I recently lived in the capital city of Karnataka, for my summer internship at Indian Institute of Astrophysics, Koramangala, Bengaluru. <b>Scroll down to know more about me!!</b></p> 
 
 <h2 id="content">Education</h2>
 <div class="row">
@@ -44,8 +44,9 @@ nav-menu: true
 <div class="row">
 	<div class="12u 12u$(medium)">
 		<ul>
+			<li>Selected to present a poster at <b> Astronomical Society of India Coneference 2024 (ASI'24) </b> scheduled to be held at <i>Indian Institute of Science, Bangalore </i> between 31<sup>st</sup> Jan - 4<sup>th</sup> Feb 2024.</li>
 			<li>Selected as a VSP student intern at <i>Inter University Center of Astronomy and Astrophysics, Pune, '23 </i></li>
-			<li>Selected as a VSP student intern at <i>Indian Institute of Astrophysics, Bengaluru, '23</i>, <a href="https://drive.google.com/file/d/1Rm5TE16ZV34OoNVVI_8i64qSaOgeykiZ/view">Offer letter</a></li>
+			<li>Selected as a VSP student intern at <i>Indian Institute of Astrophysics, Bangalore, '23</i>, <a href="https://drive.google.com/file/d/1Rm5TE16ZV34OoNVVI_8i64qSaOgeykiZ/view">Offer letter</a></li>
 			<li>Finalist in Model Solavy Conference '21 conducted at IISER Bhopal</li>
 			<li>Finalist in Science Quizzing League '21 conducted at IISER Bhopal</li>
 			<li> Top 1.6% in Annual International Astronomy and Physics Competition. </li>
