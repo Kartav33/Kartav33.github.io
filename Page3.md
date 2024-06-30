@@ -48,17 +48,6 @@ nav-menu: true
 		</div>
 	</section>
 	<section>
-			<img src="{% link assets/images/NGC628.jpg %}" alt="" data-position="center center" />
-		<div class="content">
-			<div class="inner">
-				<header class="major">
-					<h3>Formation and Evolution of Galaxies</h3>
-				</header>
-				<p>While I am working on NGC628 using SExtractor, DS9 and Python. I haven't really got a chance to work under this domain but I have always been interested in studing the infantry of stars, i.e., galaxies. I would further like to explore the areas of classifications of galaxies, AGNs and galactic collisions.  </p>
-			</div>
-		</div>
-	</section>
-	<section>
 			<img src="{% link assets/images/Sp.jpg %}" alt="" data-position="center center" />
 		<div class="content">
 			<div class="inner">
