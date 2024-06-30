@@ -16,10 +16,10 @@ nav-menu: true
 		</header>
 
 <!-- Content -->
-<h2 id="content"><font color="#D35400">A brief about me</font></h2>
+<h2 id="content"><font color="#D35400"><u><span>&#8227;</span>A brief about me</u></font></h2>
 <p>Hi!, I am Kartav Kesri, an incoming Paris Physics Master's Student at Pierre and Marie Curie Universit&eacute;, Sorbonne Universit&eacute;, Paris, France. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh, India I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, India, for undergraduate studies at IISER. Currently, I am on a career break and preparing from my transition from India to France. <b>Scroll down to know more about me!!</b></p> 
 
-<h2 id="content"><font color="#D35400">Education</font></h2>
+<h2 id="content"><font color="#D35400"><u><span>&#8227;</span>Education</u></font></h2>
 		<dl>
 		<dt><font color="#F4D03F">Pierre and Marie Curie Universit&eacute;, Sorbonne Universit&eacute;</font></dt>
 		<dd>
@@ -64,7 +64,7 @@ nav-menu: true
 		</dl>
 
 
-<h2 id="content"><font color="#D35400">Few Awards and Acievements</font></h2>
+<h2 id="content"><font color="#D35400"><u><span>&#8227;</span>Few Awards and Achievements</u></font></h2>
 <!-- Lists -->
 <h3><u>Graduate level (<i>Sorbonne Universit&eacute;</i>)</u></h3>
 <div class="row">
@@ -100,3 +100,5 @@ nav-menu: true
 		</ul>
 	</div>
 </div>
+
+Last Updated: July 1, 2024
