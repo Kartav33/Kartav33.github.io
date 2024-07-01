@@ -12,10 +12,7 @@ nav-menu: true
 <!-- One -->
 <section id="one">
 	<div class="inner">
-		<header class="major">
-			<h2>Within India</h2>
-		</header>
-		<p>DELHI I mostly do budget traveling and so far, I&#39;ve only got the oppurtunity to wander within India itself. As big as it is, I would still like to explore further and I am patiently waiting to earn a chance to visit places outside of my country. <br/> PS: You can ping me anytime, if you would like to have any information regarding the places that I have visited. <br /> page is under construction. </p>
+		<p>I mostly do budget traveling and so far, I&#39;ve only got the oppurtunity to wander within India itself. As big as it is, I would still like to explore further. Currently, I am moving out to the country of France, the love language nation of the European Uniion. <br/> PS: You can ping me anytime, if you would like to have any information regarding the places that I have visited. <br /> Page is constantly under construction. <br /> <b> You can click on the cities to see a few pictures clicked by me (if available)</b></p>
 	</div>
 </section>
 
@@ -32,19 +29,19 @@ nav-menu: true
           <li>Prayagraj (Hometown)</li>
           <li>Kanpur</li>
           <li>Varanasi</li>
-		  <li>Agra</li>
-		  <li>Mirzapur</li>
-		  <li></li>
+		      <li>Agra</li>
+		      <li>Mirzapur</li>
+		      <li></li>
         </ul>
       </div>
       <div class="grid-item">
         <h3>Madhya Pradesh</h3>
         <ul>
           <li>Bhopal</li>
-		  <li>Indore</li>
-		  <li>Ujjain</li>
-		  <li>Chitrakoot</li>
-		  <li>Ratlam</li>
+          <li>Indore</li>
+          <li>Ujjain</li>
+          <li>Chitrakoot</li>
+          <li>Ratlam</li>
         </ul>
       </div>
       <!-- Add more grid-item divs here for additional lists -->
@@ -53,7 +50,9 @@ nav-menu: true
         <ul>
           <li>Pune</li>
           <li>Mumbai</li>
-		  <li>Bhimashankar</li>
+		      <li>Bhimashankar</li>
+          <li>Shirdi</li>
+          <li>Nashik</li>
         </ul>
       </div>
       <div class="grid-item">
@@ -61,18 +60,18 @@ nav-menu: true
         <ul>
           <li>Lansdowne</li>
           <li>Pauri Garhwal</li>
-		  <li>Haridwar</li>
+		      <li>Haridwar</li>
           <li>Dehradun</li>
-		  <li>Rishikesh</li>
-		  <li>Barkot</li>
+		      <li>Rishikesh</li>
+		      <li>Barkot</li>
           <li>Yamunotri</li>
-		  <li>Uttarkashi</li>
+		      <li>Uttarkashi</li>
           <li>Mahargaon</li>
-		  <li>Gangotri</li>
+		      <li>Gangotri</li>
           <li>Guptakashi</li>
-		  <li>Kedarnath, Sonprayag, Gaurikund</li>
+		      <li>Kedarnath, Sonprayag, Gaurikund</li>
           <li>Badrinath</li>
-		  <li>Rudrapyag, Nandprayag, Karnaprayag, Devprayag, Joshimath</li>
+		      <li>Rudrapyag, Nandprayag, Karnaprayag, Devprayag, Joshimath</li>
           <li>Haldwani</li>
         </ul>
       </div>
@@ -81,9 +80,9 @@ nav-menu: true
         <ul>
           <li>Bangalore</li>
           <li>Mysore</li>
-		  <li>Coorg</li>
+		      <li>Coorg</li>
           <li>Murudeshwar</li>
-		  <li>Gokarna</li>
+		      <li>Gokarna</li>
           <li></li>
         </ul>
       </div>
@@ -99,7 +98,7 @@ nav-menu: true
         <ul>
           <li>Kaithal</li>
           <li>Ambala</li>
-		  <li>Kurukshetra</li>
+		      <li>Kurukshetra</li>
           <li>Chandrigarh</li>
         </ul>
       </div>
@@ -133,7 +132,7 @@ nav-menu: true
         <ul>
           <li>Jaipur</li>
           <li>Mount Abu</li>
-		  <li>Pushkar</li>
+		      <li>Pushkar</li>
         </ul>
       </div>
     </div>

@@ -16,7 +16,7 @@ nav-menu: true
 		<div class="row">
 			<div class="12u 12u$(small)">
 				<ol>
-					<li><b>MC Escher's print gallery.  </b><a href="https://www.mtai.org.in/wp-content/uploads/2022/12/blackboard-issue-5.pdf">Link: 12/2022</a> <br />Blackboard journal, issue 5, editorial 3 <br />
+					<li><b>MC Escher's print gallery.  <font color="#5DADE2"></b><a href="https://www.mtai.org.in/wp-content/uploads/2022/12/blackboard-issue-5.pdf">Link: 12/2022</a> <br /></font>Blackboard journal, issue 5, editorial 3 <br />
 					<i>Mathematics Teachers Association, India</i></li>
 				</ol>
 			</div>
