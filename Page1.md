@@ -12,14 +12,14 @@ nav-menu: true
 <section id="one">
 	<div class="inner">
 		<header class="major">
-			<h1><font color="##5B2C6F">ABOUT</font></h1>
+			<h2><font color="##5B2C6F">ABOUT</font></h2>
 		</header>
 
 <!-- Content -->
-<h2 id="content"><font color="#D35400"><u>A brief about me</u></font></h2>
+<h3 id="content"><font color="#D35400"><u>A BRIEF ABOUT ME</u></font></h3>
 <p>Hi!, I am Kartav Kesri, an incoming Paris Physics Master's Student at Pierre and Marie Curie Universit&eacute;, Sorbonne Universit&eacute;, Paris, France. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh, India I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, India, for undergraduate studies at IISER. Currently, I am on a career break and preparing from my transition from India to France. <b>Scroll down to know more about me!!</b></p> 
 
-<h2 id="content"><font color="#D35400"><u>Education</u></font></h2>
+<h3 id="content"><font color="#D35400"><u>EDUCATION</u></font></h3>
 		<dl>
 		<dt><font color="#F4D03F">Pierre and Marie Curie Universit&eacute;, Sorbonne Universit&eacute;</font></dt>
 		<dd>
@@ -64,7 +64,7 @@ nav-menu: true
 		</dl>
 
 
-<h2 id="content"><font color="#D35400"><u>Few Awards and Achievements</u></font></h2>
+<h3 id="content"><font color="#D35400"><u>FEW AWARDS AND RECOGNITIONS</u></font></h3>
 <!-- Lists -->
 <h3><u>Graduate level (<i>Sorbonne Universit&eacute;</i>)</u></h3>
 <div class="row">
@@ -100,5 +100,19 @@ nav-menu: true
 		</ul>
 	</div>
 </div>
+
+<h3 id="content"><font color="#D35400"><u>REFERENCES</u></font></h3>
+Below is the list of professors from whom a reference letter fr myself can be taken
+<div class="row">
+	<div class="12u 12u$(medium)">
+		<ul>
+			<li> <b>Dr. Piyali Chatterjee</b>, <font color="#5DADE2"><a href="http://www.piyalichatterjee.net/">Personal Webpage</a></font> <br /> Associate Professor <br /> Indian Institute of Astrophysics Bangalore, India</li>
+			<li> <b>Dr. Nishikanta Khandai</b>, <font color="#5DADE2"><a href="https://niser.irins.org/profile/241972">Personal Webpage</a> </font> <br /> Associate Professor <br /> National Institute of Science Education and Research Bhubaneswar, India</li>
+			<li> <b>Dr. Ritam Mallick</b>, <font color="#5DADE2"><a href="https://sites.google.com/iiserb.ac.in/coast/home">Personal Webpage</a></font> <br /> Associate Professor <br /> Indian Institute of Science Education and Research Bhopal, India</li>
+			<li> <b>Dr. Suvankar Dutta</b> <font color="#5DADE2"><a href="https://sites.google.com/view/suvankar-dutta">Personal Webpage</a></font> <br /> Full-time Professor <br /> Indian Institute of Science Education and Research Bhopal, India </li>			
+		</ul>
+	</div>
+</div>
+
 
 Last Updated: July 1, 2024

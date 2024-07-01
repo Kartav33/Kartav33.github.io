@@ -12,7 +12,7 @@ nav-menu: true
 <section id="one">
 	<div class="inner">
 		<header class="major">
-			<h1><font color="##5B2C6F">RESEARCH EXPERIENCE</font></h1>
+			<h2><font color="##5B2C6F">RESEARCH EXPERIENCE</font></h2>
 		</header>
 
 <!-- Content -->
@@ -20,7 +20,7 @@ nav-menu: true
 <p>Here, you can find all of my past, current and upcoming internships, conferences, workshops and projects</p>
 
 
-<h2 id="content"><font color="#D35400"><u><span>&#8227;</span>CONFERENCES AND WORKSHOPS</u></font></h2>
+<h3 id="content"><font color="#D35400"><u>CONFERENCES AND WORKSHOPS</u></font></h3>
 		<ul>
 			<li>Poster at the <b> Theoretical and Practical Perspectives in Geophysical Fluid Dynamics</b> held at <i><b> International Centre for Theoretical Sciences </b></i> (ICTS-TIFR) Banaglore, between 20<sup>th</sup> May - 31<sup>st</sup> May '24. <font color="#5DADE2"> <a href="https://drive.google.com/file/d/1O-yfp0W9E-AjUhswizOSFirqFFlRhMHX/view"> Poster </a>, <a href="https://www.icts.res.in/program/TAPGFD"> Program Link </a></font></li>
 			<li>Poster at the <b>42<sup>nd</sup> Annual Meeting of the Astronomical Society of India Conference" </b> held at <i><b> Indian Institute of Science </b></i> (IISc) Banaglore, between 31<sup>st</sup> Jan - 4<sup>th</sup> Feb '24. <font color="#5DADE2"><a href="https://drive.google.com/file/d/1PBIjjLpbKcHxOweXhP87uUp5zXP3Hzig/view?usp=sharing">Certificate</a>, <a href="https://drive.google.com/file/d/1GEZ7_-ytgneCyh2odrb0IR9UTdPkC_R3/view?usp=drive_link">Poster</a>, <a href="https://astron-soc.in/asi2024/about">Program Link</a></font></li>
@@ -30,7 +30,7 @@ nav-menu: true
 			<li>Remote workshop on handling FITS file, held on 15<sup>th</sup>-16<sup>th</sup> June '21 (Collaborative workshop by RAD@home and IIT Mandi)</li>
 		</ul>
 
-<h2 id="content"><font color="#D35400"><u><span>&#8227;</span>INTERNSHIPS</u></font></h2>
+<h3 id="content"><font color="#D35400"><u>INTERNSHIPS</u></font></h3>
 		<dl>
 		<h3><u>Current Internship(s):</u></h3>
 		<dt><font color="#F4D03F">Explorations of Numerical Codes and Solvers in Astrophysical Systems 2024</font></dt>
@@ -111,7 +111,8 @@ nav-menu: true
 			</div>
 		</dd>
 		</dl>
-<h2 id="content"><font color="#D35400"><u><span>&#8227;</span>Course/Reading Projects</u></font></h2>
+
+<h3 id="content"><font color="#D35400"><u>COURSE/READING PROJECTS</u></font></h3>
 		<dl>
 		<h3><u>Past Project(s):</u></h3>
 		<dt><font color="#F4D03F">RFI Mitigation Algorithms: RFIClean Vs. IQRM</font></dt>

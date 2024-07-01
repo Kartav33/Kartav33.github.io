@@ -23,7 +23,7 @@ nav-menu: true
 <section id="one">
   <div class="inner">
     <header class="major">
-      <h2><font color="#D35400">India</font></h2>
+      <h3><font color="#D35400">INDIA</font></h3>
     </header>
     <b>Besides New Delhi, the capital of India, I have also visited the following places. </b> <br/>
     <div class="grid-container">
@@ -168,7 +168,7 @@ nav-menu: true
 <section id="one">
   <div class="inner">
     <header class="major">
-      <h2><font color="#D35400">European Union</font></h2>
+      <h3><font color="#D35400">EUROPEAN UNION</font></h3>
     </header>
     <div class="grid-container">
       <div class="grid-item">
@@ -273,3 +273,5 @@ nav-menu: true
 </section>
 
 </div>
+
+Last Updated: July 1, 2024
