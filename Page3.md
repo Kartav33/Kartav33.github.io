@@ -14,6 +14,7 @@ nav-menu: true
 			<h2><font color="##5B2C6F">PUBLICATIONS</font></h2>
 		</header>
 		<div class="row">
+			<h3>Check out my research profiles: <font color="#76D7C4"><a href="https://scholar.google.com/citations?user=Y2xrl_8AAAAJ&hl=en"> Google Scholar</a></font>, <font color="#76D7C4"><a href="https://orcid.org/my-orcid?orcid=0009-0009-7069-5729"> ORCID</a></font></h3>
 			<div class="12u 12u$(small)">
 				<ol>
 					<li><b><font color="#F4D03F">Dependence of spicule properties on magnetic field -- results from Magnetohydrodynamics simulations</font></b> <br /><b> Kartav Kesri</b>, S. Dey, P. Chatterjee, R. Erdelyi <br /><font color="#5DADE2"><a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad67d8"> DOI: 10.3847/1538-4357/ad67d8 </a> </font><br />
