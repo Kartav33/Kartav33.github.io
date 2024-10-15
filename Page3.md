@@ -16,7 +16,7 @@ nav-menu: true
 		<div class="row">
 			<div class="12u 12u$(small)">
 				<ol>
-					<li><b><font color="#F4D03F">Dependence of spicule properties on magnetic field -- results from Magnetohydrodynamics simulations</font></b> <br /><b> Kartav Kesri</b>, S. Dey, P. Chatterjee, R. Erdelyi <br />Under Review <br />
+					<li><b><font color="#F4D03F">Dependence of spicule properties on magnetic field -- results from Magnetohydrodynamics simulations</font></b> <br /><b> Kartav Kesri</b>, S. Dey, P. Chatterjee, R. Erdelyi <br /><font color="#5DADE2"><a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad67d8"> DOI: 10.3847/1538-4357/ad67d8 </a> </font><br />
 					<i>The Astrophysical Journal</i></li>
 					<li><b><font color="#F4D03F">MC Escher's print gallery.</font> </b> <font color="#5DADE2"><a href="https://www.mtai.org.in/wp-content/uploads/2022/12/blackboard-issue-5.pdf">Link: 12/2022</a> <br /></font> M. Choudhary, <b> Kartav Kesri</b> <br />Blackboard journal, issue 5, editorial 3 <br />
 					<i>Mathematics Teachers Association, India</i></li>
@@ -45,7 +45,7 @@ nav-menu: true
 				<header class="major">
 					<h3>Numerical Hydrodynamical Simulations (MHD, rMHD, GRMHD)</h3>
 				</header>
-				<p>Association with dead stars, solar cycle, accretion disks, jets, This has been one of the most interesting topics to me, mostly due to the fact that I am working on Solar Spicules while also learning about the solar flares, coronal mass ejections, etc. I am also learning computuaional fluid dynamics using a few pipelines like PENCIL CODE and PLUTO CODE MHD. I would like to explore sun spots and it's associated magnetic field which is governed by the sun cycle.</p>
+				<p>Fluid Dynamics is present almost everywhere in the universe be it the solar plasma, accretion of proto-planetary, BHs, NSs,and what not. The application of numerical fluid dynamical simulations is not only limited to the astrophysical systems but also in the climate change studies and various industrial applications. <br /> This has been one of the most interesting topics to me, mostly due to the fact that I have worked Solar Spicules which was studied using the MHD simulations using the famous <b>PLUTO CODE</b> of the plasma prsent on the chromospheric layer of the sun, while also learning about the solar flares, coronal mass ejections, etc. I am actively learning computuaional fluid dynamics using a few pipelines like PENCIL CODE MHD besides already mentioned PLUTO CODE and via python. In accordance to this study, I would like to explore sun spots and it's associated magnetic field which is governed by the sun cycle.</p>
 			</div>
 		</div>
 	</section>
@@ -54,9 +54,9 @@ nav-menu: true
 		<div class="content">
 			<div class="inner">
 				<header class="major">
-					<h3>BNS, BBH mergers and the associated GWs</h3>
+					<h3>General Theory of Relativity and the BNS, BBH mergers</h3>
 				</header>
-				<p>So far I have had the oppurtunities in reading and having a loose hands-on experience in the domain of Supernovae and Supernovae Remnants. I developed a few codes revolving around the stellar sturctures and the <i>lane-emden eqution</i>. While reading about the origin of cosmic rays, I got to know about a few important features related to supernovae remnants. I also got an oppurtuninty to work on two specific pulsars while cleaning there radio wave specturm using two different algorithms IQRM and RFClean. I would further like to explore the areas of binary star mergers and its associated study of gravitational waves. </p>
+				<p>The Genreal Theory of Relativity is one of the most intriguing subject that I have had the opportunity to study. There are plenty of unanswered questions just lying here and there waiting tio be solved by someone. I would like to work in between the GR and the MHD simulations, this has a lot of potential from Kerr-Neumann black holes to Binary Black holes/Neutron Star mergers. <br /> An interesting extension of this study would be the involvement of the associated Graviational Waves (GWs) which is already being pursued by many of the researchers nowadyas. </p>
 			</div>
 		</div>
 	</section>
@@ -65,7 +65,7 @@ nav-menu: true
 		<div class="content">
 			<div class="inner">
 				<header class="major">
-					<h3>Exoplanets: Super Earths and Mini Neptunes</h3>
+					<h3>Exoplanets: Super Earths, Mini Neptunes and Goldilocks Planets</h3>
 				</header>
 				<p>It is one my childhood dreams to explore the discoveries of planets similar to our Earth. Thanks to a few popular late night science shows, I got to know about the hot topic in the regime of Exoplanets, i.e., the super earths and mini neptunes. Besides having a brief literature knowledge over these topics, I don't really have anything concrete to contribute here.</p>
 			</div>
@@ -73,4 +73,4 @@ nav-menu: true
 	</section>
 </section>
 
-Last Updated: July 1, 2024
+Last Updated: October 15, 2024

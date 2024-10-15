@@ -33,11 +33,11 @@ nav-menu: true
 <h3 id="content"><font color="#D35400"><u>INTERNSHIPS</u></font></h3>
 		<dl>
 		<h3><u>Current Internship(s):</u></h3>
-		<dt><font color="#F4D03F">Explorations of Numerical Codes and Solvers in Astrophysical Systems 2024</font></dt>
-		<dd>
+		<dt><font color="#F4D03F">NONE</font></dt>
+		<!--<dd>
 			<div style="display: flex; align-items: center;">
 			<div style="flex-grow: 1;">
-				<p>Remote, (<i> Date: July '24- Present </i>) <br/>
+				<p>Remote, (<i> Date: July '24- Aug '24 </i>) <br/>
 				Academia Sinica Institute of Astronomy and Astrophysics (<i>ASIAA</i>), Taiwan <br />
 				Advisor(s): <i><b> Dr Hsien Shang, Research Fellow </b></i>  <br/>
 				</p>
@@ -47,9 +47,24 @@ nav-menu: true
 			</div>
 			</div>
 		</dd>
+		-->
 		</dl>
 		<dl>
 		<h3><u>Past Internship(s):</u></h3>
+		<dt><font color="#F4D03F">Explorations of Numerical Codes and Solvers in Astrophysical Systems 2024</font></dt>
+		<dd>
+			<div style="display: flex; align-items: center;">
+			<div style="flex-grow: 1;">
+				<p>Remote, (<i> Date: July '24- Aug '24 </i>) <br/>
+				Academia Sinica Institute of Astronomy and Astrophysics (<i>ASIAA</i>), Taiwan <br />
+				Advisor(s): <i><b> Dr Hsien Shang, Research Fellow </b></i>  <br/>
+				</p>
+			</div>
+			<div style="flex-shrink: 0; margin-left: -100px; margin-top: -60px;">
+				<img src="{% link assets/images/asiaa.jpeg %}" alt="Image description" style="width: 150px; height: auto;">
+			</div>
+			</div>
+		</dd>
 		<dt><b><font color="#F4D03F">Study of compact stars in the Buchdahl limit</font></b></dt>
 		<dd>
 			<div style="display: flex; align-items: center;">
@@ -166,6 +181,6 @@ nav-menu: true
 		</dl>
 </div>
 
-Last Updated: July 1, 2024
+Last Updated: October 15, 2024
 
 

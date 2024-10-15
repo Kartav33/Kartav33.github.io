@@ -1,17 +1,17 @@
 # site settings
 title: Kartav Kesri
 subtitle: Personal webpage
-email_1: kartavkesri@gmail.com 
-email_2: kartav20@iiserb.ac.in
+email_1: kartav.kesri@etu.sorbonne-universite.fr
+email_2: kartavkesri@gmail.com 
 description: Welcome to my webpage <br /> It's nice to meet you!!.
 baseurl:  # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
-street_address: Indian Institute of Science Education and Research Bhopal
-city: Bhopal-Indore bypass road, Bhopal
-state: Madhya Pradesh
-zip_code: 462066
-country: India
+street_address: Campus Pierre et Marie Curie, Sorbonne Universit&eacute
+city: 4 Pl. Jussieu, Paris 
+state: Ile-de France
+zip_code: 75005
+country: France
 phone: 
 
 # homepage tiles

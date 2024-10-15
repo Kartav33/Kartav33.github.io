@@ -15,7 +15,7 @@ nav-menu: true
     <header class="major">
       <h2><font color="##5B2C6F">TOURISM</font></h2>
     </header>
-		<p>I mostly do budget traveling and so far, I&#39;ve only got the oppurtunity to wander within India itself. As big as it is, I would still like to explore further. Currently, I am moving out to the country of France, the love language nation of the European Union. <br/> PS: You can ping me anytime, if you would like to have any information regarding the places that I have visited. <br /> Page is constantly under construction. <br /> <b> You can click on the cities to see a few pictures clicked by me (if available)</b></p>
+		<p>I mostly do budget traveling and so far, I&#39;ve only got the oppurtunity to wander within India itself. As big as it is, I would still like to explore further. Currently, I am living in France for atleast the next two years, the love destination of the European Union. <br/> PS: You can ping me anytime, if you would like to have any information regarding the places that I have visited. <br /> Page is constantly under construction. <br /> <b> You can click on the cities to see a few pictures clicked by me (if available)</b></p>
 	</div>
 </section>
 
@@ -35,7 +35,7 @@ nav-menu: true
           <li>Varanasi</li>
 		      <li>Agra</li>
 		      <li>Mirzapur</li>
-		      <li></li>
+		      <li>Bahraich</li>
         </ul>
       </div>
       <div class="grid-item">
@@ -89,7 +89,7 @@ nav-menu: true
       <div class="grid-item">
         <h3>Kerala</h3>
         <ul>
-          <li>Upcoming</li>
+          <li>Upcoming in 2025</li>
           <li></li>
         </ul>
       </div>
@@ -124,7 +124,7 @@ nav-menu: true
         <h3>Jammu and Kashmir</h3>
         <ul>
           <li>Vaishno Devi, Katra</li>
-          <li>City 2</li>
+          <li></li>
         </ul>
       </div>
 	  <div class="grid-item">
@@ -175,6 +175,7 @@ nav-menu: true
         <h3>France</h3>
         <ul>
           <li>Paris</li>
+          <li>Normandy</li>
         </ul>
       </div>
       <div class="grid-item">
@@ -211,6 +212,36 @@ nav-menu: true
       </div>
       <div class="grid-item">
         <h3>Austria</h3>
+        <ul>
+          <li>Upcoming</li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <h3>Spain</h3>
+        <ul>
+          <li>Upcoming</li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <h3>Poland</h3>
+        <ul>
+          <li>Upcoming</li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <h3>Finland</h3>
+        <ul>
+          <li>Upcoming</li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <h3>Norway</h3>
+        <ul>
+          <li>Upcoming</li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <h3>Czechia</h3>
         <ul>
           <li>Upcoming</li>
         </ul>
@@ -274,4 +305,4 @@ nav-menu: true
 
 </div>
 
-Last Updated: July 1, 2024
+Last Updated: October 15, 2024

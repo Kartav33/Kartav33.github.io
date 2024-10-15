@@ -17,7 +17,7 @@ nav-menu: true
 
 <!-- Content -->
 <h3 id="content"><font color="#D35400"><u>A BRIEF ABOUT ME</u></font></h3>
-<p>Hi!, I am Kartav Kesri, an incoming Paris Physics Master's Student at Pierre and Marie Curie Universit&eacute;, Sorbonne Universit&eacute;, Paris, France. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh, India I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, India, for undergraduate studies at IISER. Currently, I am on a career break and preparing from my transition from India to France. <b>Scroll down to know more about me!!</b></p> 
+<p>Hi!, I am Kartav Kesri, an M1 Paris Physics Master's Student at Campus Pierre et Marie Curie;, Sorbonne Universit&eacute;, Paris, France. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh, India. I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, India, for undergraduate studies at IISER Bhopal. <b>Scroll down to know more about me!!</b></p> 
 
 <h3 id="content"><font color="#D35400"><u>EDUCATION</u></font></h3>
 		<dl>
@@ -102,7 +102,7 @@ nav-menu: true
 </div>
 
 <h3 id="content"><font color="#D35400"><u>REFERENCES</u></font></h3>
-Below is the list of professors from whom a reference letter fr myself can be taken
+Below is the list of professors from whom a reference letter for myself can be taken
 <div class="row">
 	<div class="12u 12u$(medium)">
 		<ul>
@@ -115,4 +115,4 @@ Below is the list of professors from whom a reference letter fr myself can be ta
 </div>
 
 
-Last Updated: July 1, 2024
+Last Updated: October 15, 2024
