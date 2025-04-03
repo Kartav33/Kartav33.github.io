@@ -175,26 +175,46 @@ nav-menu: true
         <h3>France</h3>
         <ul>
           <li>Paris</li>
-          <li>Normandy</li>
+          <li>Normandy (Rouen, Honfleur, Deauville, St. Malo)</li>
+          <li>Le Mont Saint Michel</li>
         </ul>
       </div>
       <div class="grid-item">
         <h3>Germany</h3>
         <ul>
-          <li>Upcoming</li>
+          <li>Wurzburg</li>
         </ul>
       </div>
       <!-- Add more grid-item divs here for additional lists -->
       <div class="grid-item">
         <h3>Netherlands</h3>
         <ul>
-          <li>Upcoming</li>
+          <li>Amsterdam</li>
+          <li>Utrecht</li>
+          <li>Lexdon</li>
         </ul>
       </div>
       <div class="grid-item">
         <h3>Belgium</h3>
         <ul>
-          <li>Upcoming</li>
+          <li>Brussels</li>
+          <li>Ghent</li>
+          <li>Bruges</li>
+          <li>Antwerp</li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <h3>Czechia</h3>
+        <ul>
+          <li>Prague</li>
+        </ul>
+      </div>
+      <div class="grid-item">
+        <h3>Austria</h3>
+        <ul>
+          <li>Vienna</li>
+          <li>Leoben</li>
+          <li>Salzburg</li>
         </ul>
       </div>
       <div class="grid-item">
@@ -204,16 +224,10 @@ nav-menu: true
         </ul>
       </div>
       <div class="grid-item">
-        <h3>Luxemburg</h3>
+        <h3>Luxembourg</h3>
         <ul>
           <li>Upcoming</li>
           <li></li>
-        </ul>
-      </div>
-      <div class="grid-item">
-        <h3>Austria</h3>
-        <ul>
-          <li>Upcoming</li>
         </ul>
       </div>
       <div class="grid-item">
@@ -236,12 +250,6 @@ nav-menu: true
       </div>
       <div class="grid-item">
         <h3>Norway</h3>
-        <ul>
-          <li>Upcoming</li>
-        </ul>
-      </div>
-      <div class="grid-item">
-        <h3>Czechia</h3>
         <ul>
           <li>Upcoming</li>
         </ul>

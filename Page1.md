@@ -17,11 +17,11 @@ nav-menu: true
 
 <!-- Content -->
 <h3 id="content"><font color="#D35400"><u>A BRIEF ABOUT ME</u></font></h3>
-<p>Hi!, I am Kartav Kesri, an M1 Paris Physics Master's Student at Campus Pierre et Marie Curie;, Sorbonne Universit&eacute;, Paris, France. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh, India. I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, India, for undergraduate studies at IISER Bhopal. <b>Scroll down to know more about me!!</b></p> 
+<p>Hi!, I am Kartav Kesri, an M1 Paris Physics Master's Student at Campus Pierre et Marie Curie, Sorbonne Universit&eacute;, Paris, France. I was born in the city of the three holy rivers (Ganga, Yamuna, & Sarawswati), Allahabad (Now, Prayagraj), Uttar Pradesh, India. I lived here my entire life and completed my schooling, before moving out to Bhopal, the city of lakes and the capital of Madhya Pradesh, India, for undergraduate studies at IISER Bhopal. <b>Scroll down to know more about me!!</b></p> 
 
 <h3 id="content"><font color="#D35400"><u>EDUCATION</u></font></h3>
 		<dl>
-		<dt><font color="#F4D03F">Pierre and Marie Curie Universit&eacute;, Sorbonne Universit&eacute;</font></dt>
+		<dt><font color="#F4D03F">Pierre et Marie Curie Universit&eacute;, Sorbonne Universit&eacute;</font></dt>
 		<dd>
 			<div style="display: flex; align-items: center;">
 			<div style="flex-grow: 1;">
