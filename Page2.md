@@ -22,10 +22,11 @@ nav-menu: true
 
 <h3 id="content"><font color="#D35400"><u>CONFERENCES AND WORKSHOPS</u></font></h3>
 		<ul>
-			<li>Poster at the <b> Theoretical and Practical Perspectives in Geophysical Fluid Dynamics</b> held at <i><b> International Centre for Theoretical Sciences </b></i> (ICTS-TIFR) Banaglore, between 20<sup>th</sup> May - 31<sup>st</sup> May '24. <font color="#5DADE2"> <a href="https://drive.google.com/file/d/1O-yfp0W9E-AjUhswizOSFirqFFlRhMHX/view"> Poster </a>, <a href="https://www.icts.res.in/program/TAPGFD"> Program Link </a></font></li>
-			<li>Poster at the <b>42<sup>nd</sup> Annual Meeting of the Astronomical Society of India Conference" </b> held at <i><b> Indian Institute of Science </b></i> (IISc) Banaglore, between 31<sup>st</sup> Jan - 4<sup>th</sup> Feb '24. <font color="#5DADE2"><a href="https://drive.google.com/file/d/1PBIjjLpbKcHxOweXhP87uUp5zXP3Hzig/view?usp=sharing">Certificate</a>, <a href="https://drive.google.com/file/d/1GEZ7_-ytgneCyh2odrb0IR9UTdPkC_R3/view?usp=drive_link">Poster</a>, <a href="https://astron-soc.in/asi2024/about">Program Link</a></font></li>
-			<li>Onsite workshop/conference on solar physics and <b>Aditya L1</b>, held at <i><b> Indian Institute of Technology Kanpur </b></i> (IITK) Kanpur, between 30<sup>th</sup> Oct - 1<sup>st</sup> Nov '23. </li>
-			<li>Onsite workshop on MHD simulations using PLUTO code, held at <i><b>Indian Institute of Science</b></i> (IISc) Bengaluru, between 10<sup>th</sup>-14<sup>th</sup> July '23. </li>
+			<li>Workshop for the <b>X-Shooting Ullyses (XShootU)</b> project to be held at <b><i>Institute of Science and Technology</i></b> (ISTA), Vienna, Austria in May ’25. </li>
+			<li>Poster at the <b> Theoretical and Practical Perspectives in Geophysical Fluid Dynamics</b> held at <i><b> International Centre for Theoretical Sciences </b></i> (ICTS-TIFR) Banaglore, India, between 20<sup>th</sup> May - 31<sup>st</sup> May '24. <font color="#5DADE2"> <a href="https://drive.google.com/file/d/1O-yfp0W9E-AjUhswizOSFirqFFlRhMHX/view"> Poster </a>, <a href="https://www.icts.res.in/program/TAPGFD"> Program Link </a></font></li>
+			<li>Poster at the <b>42<sup>nd</sup> Annual Meeting of the Astronomical Society of India Conference" </b> held at <i><b> Indian Institute of Science </b></i> (IISc) Banaglore, India, between 31<sup>st</sup> Jan - 4<sup>th</sup> Feb '24. <font color="#5DADE2"><a href="https://drive.google.com/file/d/1PBIjjLpbKcHxOweXhP87uUp5zXP3Hzig/view?usp=sharing">Certificate</a>, <a href="https://drive.google.com/file/d/1GEZ7_-ytgneCyh2odrb0IR9UTdPkC_R3/view?usp=drive_link">Poster</a>, <a href="https://astron-soc.in/asi2024/about">Program Link</a></font></li>
+			<li>Onsite workshop/conference on solar physics and <b>Aditya L1</b>, held at <i><b> Indian Institute of Technology Kanpur </b></i> (IITK) Kanpur, India, between 30<sup>th</sup> Oct - 1<sup>st</sup> Nov '23. </li>
+			<li>Onsite workshop on <b>MHD simulations using PLUTO code</b>, held at <i><b>Indian Institute of Science</b></i> (IISc) Bengaluru, India, between 10<sup>th</sup>-14<sup>th</sup> July '23. </li>
 			<li>Remote workshop on Exoplanets and Starlight Suppression, to be held between 8<sup>th</sup>-10<sup>th</sup> August '23 (Collaborative online workshop by NExSCi, IPAC, CalTech)  </li>
 			<li>Remote workshop on handling FITS file, held on 15<sup>th</sup>-16<sup>th</sup> June '21 (Collaborative workshop by RAD@home and IIT Mandi)</li>
 		</ul>
@@ -33,21 +34,18 @@ nav-menu: true
 <h3 id="content"><font color="#D35400"><u>INTERNSHIPS</u></font></h3>
 		<dl>
 		<h3><u>Current Internship(s):</u></h3>
-		<dt><font color="#F4D03F">NONE</font></dt>
-		<!--<dd>
+		<dt><font color="#F4D03F">Relativistic Collisionless Shocks</font></dt>
+		<dd>
 			<div style="display: flex; align-items: center;">
 			<div style="flex-grow: 1;">
-				<p>Remote, (<i> Date: July '24- Aug '24 </i>) <br/>
-				Academia Sinica Institute of Astronomy and Astrophysics (<i>ASIAA</i>), Taiwan <br />
-				Advisor(s): <i><b> Dr Hsien Shang, Research Fellow </b></i>  <br/>
+				<p> On-site, (<i> Nov '24 - Present </i>) <br/> LUX: Laboratory for the study of the Universe and eXtreme phenomena, <br/>Observatoire de Paris, Paris Sciences et Lettres (<i>PSL</i>)<br /> Sorbonne Universite, Paris, France <br /> Advisor(s): <i><b> Dr Arno Vanthieghem, CNRS Researcher </b></i> <br/> <!--<font color="#5DADE2"><a href="https://drive.google.com/file/d/1dAZRr_H61Fn4JysHARnx6Ua9VJHmJshn/view">Project Summary</a>, <a href="https://drive.google.com/file/d/1PRUfBfN2ah_GLeydA4oJxT3InVRe1SNf/view?usp=drive_link">Project Link</a> </font><!-->
 				</p>
 			</div>
 			<div style="flex-shrink: 0; margin-left: -100px; margin-top: -60px;">
-				<img src="{% link assets/images/asiaa.jpeg %}" alt="Image description" style="width: 150px; height: auto;">
+				<img src="{% link assets/images/observatoire.png %}" alt="Image description" style="width: 150px; height: auto;">
 			</div>
 			</div>
 		</dd>
-		-->
 		</dl>
 		<dl>
 		<h3><u>Past Internship(s):</u></h3>
@@ -181,6 +179,6 @@ nav-menu: true
 		</dl>
 </div>
 
-Last Updated: October 15, 2024
+Last Updated: April 3rd, 2025
 
 
