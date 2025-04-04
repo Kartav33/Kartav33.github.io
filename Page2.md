@@ -179,6 +179,6 @@ nav-menu: true
 		</dl>
 </div>
 
-Last Updated: April 3rd, 2025
+<p><em>Last Updated: April 3rd, 2025</em></p>
 
 

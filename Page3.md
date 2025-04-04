@@ -124,7 +124,7 @@ nav-menu: true
         <img src="{% link assets/images/RT.png %}" alt="MHD Simulations" />
         <div class="content">
             <header class="major">
-                <h3>Numerical Hydrodynamical Simulations (MHD, rMHD, GRMHD)</h3>
+                <h3>Astrophysical Fluid Dynamics (MHD, rMHD, GRMHD)</h3>
             </header>
             <p>
                 Fluid dynamics plays a crucial role in various astrophysical environments, from <b>solar plasma</b> to <b>accretion disks around black holes and neutron stars</b>. Beyond astrophysics, numerical fluid dynamics also has applications in climate studies and industrial processes.
@@ -139,7 +139,7 @@ nav-menu: true
         <img src="{% link assets/images/PIC.png %}" alt="General Relativity" />
         <div class="content">
             <header class="major">
-                <h3>GR, Binary Mergers, Shocks and PIC Simulations</h3>
+                <h3>General Relativity, Binary Mergers, Shocks and PIC Simulations</h3>
             </header>
             <p>
                 General Relativity (GR) is one of the most fascinating subjects in physics, filled with open questions awaiting exploration. My interest lies at the intersection of GR and MHD simulations, particularly in the context of Binary Black Hole (BBH) and Binary Neutron Star (BNS) mergers.
@@ -167,4 +167,4 @@ nav-menu: true
 
 
 
-Last Updated: April 3rd, 2025
+<p><em>Last Updated: April 3rd, 2025</em></p>

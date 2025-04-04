@@ -115,4 +115,4 @@ Below is the list of professors from whom a reference letter for myself can be t
 </div>
 
 
-Last Updated: October 15, 2024
+<p><em>Last Updated: October 15, 2024</em></p>

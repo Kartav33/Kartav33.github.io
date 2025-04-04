@@ -1,7 +1,7 @@
 ---
 title: Tourism and Extra-Curricular
 layout: page
-description: 'Whenever I find time, I&#39;d like to go on exploring new places and people. Below you can find few pics of all the places that I have visited so far (PS: these are the only places for which have pictures)'
+description: 
 image: assets/images/pic07.jpg
 nav-menu: true
 ---
@@ -13,9 +13,9 @@ nav-menu: true
 <section id="one">
 	<div class="inner">
     <header class="major">
-      <h2><font color="##5B2C6F">TOURISM</font></h2>
+      <h2 style="color: rgb(21, 92, 207);">TOURISM</h2>
     </header>
-		<p>I mostly do budget traveling and so far, I&#39;ve only got the oppurtunity to wander within India itself. As big as it is, I would still like to explore further. Currently, I am living in France for atleast the next two years, the love destination of the European Union. <br/> PS: You can ping me anytime, if you would like to have any information regarding the places that I have visited. <br /> Page is constantly under construction. <br /> <b> You can click on the cities to see a few pictures clicked by me (if available)</b></p>
+		<p>Whenever I find time, I&#39;d like to go on exploring new places and people. I mostly do budget traveling and so far, I&#39;ve only got the oppurtunity to wander within India and Europe. As vast as it is, I still have much to explore. Currently, I am living in France for atleast the next two years, the love destination of the European Union. <br/> PS: You can ping me anytime, if you would like to have any information regarding the places that I have visited. <br /> <i>Page is constantly under construction. </i> <br /> <b> You can click on the cities to see a few pictures clicked by me (if available)</b></p>
 	</div>
 </section>
 
@@ -31,11 +31,14 @@ nav-menu: true
         <h3>Uttar Pradesh</h3>
         <ul>
           <li>Prayagraj (Hometown)</li>
+          <li>Lucknow</li>
           <li>Kanpur</li>
           <li>Varanasi</li>
 		      <li>Agra</li>
 		      <li>Mirzapur</li>
 		      <li>Bahraich</li>
+          <li>Bareilly</li>
+          <li>Moradabad</li>
         </ul>
       </div>
       <div class="grid-item">
@@ -62,7 +65,7 @@ nav-menu: true
       <div class="grid-item">
         <h3>Uttarakhand</h3>
         <ul>
-          <li>Lansdowne</li>
+          <li>Lansdowne, Kotdwar, Najibabad</li>
           <li>Pauri Garhwal</li>
 		      <li>Haridwar</li>
           <li>Dehradun</li>
@@ -133,6 +136,7 @@ nav-menu: true
           <li>Jaipur</li>
           <li>Mount Abu</li>
 		      <li>Pushkar</li>
+          <li>Ajmer</li>
         </ul>
       </div>
     </div>
@@ -289,7 +293,7 @@ nav-menu: true
 <section id="three">
 	<div class="inner">
 		<header class="major">
-			<h2><font color="##5B2C6F">Cooking is my another hobby</font></h2>
+			<h2 style="color: rgb(21, 92, 207);">COOKING</h2>
 		</header>
 		<p></p>
 		<ul class="actions">
@@ -302,7 +306,20 @@ nav-menu: true
 <section id="three">
 	<div class="inner">
 		<header class="major">
-			<h2><font color="##5B2C6F">Guess what! I also like to play musical instruments</font></h2>
+			<h2 style="color: rgb(21, 92, 207);">MUSICAL INSTRUMENTS</h2>
+		</header>
+		<p>I haven't really had any proper training, just learnt few bits and pieces from YouTube. Currently, I can play a Piano and a Congo, but be warned that I am a noob.</p>
+		<ul class="actions">
+			<li><a href="generic.html" class="button next">A few recordings</a></li>
+		</ul>
+	</div>
+</section>
+
+<!-- Three -->
+<section id="three">
+	<div class="inner">
+		<header class="major">
+			<h2 style="color: rgb(21, 92, 207);">SPORTS: INDOOR AND OUTDOOR</h2>
 		</header>
 		<p>I haven't really had any proper training, just learnt few bits and pieces from YouTube. Currently, I can play a Piano and a Congo, but be warned that I am a noob.</p>
 		<ul class="actions">
@@ -313,4 +330,4 @@ nav-menu: true
 
 </div>
 
-Last Updated: October 15, 2024
+<p><em>Last Updated: April 3rd, 2025</em></p>
