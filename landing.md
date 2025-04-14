@@ -308,7 +308,7 @@ nav-menu: true
 		<header class="major">
 			<h2 style="color: rgb(21, 92, 207);">MUSICAL INSTRUMENTS</h2>
 		</header>
-		<p>I haven't really had any proper training, just learnt few bits and pieces from YouTube. Currently, I can play a Piano and a Congo, but be warned that I am a noob.</p>
+		<p>I haven't really had any proper training, just learnt few bits and pieces from YouTube. Currently, I can play a Piano and a Congo.</p>
 		<ul class="actions">
 			<li><a href="generic.html" class="button next">A few recordings</a></li>
 		</ul>
@@ -321,13 +321,6 @@ nav-menu: true
 		<header class="major">
 			<h2 style="color: rgb(21, 92, 207);">SPORTS: INDOOR AND OUTDOOR</h2>
 		</header>
-		<p>I haven't really had any proper training, just learnt few bits and pieces from YouTube. Currently, I can play a Piano and a Congo, but be warned that I am a noob.</p>
-		<ul class="actions">
-			<li><a href="generic.html" class="button next">A few recordings</a></li>
-		</ul>
-	</div>
-</section>
-
 </div>
 
 <p><em>Last Updated: April 3rd, 2025</em></p>
