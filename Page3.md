@@ -60,8 +60,7 @@ nav-menu: true
         <header class="major" style="text-align: center;">
             <h2 style="color: rgb(21, 92, 207);">RESEARCH INTERESTS</h2>
         </header>
-        <p style="text-align: justify;">
-            As an early Master's student, my research interests are broad, but I am particularly drawn to <b>Astronomy and Astrophysics</b>. Below is a brief overview of my current interests, though I am eager to expand my understanding into <b>interdisciplinary topics</b> as well.
+        <p style="text-align: justify;"> As an early Master's student, my research interests are broad, but I am particularly drawn to <b>Astronomy and Astrophysics</b>. Below is a brief overview of my current interests, though I am eager to expand my understanding into <b>interdisciplinary topics</b> as well.
         </p>
     </div>
 </section>
@@ -74,7 +73,7 @@ nav-menu: true
         gap: 30px;
     }
 
-    .spotlights section {
+    .spotlight {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -87,14 +86,14 @@ nav-menu: true
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .spotlights img {
+    .spotlight img {
         width: 40%;
         height: 325px;
         object-fit: cover;
         border-radius: 10px;
     }
 
-    .spotlights .content {
+    .spotlight .content {
         width: 55%;
         display: flex;
         flex-direction: column;
@@ -103,24 +102,25 @@ nav-menu: true
     }
 
     @media (max-width: 900px) {
-        .spotlights section {
+        .spotlight {
             flex-direction: column;
             text-align: center;
         }
 
-        .spotlights img {
+        .spotlight img {
             width: 100%;
             height: auto;
         }
 
-        .spotlights .content {
+        .spotlight .content {
             width: 100%;
+            margin-top: 20px;
         }
     }
 </style>
 
 <section id="two" class="spotlights">
-    <section>
+    <div class="spotlight">
         <img src="{% link assets/images/RT.png %}" alt="MHD Simulations" />
         <div class="content">
             <header class="major">
@@ -134,8 +134,8 @@ nav-menu: true
                 I am actively expanding my knowledge in Computational Fluid Dynamics (CFD) through different pipelines, besides Python-based approaches.
             </p>
         </div>
-    </section>   
-    <section>
+    </div>
+    <div class="spotlight">
         <img src="{% link assets/images/PIC.png %}" alt="General Relativity" />
         <div class="content">
             <header class="major">
@@ -144,26 +144,27 @@ nav-menu: true
             <p>
                 General Relativity (GR) is one of the most fascinating subjects in physics, filled with open questions awaiting exploration. My interest lies at the intersection of GR and MHD simulations, particularly in the context of Binary Black Hole (BBH) and Binary Neutron Star (BNS) mergers.
                 <br /><br />
-				Currently, I am exploring the Particle in Cell Simulations to analyse the Relativistic Collisonless Shcoks that can eventually lead to the formation of GRBs originating from such mergers.
+                Currently, I am exploring the Particle in Cell Simulations to analyse the Relativistic Collisonless Shcoks that can eventually lead to the formation of GRBs originating from such mergers.
             </p>
         </div>
-    </section>   
-    <section>
+    </div>
+    <div class="spotlight">
         <img src="{% link assets/images/BS.png %}" alt="Buchdahl Stars" />
         <div class="content">
             <header class="major">
                 <h3>Buchdahl Stars</h3>
             </header>
             <p>
-                Not much has been researched when it comes to Buchdahl Stars, but for some reason this has always peeked my interest.It is belived to be the newest addition in the category of compact objects after WDs, NSs and BHs, if they are ever observed succesfully. 
+                Not much has been researched when it comes to Buchdahl Stars, but for some reason this has always peeked my interest. It is belived to be the newest addition in the category of compact objects after WDs, NSs and BHs, if they are ever observed succesfully. 
                 <br /><br />
-            	BSs are believed to be that dead stars which has the maximum compactness while still pertaining a timelike boundary, i.e., star at the Buchdahl limit of M/R=4/9. It has the compactness greater than that of Neutron Stars but slighlty smaller than the Black holes. A static BS can be defined using the Schwarszchild metric even though it doesn't has any Event Horizon. 
-				<br/><br/>
-				It is indeed one of the most interesting topics to be explored upon and in the future, I would like to delve deeper into the integrity of its internal structure.
+                BSs are believed to be that dead stars which has the maximum compactness while still pertaining a timelike boundary, i.e., star at the Buchdahl limit of M/R=4/9. It has the compactness greater than that of Neutron Stars but slighlty smaller than the Black holes. A static BS can be defined using the Schwarszchild metric even though it doesn't has any Event Horizon. 
+                <br/><br/>
+                It is indeed one of the most interesting topics to be explored upon and in the future, I would like to delve deeper into the integrity of its internal structure.
             </p>
         </div>
-    </section>
+    </div>
 </section>
+
 
 
 
