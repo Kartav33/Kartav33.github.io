@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartav Kesri — Astrophysicist</title>
+  <meta name="description" content="Personal website of Kartav Kesri, astrophysics student at Sorbonne Université and Observatoire de Paris." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES — change colours here to retheme everything
+       ============================================================ */
+    :root {
+      --space-dark:    #090d1a;   /* page background */
+      --space-mid:     #0e1628;   /* subtle mid tone */
+      --space-card:    #111827;   /* card backgrounds */
+      --gold:          #c9a84c;   /* primary accent */
+      --gold-dim:      #8a6e2e;   /* muted accent */
+      --gold-glow:     #e8c97a;   /* bright accent / headings */
+      --text-main:     #e8e4d8;   /* primary text */
+      --text-muted:    #8891aa;   /* secondary text */
+      --text-dim:      #4a5268;   /* footer / very muted */
+      --border:        rgba(201,168,76,0.15);
+      --border-bright: rgba(201,168,76,0.40);
+      --green-pulse:   #4ade80;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--space-dark);
+      color: var(--text-main);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ============================================================
+       STAR CANVAS (fixed background)
+       ============================================================ */
+    #starCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      background: rgba(9, 13, 26, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nav-brand {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--gold-glow);
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); }
+
+    /* Hamburger (mobile) */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 0.5px;
+      background: var(--text-muted);
+      transition: all 0.3s;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 2.5rem 4rem;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 0.5px;
+      background: var(--gold);
+    }
+    .hero-name {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold-glow);
+    }
+    .hero-tagline {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .hero-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 500px;
+      line-height: 1.85;
+      margin-bottom: 2.8rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      border: 0.5px solid var(--gold);
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-primary:hover {
+      background: rgba(201,168,76,0.1);
+      color: var(--gold-glow);
+    }
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      border: 0.5px solid var(--border-bright);
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold-dim);
+      color: var(--text-main);
+    }
+
+    /* ============================================================
+       CURRENTLY AT CARD
+       ============================================================ */
+    .currently-wrap {
+      position: relative;
+      z-index: 1;
+      padding: 0 2.5rem;
+      margin-bottom: 5rem;
+    }
+    .currently-card {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      background: var(--space-card);
+      border: 0.5px solid var(--border-bright);
+      padding: 1.4rem 2rem;
+      max-width: 720px;
+    }
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green-pulse);
+      flex-shrink: 0;
+      animation: pulse-anim 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse-anim {
+      0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.45); }
+      50%      { box-shadow: 0 0 0 9px rgba(74,222,128,0); }
+    }
+    .currently-block { display: flex; flex-direction: column; gap: 0.15rem; }
+    .currently-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .currently-title { font-size: 14px; color: var(--text-main); }
+    .currently-sub   { font-size: 12px; color: var(--text-muted); }
+    .card-divider {
+      width: 0.5px;
+      height: 44px;
+      background: var(--border-bright);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SECTION RULE
+       ============================================================ */
+    .section-rule {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .section-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+
+    /* Placeholder tiles for visits without photos yet */
+    .visit-placeholder { cursor: default; }
+    .placeholder-inner {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 0.8rem; text-align: center; gap: 0.3rem;
+    }
+    .placeholder-icon { font-size: 14px; color: var(--gold-dim); margin-bottom: 0.2rem; }
+    .placeholder-name { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+    .placeholder-sub  { font-size: 10px; color: var(--text-dim); line-height: 1.4; }
+    /* ============================================================
+       NAVIGATION TILES
+       ============================================================ */
+    .tiles {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin: 0 2.5rem 5rem;
+    }
+    .tile {
+      position: relative;
+      background: var(--space-dark);
+      padding: 2.2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      overflow: hidden;
+      transition: background 0.25s;
+      cursor: pointer;
+    }
+    .tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, transparent 65%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tile:hover { background: var(--space-card); }
+    .tile:hover::before { opacity: 1; }
+    .tile-icon {
+      font-size: 20px;
+      color: var(--gold-dim);
+      margin-bottom: 0.3rem;
+    }
+    .tile-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--text-main);
+    }
+    .tile-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .tile-arrow {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-top: 1rem;
+      transition: color 0.2s;
+    }
+    .tile:hover .tile-arrow { color: var(--gold); }
+
+    /* ============================================================
+       SCIENTIFIC VISITS GALLERY
+       ============================================================ */
+    .visits-section {
+      position: relative;
+      z-index: 1;
+      padding: 0 2.5rem 5rem;
+    }
+    .visits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin-top: 2rem;
+    }
+    .visit-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--space-card);
+    }
+    .visit-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.45) brightness(0.75);
+      transition: filter 0.4s, transform 0.4s;
+    }
+    .visit-thumb:hover img {
+      filter: saturate(0.75) brightness(0.95);
+      transform: scale(1.04);
+    }
+    .visit-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.45rem 0.7rem;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: linear-gradient(to top, rgba(9,13,26,0.9) 0%, transparent 100%);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 0.5px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-left { font-family: 'Crimson Pro', serif; font-size: 0.9rem; color: var(--text-dim); }
+    .footer-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ============================================================
+       SCROLL REVEAL
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(9,13,26,0.97); padding: 1.5rem; gap: 1.2rem; border-bottom: 0.5px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .hero { padding: 4rem 1.2rem 3rem; min-height: 80vh; }
+      .currently-wrap { padding: 0 1.2rem; }
+      .currently-card { gap: 1rem; }
+      .card-divider { display: none; }
+      .section-rule { padding: 0 1.2rem; }
+      .tiles { margin: 0 1.2rem 3.5rem; }
+      .visits-section { padding: 0 1.2rem 3.5rem; }
+      footer { padding: 1.5rem 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Star field canvas -->
+  <canvas id="starCanvas"></canvas>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav>
+    <div class="nav-brand">Kartav Kesri</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="travel.html">Travel</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero reveal">
+    <div class="hero-eyebrow">Astrophysicist &nbsp;·&nbsp; Paris, France</div>
+    <h1 class="hero-name">Kartav <em>Kesri</em></h1>
+    <p class="hero-tagline">Exploring the universe, one simulation at a time.</p>
+    <p class="hero-desc">
+      M2 Physics student currently working on the Jovian Magnetosphere at the
+      Observatoire de Paris, Meudon. Passionate about plasma physics, MHD,
+      radio waves, and general relativity.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="research.html">View Research</a>
+      <a class="btn-ghost" href="assets/CV_Kartav_Kesri.pdf" target="_blank">Download CV</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CURRENTLY AT
+       ============================================================ -->
+  <div class="currently-wrap reveal">
+    <div class="currently-card">
+      <div class="pulse-dot"></div>
+      <div class="currently-block">
+        <div class="currently-label">Currently at</div>
+        <div class="currently-title">Observatoire de Paris — Meudon</div>
+        <div class="currently-sub">Solar Wind &amp; Jovian Magnetosphere · LIRA</div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="currently-block">
+        <div class="currently-label">Supervisor</div>
+        <div class="currently-title">Dr. Corentin K. Louis</div>
+        <div class="currently-sub">CNRS Researcher · LIRA</div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="currently-block">
+        <div class="currently-label">Programme</div>
+        <div class="currently-title">M2 Physique des Plasmas et de la Fusion</div>
+        <div class="currently-sub">Sorbonne · Paris-Saclay · IP Paris</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       EXPLORE TILES
+       ============================================================ -->
+  <div class="section-rule reveal"><span class="section-label">Explore</span></div>
+  <div class="tiles reveal">
+    <a class="tile" href="about.html">
+      <!-- Person icon -->
+      <div class="tile-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <div class="tile-title">About</div>
+      <div class="tile-desc">Education, background, awards and the academic journey from Prayagraj to Paris.</div>
+      <div class="tile-arrow">View →</div>
+    </a>
+    <a class="tile" href="research.html">
+      <!-- Telescope icon -->
+      <div class="tile-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6-4 9 6-6 4-9-6z"/><path d="M9 3v4"/><path d="M12 13l3 8"/><path d="M9 13v8"/></svg>
+      </div>
+      <div class="tile-title">Research</div>
+      <div class="tile-desc">Internships, projects and conferences — from solar spicules to relativistic shocks.</div>
+      <div class="tile-arrow">View →</div>
+    </a>
+    <a class="tile" href="publications.html">
+      <!-- Document icon -->
+      <div class="tile-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+      </div>
+      <div class="tile-title">Publications</div>
+      <div class="tile-desc">Interests, papers, posters and ongoing work in high-energy astrophysics.</div>
+      <div class="tile-arrow">View →</div>
+    </a>
+    <a class="tile" href="travel.html">
+      <!-- Map icon -->
+      <div class="tile-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+      </div>
+      <div class="tile-title">Travel</div>
+      <div class="tile-desc">Scientific visits, tourism and life beyond the telescope.</div>
+      <div class="tile-arrow">View →</div>
+    </a>
+  </div>
+
+  <!-- ============================================================
+       SCIENTIFIC VISITS GALLERY
+       ============================================================ -->
+  <section class="visits-section reveal">
+    <div class="section-rule" style="padding:0; margin-bottom:2rem;">
+      <span class="section-label">Scientific Visits</span>
+    </div>
+    <div class="visits-grid">
+
+      <!-- India visits -->
+      <div class="visit-thumb">
+        <img src="assets/images/visit/iucaa-c.JPEG" alt="IUCAA Pune" loading="lazy" />
+        <div class="visit-label">IUCAA, Pune</div>
+      </div>
+
+      <div class="visit-thumb">
+        <img src="assets/images/visit/iia-a.jpg" alt="IIA Bangalore" loading="lazy" />
+        <div class="visit-label">IIA, Bangalore</div>
+      </div>
+
+      <div class="visit-thumb">
+        <img src="assets/images/visit/iisc-poster.jpg" alt="IISc — ASI Conference" loading="lazy" />
+        <div class="visit-label">IISc — ASI Conference</div>
+      </div>
+
+      <div class="visit-thumb">
+        <img src="assets/images/visit/icts-a.jpg" alt="ICTS-TIFR" loading="lazy" />
+        <div class="visit-label">ICTS-TIFR, Bangalore</div>
+      </div>
+
+      <div class="visit-thumb">
+        <img src="assets/images/visit/iiser-a.jpg" alt="IISER" loading="lazy" />
+        <div class="visit-label">IISER</div>
+      </div>
+
+      <div class="visit-thumb">
+        <img src="assets/images/visit/iit-a.jpg" alt="IIT" loading="lazy" />
+        <div class="visit-label">IIT</div>
+      </div>
+
+      <div class="visit-thumb">
+        <img src="assets/images/visit/isro-a.jpg" alt="ISRO" loading="lazy" />
+        <div class="visit-label">ISRO</div>
+      </div>
+
+      <!-- M1 Paris -->
+      <div class="visit-thumb">
+        <img src="assets/images/visit/su-a.jpg" alt="Sorbonne Université" loading="lazy" />
+        <div class="visit-label">Sorbonne Université</div>
+      </div>
+
+      <div class="visit-thumb">
+        <img src="assets/images/visit/upc-a.jpg" alt="Université Paris Cité" loading="lazy" />
+        <div class="visit-label">Université Paris Cité</div>
+      </div>
+
+      <!-- Summer 2025 -->
+      <div class="visit-thumb visit-placeholder">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">✦</div>
+          <div class="placeholder-name">IST Austria</div>
+          <div class="placeholder-sub">XSHOOTU Meeting · May 2025</div>
+        </div>
+        <div class="visit-label">IST Austria, Klosterneuburg</div>
+      </div>
+
+      <div class="visit-thumb visit-placeholder">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">✦</div>
+          <div class="placeholder-name">Bulgarian Academy of Sciences</div>
+          <div class="placeholder-sub">Poster · June 2025</div>
+        </div>
+        <div class="visit-label">BAS, Sofia</div>
+      </div>
+
+      <div class="visit-thumb visit-placeholder">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">✦</div>
+          <div class="placeholder-name">Aix-Marseille Université</div>
+          <div class="placeholder-sub">MaNiTou GW Summer School</div>
+        </div>
+        <div class="visit-label">AMU, Marseille</div>
+      </div>
+
+      <!-- M2 institutions -->
+      <div class="visit-thumb visit-placeholder">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">✦</div>
+          <div class="placeholder-name">Université Paris-Saclay</div>
+          <div class="placeholder-sub">M2 Physique des Plasmas</div>
+        </div>
+        <div class="visit-label">Paris-Saclay</div>
+      </div>
+
+      <div class="visit-thumb visit-placeholder">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">✦</div>
+          <div class="placeholder-name">IP Paris</div>
+          <div class="placeholder-sub">M2 Physique des Plasmas</div>
+        </div>
+        <div class="visit-label">IP Paris</div>
+      </div>
+
+      <div class="visit-thumb visit-placeholder">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">✦</div>
+          <div class="placeholder-name">Observatoire de Paris</div>
+          <div class="placeholder-sub">M2 Internship · Meudon</div>
+        </div>
+        <div class="visit-label">Obs. de Paris, Meudon</div>
+      </div>
+
+    </div>
+    <p style="margin-top:1.5rem; font-size:12px; color:var(--text-dim);">
+      <a href="travel.html" style="color:var(--gold-dim); letter-spacing:0.08em;">View full scientific visits map →</a>
+    </p>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="footer-left">© 2025 Kartav Kesri</div>
+    <div class="footer-links">
+      <a href="https://github.com/Kartav33" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kartav-kesri-622718219/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/KartavK87350" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://orcid.org/0009-0000-2813-4508" target="_blank" rel="noopener">ORCID</a>
+      <a href="mailto:kartavkesri@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    /* ---------- Star field ---------- */
+    const canvas = document.getElementById('starCanvas');
+    const ctx    = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    /* Generate stars once */
+    const STAR_COUNT = 220;
+    const stars = Array.from({ length: STAR_COUNT }, () => ({
+      x:     Math.random(),
+      y:     Math.random(),
+      r:     Math.random() * 1.3 + 0.2,
+      lo:    Math.random() * 0.20 + 0.04,
+      hi:    Math.random() * 0.65 + 0.30,
+      speed: Math.random() * 0.006 + 0.002,
+      phase: Math.random() * Math.PI * 2
+    }));
+
+    let frame = 0;
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        const alpha = s.lo + (s.hi - s.lo) * (0.5 + 0.5 * Math.sin(frame * s.speed * 60 + s.phase));
+        ctx.beginPath();
+        ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
+        ctx.fill();
+      });
+      frame++;
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+
+    /* ---------- Mobile nav toggle ---------- */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    /* ---------- Scroll reveal ---------- */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* Ensure hero is visible immediately */
+    setTimeout(() => {
+      document.querySelector('.hero').classList.add('visible');
+    }, 80);
+  </script>
+
+</body>
+</html>

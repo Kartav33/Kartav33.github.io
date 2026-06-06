@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — Kartav Kesri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--space-dark:#090d1a;--space-card:#111827;--gold:#c9a84c;--gold-dim:#8a6e2e;--gold-glow:#e8c97a;--text-main:#e8e4d8;--text-muted:#8891aa;--text-dim:#4a5268;--border:rgba(201,168,76,0.15);--border-bright:rgba(201,168,76,0.40);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--space-dark);color:var(--text-main);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    #starCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;border-bottom:0.5px solid var(--border);background:rgba(9,13,26,0.88);backdrop-filter:blur(14px);}
+    .nav-brand{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:300;color:var(--gold-glow);letter-spacing:0.04em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-size:11px;color:var(--text-muted);letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-toggle span{display:block;width:22px;height:0.5px;background:var(--text-muted);}
+
+    .page-header{position:relative;z-index:1;padding:5rem 2.5rem 3rem;max-width:900px;}
+    .page-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+    .page-eyebrow::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+    .page-title{font-family:'Crimson Pro',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:300;line-height:1.1;}
+    .page-title em{font-style:italic;color:var(--gold-glow);}
+
+    .pub-layout{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 2.5rem 6rem;display:flex;flex-direction:column;gap:4rem;}
+
+    .section-rule{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;}
+    .section-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+    .section-rule::after{content:'';flex:1;height:0.5px;background:var(--border);}
+
+    /* Paper card */
+    .paper-card{background:var(--space-card);border:0.5px solid var(--border-bright);padding:2rem 2.2rem;display:flex;flex-direction:column;gap:1rem;}
+    .paper-meta{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;}
+    .paper-tag{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:0.2rem 0.6rem;border:0.5px solid var(--border-bright);color:var(--gold);}
+    .paper-tag-upcoming{border-color:rgba(74,222,128,0.3);color:#4ade80;background:rgba(74,222,128,0.08);}
+    .paper-journal{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
+    .paper-title{font-family:'Crimson Pro',serif;font-size:1.35rem;font-weight:400;color:var(--text-main);line-height:1.35;}
+    .paper-authors{font-size:12px;color:var(--text-muted);line-height:1.7;}
+    .paper-authors strong{color:var(--gold-glow);font-weight:400;}
+    .paper-abstract{font-size:13px;color:var(--text-muted);line-height:1.8;border-left:0.5px solid var(--border-bright);padding-left:1.2rem;margin-top:0.3rem;}
+    .paper-links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:0.5rem;}
+    .paper-link{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dim);border:0.5px solid var(--border);padding:0.35rem 0.9rem;transition:all 0.2s;}
+    .paper-link:hover{color:var(--gold);border-color:var(--border-bright);}
+
+    /* Poster card */
+    .poster-cards{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+    .poster-card{background:var(--space-dark);padding:1.6rem 2rem;display:grid;grid-template-columns:1fr auto;gap:0.4rem 2rem;align-items:start;transition:background 0.2s;}
+    .poster-card:hover{background:var(--space-card);}
+    .poster-title{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:400;color:var(--text-main);line-height:1.3;}
+    .poster-venue{font-size:12px;color:var(--text-muted);}
+    .poster-note{font-size:11px;color:var(--text-dim);font-style:italic;}
+    .poster-date{font-size:11px;color:var(--text-dim);white-space:nowrap;text-align:right;}
+    .poster-tag-upcoming{display:inline-block;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.5rem;background:rgba(74,222,128,0.08);color:#4ade80;border:0.5px solid rgba(74,222,128,0.3);}
+
+    /* Interests */
+    .interests-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);}
+    .interest-item{background:var(--space-dark);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:0.4rem;transition:background 0.2s;}
+    .interest-item:hover{background:var(--space-card);}
+    .interest-icon{font-size:16px;color:var(--gold-dim);margin-bottom:0.2rem;}
+    .interest-title{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:300;color:var(--text-main);}
+    .interest-desc{font-size:11px;color:var(--text-muted);line-height:1.6;}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    footer{position:relative;z-index:1;border-top:0.5px solid var(--border);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-left{font-family:'Crimson Pro',serif;font-size:0.9rem;color:var(--text-dim);}
+    .footer-links{display:flex;gap:1.6rem;flex-wrap:wrap;}
+    .footer-links a{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);transition:color 0.2s;}
+    .footer-links a:hover{color:var(--gold);}
+    @media(max-width:640px){
+      nav{padding:1rem 1.2rem;}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(9,13,26,0.97);padding:1.5rem;gap:1.2rem;border-bottom:0.5px solid var(--border);}
+      .nav-links.open{display:flex;}
+      .nav-toggle{display:flex;}
+      .page-header{padding:3.5rem 1.2rem 2rem;}
+      .pub-layout{padding:0 1.2rem 5rem;}
+      .poster-card{grid-template-columns:1fr;}
+      footer{padding:1.5rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starCanvas"></canvas>
+  <nav>
+    <div class="nav-brand">Kartav Kesri</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html" class="active">Publications</a></li>
+      <li><a href="travel.html">Travel</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header reveal">
+    <div class="page-eyebrow">Publications &amp; Posters</div>
+    <h1 class="page-title">Written contributions to <em>the literature</em></h1>
+  </header>
+
+  <div class="pub-layout">
+
+    <!-- PAPERS -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Peer-reviewed Papers</span></div>
+
+      <!-- ApJ spicules -->
+      <div class="paper-card">
+        <div class="paper-meta">
+          <span class="paper-tag">Lead Author</span>
+          <span class="paper-journal">The Astrophysical Journal · ApJ 973, 49 · Sep 2024</span>
+        </div>
+        <div class="paper-title">Dependence of Spicule Properties on the Magnetic Field — Results from Magnetohydrodynamics Simulations</div>
+        <div class="paper-authors"><strong>Kartav Kesri</strong>, Sahel Dey, Piyali Chatterjee, Dipankar Banerjee</div>
+        <div class="paper-abstract">Solar spicules are plasma jets observed in the interface region between the visible solar surface and the corona. We solve the radiative MHD equations using Pencil Code at 16 km resolution under various magnetic field strengths to investigate how the imposed field governs spicule properties such as height, velocity, and lifetime.</div>
+        <div class="paper-links">
+          <a class="paper-link" href="https://iopscience.iop.org/article/10.3847/1538-4357/ad67d8" target="_blank" rel="noopener">IOPscience →</a>
+          <a class="paper-link" href="https://doi.org/10.3847/1538-4357/ad67d8" target="_blank" rel="noopener">DOI →</a>
+          <a class="paper-link" href="https://github.com/Kartav33/Spicules_Analysis_Codes" target="_blank" rel="noopener">Code →</a>
+        </div>
+      </div>
+
+      <!-- Upcoming -->
+      <div class="paper-card" style="margin-top:1px;border-color:rgba(74,222,128,0.25);">
+        <div class="paper-meta">
+          <span class="paper-tag paper-tag-upcoming">In Preparation</span>
+          <span class="paper-journal">Observatoire de Paris · 2026</span>
+        </div>
+        <div class="paper-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
+        <div class="paper-authors"><strong>Kartav Kesri</strong>, Corentin K. Louis et al.</div>
+        <div class="paper-abstract" style="color:var(--text-dim);font-style:italic;">Manuscript in preparation. Work conducted at LESIA, Observatoire de Paris — Meudon, under the supervision of Dr. Corentin K. Louis.</div>
+      </div>
+    </section>
+
+    <!-- POSTERS -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Conference Posters</span></div>
+      <div class="poster-cards">
+
+        <div class="poster-card">
+          <div style="display:flex;flex-direction:column;gap:0.35rem;">
+            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.2rem;">
+              <span class="poster-tag-upcoming">Upcoming</span>
+            </div>
+            <div class="poster-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
+            <div class="poster-venue">Magnétosphères, Ondes et Plasmas (MOP) 2026 — Toulouse, France</div>
+            <div class="poster-note">Poster presentation — work from M2 internship at LESIA</div>
+          </div>
+          <div class="poster-date">Jul 2026</div>
+        </div>
+
+        <div class="poster-card">
+          <div style="display:flex;flex-direction:column;gap:0.35rem;">
+            <div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
+            <div class="poster-venue">Theoretical and Observational Astrophysics Conference — Bulgarian Academy of Sciences, Sofia</div>
+            <div class="poster-note">Related to ApJ 973, 49 (2024)</div>
+          </div>
+          <div class="poster-date">Jun 2025</div>
+        </div>
+
+        <div class="poster-card">
+          <div style="display:flex;flex-direction:column;gap:0.35rem;">
+            <div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
+            <div class="poster-venue">Theoretical and Practical Perspectives in Geophysical Fluid Dynamics — ICTS-TIFR, Bangalore</div>
+            <div class="poster-note">Related to ApJ 973, 49 (2024)</div>
+          </div>
+          <div class="poster-date">May 2024</div>
+        </div>
+
+        <div class="poster-card">
+          <div style="display:flex;flex-direction:column;gap:0.35rem;">
+            <div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
+            <div class="poster-venue">42nd Annual Meeting of the Astronomical Society of India — IISc, Bangalore</div>
+            <div class="poster-note">Related to ApJ 973, 49 (2024)</div>
+          </div>
+          <div class="poster-date">Feb 2024</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH INTERESTS -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Research Interests</span></div>
+      <div class="interests-grid">
+        <div class="interest-item">
+          <div class="interest-icon">⚡</div>
+          <div class="interest-title">Plasma Physics &amp; MHD</div>
+          <div class="interest-desc">Magnetohydrodynamic simulations, plasma instabilities, solar and planetary magnetospheres.</div>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">📡</div>
+          <div class="interest-title">Radio Waves</div>
+          <div class="interest-desc">Planetary radio emissions, Jovian decametric radiation, solar radio bursts.</div>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">☀️</div>
+          <div class="interest-title">Solar Physics</div>
+          <div class="interest-desc">Chromospheric dynamics, spicules, Aditya-L1 science, solar wind.</div>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">🌌</div>
+          <div class="interest-title">General Relativity</div>
+          <div class="interest-desc">Compact objects, Buchdahl limit, gravitational waves, spacetime structure.</div>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">💻</div>
+          <div class="interest-title">Numerical Methods</div>
+          <div class="interest-desc">Pencil Code, PLUTO, Python, DS9, FITS handling, RFI mitigation.</div>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">🔭</div>
+          <div class="interest-title">Observational Astronomy</div>
+          <div class="interest-desc">JWST/HST data analysis, SLSNe, ILRT, spectroscopic surveys (XShootU).</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">© 2025 Kartav Kesri</div>
+    <div class="footer-links">
+      <a href="https://github.com/Kartav33" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kartav-kesri-622718219/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/KartavK87350" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://orcid.org/0009-0000-2813-4508" target="_blank" rel="noopener">ORCID</a>
+      <a href="mailto:kartavkesri@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    const canvas=document.getElementById('starCanvas'),ctx=canvas.getContext('2d');
+    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+    resizeCanvas();window.addEventListener('resize',resizeCanvas);
+    const stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.2,lo:Math.random()*0.18+0.04,hi:Math.random()*0.6+0.3,speed:Math.random()*0.006+0.002,phase:Math.random()*Math.PI*2}));
+    let frame=0;
+    function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{const a=s.lo+(s.hi-s.lo)*(0.5+0.5*Math.sin(frame*s.speed*60+s.phase));ctx.beginPath();ctx.arc(s.x*canvas.width,s.y*canvas.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${a.toFixed(3)})`;ctx.fill();});frame++;requestAnimationFrame(drawStars);}
+    drawStars();
+    document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.05});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    setTimeout(()=>document.querySelector('.page-header').classList.add('visible'),80);
+  </script>
+</body>
+</html>

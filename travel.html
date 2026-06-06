@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel — Kartav Kesri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Leaflet for maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    :root{--space-dark:#090d1a;--space-card:#111827;--gold:#c9a84c;--gold-dim:#8a6e2e;--gold-glow:#e8c97a;--text-main:#e8e4d8;--text-muted:#8891aa;--text-dim:#4a5268;--border:rgba(201,168,76,0.15);--border-bright:rgba(201,168,76,0.40);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--space-dark);color:var(--text-main);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    #starCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;border-bottom:0.5px solid var(--border);background:rgba(9,13,26,0.88);backdrop-filter:blur(14px);}
+    .nav-brand{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:300;color:var(--gold-glow);letter-spacing:0.04em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-size:11px;color:var(--text-muted);letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-toggle span{display:block;width:22px;height:0.5px;background:var(--text-muted);}
+
+    .page-header{position:relative;z-index:1;padding:5rem 2.5rem 3rem;max-width:900px;}
+    .page-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+    .page-eyebrow::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+    .page-title{font-family:'Crimson Pro',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:300;line-height:1.1;}
+    .page-title em{font-style:italic;color:var(--gold-glow);}
+    .page-subtitle{font-size:14px;color:var(--text-muted);margin-top:1rem;max-width:520px;line-height:1.8;}
+
+    .travel-layout{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 2.5rem 6rem;display:flex;flex-direction:column;gap:4rem;}
+    .section-rule{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;}
+    .section-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+    .section-rule::after{content:'';flex:1;height:0.5px;background:var(--border);}
+
+    /* Stats row */
+    .stats-row{display:flex;gap:1px;background:var(--border);flex-wrap:wrap;}
+    .stat-box{background:var(--space-card);padding:1.4rem 2rem;flex:1;min-width:120px;}
+    .stat-num{font-family:'Crimson Pro',serif;font-size:2.8rem;font-weight:300;color:var(--gold-glow);line-height:1;}
+    .stat-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);margin-top:0.3rem;}
+
+    /* Country pills */
+    .country-list{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+    .country-pill{font-size:11px;letter-spacing:0.08em;color:var(--text-muted);border:0.5px solid var(--border);padding:0.3rem 0.8rem;transition:all 0.2s;}
+    .country-pill:hover{border-color:var(--border-bright);color:var(--gold);}
+
+    /* Map containers */
+    .map-wrap{border:0.5px solid var(--border);}
+    .map-container{height:400px;background:var(--space-card);}
+    .leaflet-container{background:#0a0f1e !important;}
+
+    /* City manager */
+    .city-manager{background:var(--space-card);border:0.5px solid var(--border);padding:1.6rem 2rem;margin-top:1px;}
+    .city-manager-title{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .city-input-row{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .city-input{background:var(--space-dark);border:0.5px solid var(--border);color:var(--text-main);font-family:'DM Sans',sans-serif;font-size:13px;padding:0.5rem 0.9rem;flex:1;min-width:180px;outline:none;transition:border-color 0.2s;}
+    .city-input:focus{border-color:var(--border-bright);}
+    .city-input::placeholder{color:var(--text-dim);}
+    .city-btn{background:transparent;border:0.5px solid var(--gold-dim);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.2rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+    .city-btn:hover{background:rgba(201,168,76,0.1);}
+    .city-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+    .city-tag{display:inline-flex;align-items:center;gap:0.4rem;font-size:11px;color:var(--text-muted);border:0.5px solid var(--border);padding:0.25rem 0.7rem;}
+    .city-tag button{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:12px;line-height:1;padding:0;transition:color 0.2s;}
+    .city-tag button:hover{color:var(--gold);}
+    .city-hint{font-size:11px;color:var(--text-dim);margin-top:0.8rem;line-height:1.6;}
+
+    /* Science visits map */
+    .science-map-container{height:420px;background:var(--space-card);}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    footer{position:relative;z-index:1;border-top:0.5px solid var(--border);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-left{font-family:'Crimson Pro',serif;font-size:0.9rem;color:var(--text-dim);}
+    .footer-links{display:flex;gap:1.6rem;flex-wrap:wrap;}
+    .footer-links a{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);transition:color 0.2s;}
+    .footer-links a:hover{color:var(--gold);}
+    @media(max-width:640px){
+      nav{padding:1rem 1.2rem;}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(9,13,26,0.97);padding:1.5rem;gap:1.2rem;border-bottom:0.5px solid var(--border);}
+      .nav-links.open{display:flex;}
+      .nav-toggle{display:flex;}
+      .page-header{padding:3.5rem 1.2rem 2rem;}
+      .travel-layout{padding:0 1.2rem 5rem;}
+      .map-container,.science-map-container{height:280px;}
+      footer{padding:1.5rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starCanvas"></canvas>
+  <nav>
+    <div class="nav-brand">Kartav Kesri</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="travel.html" class="active">Travel</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header reveal">
+    <div class="page-eyebrow">Travel</div>
+    <h1 class="page-title">Life beyond <em>the telescope</em></h1>
+    <p class="page-subtitle">13 countries, countless cities — physics as an excuse to explore the world.</p>
+  </header>
+
+  <div class="travel-layout">
+
+    <!-- Stats -->
+    <section class="reveal">
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-num" id="countryCount">13</div><div class="stat-label">Countries</div></div>
+        <div class="stat-box"><div class="stat-num" id="cityCount">0</div><div class="stat-label">Cities</div></div>
+        <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Continents</div></div>
+        <div class="stat-box"><div class="stat-num">9</div><div class="stat-label">Science Institutions</div></div>
+      </div>
+    </section>
+
+    <!-- Countries -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Countries Visited</span></div>
+      <div class="country-list">
+        <span class="country-pill">🇮🇳 India</span>
+        <span class="country-pill">🇫🇷 France</span>
+        <span class="country-pill">🇩🇪 Germany</span>
+        <span class="country-pill">🇨🇭 Switzerland</span>
+        <span class="country-pill">🇧🇪 Belgium</span>
+        <span class="country-pill">🇳🇱 Netherlands</span>
+        <span class="country-pill">🇸🇪 Sweden</span>
+        <span class="country-pill">🇩🇰 Denmark</span>
+        <span class="country-pill">🇦🇹 Austria</span>
+        <span class="country-pill">🇻🇳 Vietnam</span>
+        <span class="country-pill">🇪🇸 Spain</span>
+        <span class="country-pill">🇧🇬 Bulgaria</span>
+        <span class="country-pill">🇨🇿 Czechia</span>
+      </div>
+    </section>
+
+    <!-- Tourism map + city manager -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Tourism Map</span></div>
+      <div class="map-wrap">
+        <div id="tourismMap" class="map-container"></div>
+      </div>
+
+      <!-- City manager -->
+      <div class="city-manager">
+        <div class="city-manager-title">✦ &nbsp;Manage your cities — add or remove anytime</div>
+        <div class="city-input-row">
+          <input class="city-input" id="cityInput" type="text" placeholder="Type a city name, e.g. Amsterdam" />
+          <button class="city-btn" id="addCityBtn">Add City</button>
+        </div>
+        <div class="city-tags" id="cityTags"></div>
+        <div class="city-hint">Cities are saved in your browser and appear as pins on the map above. To remove a city, click the × next to it. No code editing needed.</div>
+      </div>
+    </section>
+
+    <!-- Scientific visits map -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Scientific Visits Map</span></div>
+      <div class="map-wrap">
+        <div id="scienceMap" class="science-map-container"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">© 2025 Kartav Kesri</div>
+    <div class="footer-links">
+      <a href="https://github.com/Kartav33" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kartav-kesri-622718219/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/KartavK87350" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://orcid.org/0009-0000-2813-4508" target="_blank" rel="noopener">ORCID</a>
+      <a href="mailto:kartavkesri@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Star field ── */
+    const canvas=document.getElementById('starCanvas'),ctx=canvas.getContext('2d');
+    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+    resizeCanvas();window.addEventListener('resize',resizeCanvas);
+    const stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.2,lo:Math.random()*0.18+0.04,hi:Math.random()*0.6+0.3,speed:Math.random()*0.006+0.002,phase:Math.random()*Math.PI*2}));
+    let frame=0;
+    function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{const a=s.lo+(s.hi-s.lo)*(0.5+0.5*Math.sin(frame*s.speed*60+s.phase));ctx.beginPath();ctx.arc(s.x*canvas.width,s.y*canvas.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${a.toFixed(3)})`;ctx.fill();});frame++;requestAnimationFrame(drawStars);}
+    drawStars();
+    document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.05});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    setTimeout(()=>document.querySelector('.page-header').classList.add('visible'),80);
+
+    /* ── Dark map tile layer ── */
+    const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+      attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
+    });
+
+    /* ── Tourism map ── */
+    const tourismMap = L.map('tourismMap',{zoomControl:true,scrollWheelZoom:false}).setView([30,20],2);
+    darkTiles.addTo(tourismMap);
+
+    const goldIcon = L.divIcon({
+      className:'',
+      html:`<div style="width:10px;height:10px;border-radius:50%;background:#c9a84c;border:1.5px solid #e8c97a;box-shadow:0 0 6px rgba(201,168,76,0.6);"></div>`,
+      iconSize:[10,10], iconAnchor:[5,5]
+    });
+
+    /* ── City storage using localStorage ── */
+    // Geocode cache (city name -> [lat, lng])
+    const GEOCACHE_KEY = 'kartav_geocache';
+    const CITIES_KEY   = 'kartav_cities';
+
+    function loadCache(){ try{ return JSON.parse(localStorage.getItem(GEOCACHE_KEY)||'{}'); }catch(e){return{};} }
+    function saveCache(c){ localStorage.setItem(GEOCACHE_KEY, JSON.stringify(c)); }
+    function loadCities(){ try{ return JSON.parse(localStorage.getItem(CITIES_KEY)||'[]'); }catch(e){return[];} }
+    function saveCities(arr){ localStorage.setItem(CITIES_KEY, JSON.stringify(arr)); }
+
+    let cityMarkers = {};
+
+    async function geocodeCity(name){
+      const cache = loadCache();
+      if(cache[name]) return cache[name];
+      try{
+        const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(name)}&format=json&limit=1`);
+        const data = await res.json();
+        if(data && data[0]){
+          const coords = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+          cache[name] = coords;
+          saveCache(cache);
+          return coords;
+        }
+      }catch(e){}
+      return null;
+    }
+
+    function renderCityTags(){
+      const cities = loadCities();
+      const container = document.getElementById('cityTags');
+      container.innerHTML = '';
+      cities.forEach(city => {
+        const tag = document.createElement('span');
+        tag.className = 'city-tag';
+        tag.innerHTML = `${city} <button onclick="removeCity('${city.replace(/'/g,"\\'")}')">×</button>`;
+        container.appendChild(tag);
+      });
+      document.getElementById('cityCount').textContent = cities.length;
+    }
+
+    async function addCityToMap(name){
+      if(cityMarkers[name]) return;
+      const coords = await geocodeCity(name);
+      if(coords){
+        const m = L.marker(coords, {icon: goldIcon}).addTo(tourismMap).bindPopup(`<span style="color:#c9a84c;font-family:'DM Sans',sans-serif;font-size:13px;">${name}</span>`);
+        cityMarkers[name] = m;
+      }
+    }
+
+    async function initCities(){
+      const cities = loadCities();
+      for(const city of cities){ await addCityToMap(city); }
+      renderCityTags();
+    }
+
+    window.removeCity = function(name){
+      const cities = loadCities().filter(c => c !== name);
+      saveCities(cities);
+      if(cityMarkers[name]){ tourismMap.removeLayer(cityMarkers[name]); delete cityMarkers[name]; }
+      renderCityTags();
+    };
+
+    document.getElementById('addCityBtn').addEventListener('click', async () => {
+      const input = document.getElementById('cityInput');
+      const name = input.value.trim();
+      if(!name) return;
+      const cities = loadCities();
+      if(cities.includes(name)){ input.value=''; return; }
+      cities.push(name);
+      saveCities(cities);
+      renderCityTags();
+      input.value = '';
+      await addCityToMap(name);
+    });
+
+    document.getElementById('cityInput').addEventListener('keydown', e => {
+      if(e.key === 'Enter') document.getElementById('addCityBtn').click();
+    });
+
+    initCities();
+
+    /* ── Science visits map ── */
+    const scienceMap = L.map('scienceMap',{zoomControl:true,scrollWheelZoom:false}).setView([25,60],2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+      attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
+    }).addTo(scienceMap);
+
+    const sciIcon = L.divIcon({
+      className:'',
+      html:`<div style="width:11px;height:11px;border-radius:50%;background:#4a9fc8;border:1.5px solid #7cc8f0;box-shadow:0 0 7px rgba(74,159,200,0.6);"></div>`,
+      iconSize:[11,11], iconAnchor:[5.5,5.5]
+    });
+
+    const scienceVisits = [
+      { name:'IUCAA, Pune', coords:[18.5204, 73.8567] },
+      { name:'IIA, Bengaluru', coords:[12.9716, 77.5946] },
+      { name:'ICTS-TIFR, Bangalore', coords:[13.0202, 77.5032] },
+      { name:'IISc, Bangalore', coords:[13.0219, 77.5671] },
+      { name:'IISER Bhopal', coords:[23.2599, 77.4126] },
+      { name:'IISER Pune', coords:[18.5454, 73.8079] },
+      { name:'NISER, Bhubaneswar', coords:[20.2961, 85.8189] },
+      { name:'IIT Kanpur', coords:[26.5123, 80.2329] },
+      { name:'ISRO, Bangalore', coords:[13.0358, 77.5672] },
+      { name:'Miranda House, Delhi', coords:[28.6862, 77.2135] },
+      { name:'Stockholm University', coords:[59.3293, 18.0686] },
+      { name:'ASIAA, Taipei', coords:[25.0236, 121.5342] },
+      { name:'INAOE, Mexico', coords:[19.0414, -98.2063] },
+      { name:'Sorbonne Université, Paris', coords:[48.8480, 2.3549] },
+      { name:'Observatoire de Paris, Meudon', coords:[48.8053, 2.2300] },
+      { name:'Université Paris Cité', coords:[48.8272, 2.3818] },
+      { name:'Université Paris-Saclay', coords:[48.7077, 2.1703] },
+      { name:'IP Paris, Palaiseau', coords:[48.7130, 2.2107] },
+      { name:'IST Austria, Klosterneuburg', coords:[48.3069, 16.2610] },
+      { name:'Bulgarian Academy of Sciences, Sofia', coords:[42.6977, 23.3219] },
+      { name:'Aix-Marseille Université', coords:[43.2965, 5.3698] },
+    ];
+
+    scienceVisits.forEach(v => {
+      L.marker(v.coords, {icon: sciIcon})
+        .addTo(scienceMap)
+        .bindPopup(`<span style="color:#4a9fc8;font-family:'DM Sans',sans-serif;font-size:13px;">${v.name}</span>`);
+    });
+  </script>
+</body>
+</html>
