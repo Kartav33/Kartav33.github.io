@@ -477,12 +477,12 @@
     const goldIcon=L.divIcon({className:'',html:`<div style="width:10px;height:10px;border-radius:50%;background:#c9a84c;border:1.5px solid #e8c97a;box-shadow:0 0 6px rgba(201,168,76,0.5);"></div>`,iconSize:[10,10],iconAnchor:[5,5]});
 
     /* ── JSONbin city sync ── */
-    const MASTER_KEY_STORE = 'kartav_jsonbin_key';
-    const BIN_ID_STORE     = 'kartav_jsonbin_bin';
+    const JSONBIN_KEY = '$2a$10$fYQrGc52Afa8cFaP.YMEoea6.jge9ZHRWHmuOKtYx0L74vmjD6V2m';
+    const JSONBIN_BIN = '6a255337f5f4af5e29c5f439';
     const GEOCACHE_STORE   = 'kartav_geocache';
 
-    const getKey  = ()=>localStorage.getItem(MASTER_KEY_STORE)||'';
-    const getBinId= ()=>localStorage.getItem(BIN_ID_STORE)||'';
+    const getKey  = ()=>localStorage.getItem(JSONBIN_KEY)||'';
+    const getBinId= ()=>localStorage.getItem(JSONBIN_BIN)||'';
     const getCache= ()=>{try{return JSON.parse(localStorage.getItem(GEOCACHE_STORE)||'{}');}catch(e){return{};}};
     const saveCache=(c)=>localStorage.setItem(GEOCACHE_STORE,JSON.stringify(c));
 
@@ -515,7 +515,7 @@
           const d=await r.json();
           binId=d.metadata?.id;
           if(!binId) return false;
-          localStorage.setItem(BIN_ID_STORE,binId);
+          localStorage.setItem(JSONBIN_BIN,binId);
         } else {
           await fetch(`https://api.jsonbin.io/v3/b/${binId}`,{
             method:'PUT',
@@ -592,7 +592,7 @@
     document.getElementById('saveKeyBtn').addEventListener('click',async()=>{
       const key=document.getElementById('jsonbinKeyInput').value.trim();
       if(!key){setStatus('Please paste a valid key.','error');return;}
-      localStorage.setItem(MASTER_KEY_STORE,key);
+      localStorage.setItem(JSONBIN_KEY,key);
       document.getElementById('setupNotice').style.display='none';
       setStatus('Key saved! Loading cities…');
       allCities=await fetchBin();
