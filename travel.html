@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <!-- Leaflet for maps -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
@@ -17,6 +16,7 @@
     body{background:var(--space-dark);color:var(--text-main);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;overflow-x:hidden;}
     a{color:inherit;text-decoration:none;}
     #starCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
     nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;border-bottom:0.5px solid var(--border);background:rgba(9,13,26,0.88);backdrop-filter:blur(14px);}
     .nav-brand{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:300;color:var(--gold-glow);letter-spacing:0.04em;}
     .nav-links{display:flex;gap:2rem;list-style:none;}
@@ -37,21 +37,23 @@
     .section-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
     .section-rule::after{content:'';flex:1;height:0.5px;background:var(--border);}
 
-    /* Stats row */
+    /* Stats */
     .stats-row{display:flex;gap:1px;background:var(--border);flex-wrap:wrap;}
     .stat-box{background:var(--space-card);padding:1.4rem 2rem;flex:1;min-width:120px;}
     .stat-num{font-family:'Crimson Pro',serif;font-size:2.8rem;font-weight:300;color:var(--gold-glow);line-height:1;}
     .stat-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);margin-top:0.3rem;}
 
-    /* Country pills */
+    /* Countries */
     .country-list{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
     .country-pill{font-size:11px;letter-spacing:0.08em;color:var(--text-muted);border:0.5px solid var(--border);padding:0.3rem 0.8rem;transition:all 0.2s;}
     .country-pill:hover{border-color:var(--border-bright);color:var(--gold);}
 
-    /* Map containers */
+    /* Maps */
     .map-wrap{border:0.5px solid var(--border);}
     .map-container{height:400px;background:var(--space-card);}
     .leaflet-container{background:#0a0f1e !important;}
+    .leaflet-popup-content-wrapper{background:var(--space-card);border:0.5px solid var(--border-bright);border-radius:0;box-shadow:none;color:var(--text-main);}
+    .leaflet-popup-tip{background:var(--space-card);}
 
     /* City manager */
     .city-manager{background:var(--space-card);border:0.5px solid var(--border);padding:1.6rem 2rem;margin-top:1px;}
@@ -64,11 +66,43 @@
     .city-btn:hover{background:rgba(201,168,76,0.1);}
     .city-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
     .city-tag{display:inline-flex;align-items:center;gap:0.4rem;font-size:11px;color:var(--text-muted);border:0.5px solid var(--border);padding:0.25rem 0.7rem;}
-    .city-tag button{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:12px;line-height:1;padding:0;transition:color 0.2s;}
-    .city-tag button:hover{color:var(--gold);}
-    .city-hint{font-size:11px;color:var(--text-dim);margin-top:0.8rem;line-height:1.6;}
+    .city-remove{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:13px;line-height:1;padding:0;transition:color 0.2s;}
+    .city-remove:hover{color:var(--gold);}
+    .city-status{font-size:11px;color:var(--text-dim);margin-top:0.8rem;line-height:1.6;}
+    .city-status.error{color:#f87171;}
+    .city-status.success{color:#4ade80;}
 
-    /* Science visits map */
+    /* JSONbin setup notice */
+    .setup-notice{background:rgba(201,168,76,0.05);border:0.5px solid var(--gold-dim);padding:1.2rem 1.6rem;font-size:12px;color:var(--text-muted);line-height:1.8;}
+    .setup-notice strong{color:var(--gold);}
+    .setup-notice code{background:rgba(255,255,255,0.05);padding:0.1rem 0.4rem;font-size:11px;color:var(--gold-glow);}
+    .setup-key-row{display:flex;gap:0.5rem;margin-top:0.8rem;flex-wrap:wrap;}
+    .setup-input{background:var(--space-dark);border:0.5px solid var(--border);color:var(--text-main);font-family:'DM Sans',sans-serif;font-size:12px;padding:0.4rem 0.8rem;flex:1;min-width:260px;outline:none;}
+    .setup-input:focus{border-color:var(--border-bright);}
+    .setup-btn{background:transparent;border:0.5px solid var(--gold-dim);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+    .setup-btn:hover{background:rgba(201,168,76,0.1);}
+
+    /* Scientific visits timeline */
+    .visits-timeline{display:flex;flex-direction:column;gap:0;}
+    .visit-entry{display:grid;grid-template-columns:72px 1fr;gap:0 1.8rem;position:relative;}
+    .visit-left{display:flex;flex-direction:column;align-items:center;}
+    .visit-dot{width:10px;height:10px;border-radius:50%;border:0.5px solid var(--gold);background:var(--space-dark);flex-shrink:0;margin-top:0.4rem;position:relative;z-index:1;}
+    .visit-dot.current{background:var(--gold);}
+    .visit-line{flex:1;width:0.5px;background:var(--border);margin:4px 0;}
+    .visit-entry:last-child .visit-line{display:none;}
+    .visit-year{font-size:10px;letter-spacing:0.1em;color:var(--gold-dim);margin-top:0.2rem;text-align:center;}
+
+    .visit-body{padding-bottom:3rem;}
+    .visit-photo{width:100%;max-width:480px;aspect-ratio:16/9;overflow:hidden;background:var(--space-card);border:0.5px solid var(--border);margin-bottom:1rem;}
+    .visit-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(0.6) brightness(0.8);transition:all 0.4s;}
+    .visit-photo:hover img{filter:saturate(0.85) brightness(0.95);}
+    .visit-photo-placeholder{width:100%;max-width:480px;aspect-ratio:16/9;background:var(--space-card);border:0.5px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-dim);letter-spacing:0.08em;margin-bottom:1rem;}
+    .visit-institution{font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:400;color:var(--text-main);margin-bottom:0.2rem;}
+    .visit-meta{font-size:11px;color:var(--text-dim);letter-spacing:0.04em;margin-bottom:0.6rem;}
+    .visit-writeup{font-size:13px;color:var(--text-muted);line-height:1.8;max-width:520px;font-style:italic;}
+    .visit-writeup.placeholder{color:var(--text-dim);}
+
+    /* Science map */
     .science-map-container{height:420px;background:var(--space-card);}
 
     .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
@@ -78,6 +112,7 @@
     .footer-links{display:flex;gap:1.6rem;flex-wrap:wrap;}
     .footer-links a{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);transition:color 0.2s;}
     .footer-links a:hover{color:var(--gold);}
+
     @media(max-width:640px){
       nav{padding:1rem 1.2rem;}
       .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(9,13,26,0.97);padding:1.5rem;gap:1.2rem;border-bottom:0.5px solid var(--border);}
@@ -85,21 +120,24 @@
       .nav-toggle{display:flex;}
       .page-header{padding:3.5rem 1.2rem 2rem;}
       .travel-layout{padding:0 1.2rem 5rem;}
-      .map-container,.science-map-container{height:280px;}
+      .map-container,.science-map-container{height:260px;}
+      .visit-entry{grid-template-columns:48px 1fr;gap:0 1rem;}
       footer{padding:1.5rem 1.2rem;}
     }
   </style>
 </head>
 <body>
   <canvas id="starCanvas"></canvas>
+
   <nav>
     <div class="nav-brand">Kartav Kesri</div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
+      <li><a href="research.html">Experience</a></li>
       <li><a href="publications.html">Publications</a></li>
+      <li><a href="interests.html">Research Interests</a></li>
       <li><a href="travel.html" class="active">Travel</a></li>
     </ul>
   </nav>
@@ -115,10 +153,10 @@
     <!-- Stats -->
     <section class="reveal">
       <div class="stats-row">
-        <div class="stat-box"><div class="stat-num" id="countryCount">13</div><div class="stat-label">Countries</div></div>
-        <div class="stat-box"><div class="stat-num" id="cityCount">0</div><div class="stat-label">Cities</div></div>
+        <div class="stat-box"><div class="stat-num">13</div><div class="stat-label">Countries</div></div>
+        <div class="stat-box"><div class="stat-num" id="cityCount">—</div><div class="stat-label">Cities</div></div>
         <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Continents</div></div>
-        <div class="stat-box"><div class="stat-num">9</div><div class="stat-label">Science Institutions</div></div>
+        <div class="stat-box"><div class="stat-num">9+</div><div class="stat-label">Science Institutions</div></div>
       </div>
     </section>
 
@@ -142,7 +180,7 @@
       </div>
     </section>
 
-    <!-- Tourism map + city manager -->
+    <!-- Tourism map -->
     <section class="reveal">
       <div class="section-rule"><span class="section-label">Tourism Map</span></div>
       <div class="map-wrap">
@@ -151,21 +189,251 @@
 
       <!-- City manager -->
       <div class="city-manager">
-        <div class="city-manager-title">✦ &nbsp;Manage your cities — add or remove anytime</div>
-        <div class="city-input-row">
-          <input class="city-input" id="cityInput" type="text" placeholder="Type a city name, e.g. Amsterdam" />
+        <div class="city-manager-title">✦ &nbsp;My Cities — add or remove anytime, syncs across all devices</div>
+
+        <!-- JSONbin setup (shown only until configured) -->
+        <div class="setup-notice" id="setupNotice">
+          <strong>One-time setup required for cross-device sync.</strong><br/>
+          This uses a free service called JSONbin to store your city list online so it works on every device.<br/>
+          1. Go to <strong>jsonbin.io</strong> → Sign up free → Go to API Keys → copy your <strong>Master Key</strong><br/>
+          2. Paste it below and click Save. That's it — your cities will sync everywhere.
+          <div class="setup-key-row">
+            <input class="setup-input" id="jsonbinKeyInput" type="password" placeholder="Paste your JSONbin Master Key here" />
+            <button class="setup-btn" id="saveKeyBtn">Save Key</button>
+          </div>
+        </div>
+
+        <div class="city-input-row" style="margin-top:1rem;">
+          <input class="city-input" id="cityInput" type="text" placeholder="Type a city name, e.g. Hanoi" />
           <button class="city-btn" id="addCityBtn">Add City</button>
         </div>
         <div class="city-tags" id="cityTags"></div>
-        <div class="city-hint">Cities are saved in your browser and appear as pins on the map above. To remove a city, click the × next to it. No code editing needed.</div>
+        <div class="city-status" id="cityStatus"></div>
       </div>
     </section>
 
-    <!-- Scientific visits map -->
+    <!-- Science map -->
     <section class="reveal">
       <div class="section-rule"><span class="section-label">Scientific Visits Map</span></div>
       <div class="map-wrap">
         <div id="scienceMap" class="science-map-container"></div>
+      </div>
+    </section>
+
+    <!-- Scientific visits timeline -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Scientific Visits — A Field Journal</span></div>
+      <div class="visits-timeline">
+
+        <!-- 2021 -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year">2021</div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo-placeholder">[ Add photo: assets/images/visit/miranda.jpeg ]</div>
+            <div class="visit-institution">Miranda House, University of Delhi</div>
+            <div class="visit-meta">Delhi, India &nbsp;·&nbsp; Jun – Sep 2021 &nbsp;·&nbsp; Remote Internship</div>
+            <div class="visit-writeup placeholder">[ Write a short note about this visit — what you worked on, what you remember, what you took away. ]</div>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year">2022</div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo-placeholder">[ Add photo: assets/images/visit/iiser-a.jpg ]</div>
+            <div class="visit-institution">IISER Pune</div>
+            <div class="visit-meta">Pune, India &nbsp;·&nbsp; Jun – Jul 2022 &nbsp;·&nbsp; Reading Project</div>
+            <div class="visit-writeup placeholder">[ Write a short note about this visit. ]</div>
+          </div>
+        </div>
+
+        <!-- 2023 IIA -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year">2023</div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo">
+              <img src="assets/images/visit/iia-a.jpg" alt="IIA Bangalore" loading="lazy" />
+            </div>
+            <div class="visit-institution">Indian Institute of Astrophysics (IIA)</div>
+            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; May – Jul 2023 &nbsp;·&nbsp; On-site Internship</div>
+            <div class="visit-writeup placeholder">[ Write about your time at IIA — working with Dr. Piyali Chatterjee on solar spicule simulations, what the campus was like, what this internship meant for your research trajectory. ]</div>
+          </div>
+        </div>
+
+        <!-- 2023 IISc MHD workshop -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year"></div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo">
+              <img src="assets/images/visit/iisc-a.jpg" alt="IISc Bangalore" loading="lazy" />
+            </div>
+            <div class="visit-institution">Indian Institute of Science (IISc)</div>
+            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; Jul 2023 &nbsp;·&nbsp; MHD/PLUTO Workshop</div>
+            <div class="visit-writeup placeholder">[ Write about the PLUTO code workshop — what you learned, who you met, how it shaped your understanding of MHD simulations. ]</div>
+          </div>
+        </div>
+
+        <!-- 2023 IUCAA -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year"></div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo">
+              <img src="assets/images/visit/iucaa-c.JPEG" alt="IUCAA Pune" loading="lazy" />
+            </div>
+            <div class="visit-institution">Inter-University Centre for Astronomy and Astrophysics (IUCAA)</div>
+            <div class="visit-meta">Pune, India &nbsp;·&nbsp; Oct 2023 – Jan 2024 &nbsp;·&nbsp; Hybrid Internship</div>
+            <div class="visit-writeup placeholder">[ Write about working on compact stars in the Buchdahl limit with Dr. Debarati Chatterjee and Dr. Naresh Dadhich. What was the IUCAA environment like? ]</div>
+          </div>
+        </div>
+
+        <!-- 2023 IITK -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year"></div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo">
+              <img src="assets/images/visit/iit-a.jpg" alt="IIT Kanpur" loading="lazy" />
+            </div>
+            <div class="visit-institution">Indian Institute of Technology Kanpur (IITK)</div>
+            <div class="visit-meta">Kanpur, India &nbsp;·&nbsp; Oct – Nov 2023 &nbsp;·&nbsp; Solar Physics Workshop</div>
+            <div class="visit-writeup placeholder">[ Write about the Aditya-L1 and solar physics workshop at IITK. ]</div>
+          </div>
+        </div>
+
+        <!-- 2024 ASI IISc -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year">2024</div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo">
+              <img src="assets/images/visit/iisc-poster.jpg" alt="ASI Conference IISc" loading="lazy" />
+            </div>
+            <div class="visit-institution">Indian Institute of Science (IISc) — ASI Conference</div>
+            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; Jan – Feb 2024 &nbsp;·&nbsp; 42nd ASI Annual Meeting</div>
+            <div class="visit-writeup placeholder">[ Write about presenting your poster at the ASI conference — first time presenting at a national conference, what the experience was like, who you met. ]</div>
+          </div>
+        </div>
+
+        <!-- 2024 ICTS -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year"></div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo">
+              <img src="assets/images/visit/icts-a.jpg" alt="ICTS-TIFR" loading="lazy" />
+            </div>
+            <div class="visit-institution">International Centre for Theoretical Sciences (ICTS-TIFR)</div>
+            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; May 2024 &nbsp;·&nbsp; Geophysical Fluid Dynamics Conference</div>
+            <div class="visit-writeup placeholder">[ Write about the ICTS conference — what the programme covered, your poster presentation, the ICTS campus, and what you got out of it scientifically. ]</div>
+          </div>
+        </div>
+
+        <!-- 2024 Sorbonne / Paris M1 -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year"></div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo">
+              <img src="assets/images/visit/su-a.jpg" alt="Sorbonne Université" loading="lazy" />
+            </div>
+            <div class="visit-institution">Sorbonne Université &amp; Université Paris Cité</div>
+            <div class="visit-meta">Paris, France &nbsp;·&nbsp; Sep 2024 – Jul 2025 &nbsp;·&nbsp; M1 Paris Physics Master</div>
+            <div class="visit-writeup placeholder">[ Write about arriving in Paris for the M1, the transition from India to France, studying at Jussieu, and what the first year of the master's was like. ]</div>
+          </div>
+        </div>
+
+        <!-- 2025 ISTA -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year">2025</div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo-placeholder">[ Add photo from IST Austria visit ]</div>
+            <div class="visit-institution">Institute of Science and Technology Austria (ISTA)</div>
+            <div class="visit-meta">Klosterneuburg, Austria &nbsp;·&nbsp; May 2025 &nbsp;·&nbsp; XShootU Discussion Meeting</div>
+            <div class="visit-writeup placeholder">[ Write about the XShootU meeting at ISTA — what was discussed, what ISTA's campus near Vienna was like, who you met. ]</div>
+          </div>
+        </div>
+
+        <!-- 2025 BAS Sofia -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year"></div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo-placeholder">[ Add photo from Bulgarian Academy of Sciences visit ]</div>
+            <div class="visit-institution">Bulgarian Academy of Sciences (BAS)</div>
+            <div class="visit-meta">Sofia, Bulgaria &nbsp;·&nbsp; Jun 2025 &nbsp;·&nbsp; Conference Poster</div>
+            <div class="visit-writeup placeholder">[ Write about the conference in Sofia — your poster presentation, what Sofia was like, the scientific atmosphere. ]</div>
+          </div>
+        </div>
+
+        <!-- 2025 Marseille MaNiTou -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot"></div>
+            <div class="visit-year"></div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo-placeholder">[ Add photo from Aix-Marseille visit ]</div>
+            <div class="visit-institution">Aix-Marseille Université</div>
+            <div class="visit-meta">Marseille, France &nbsp;·&nbsp; Summer 2025 &nbsp;·&nbsp; MaNiTou GW Summer School</div>
+            <div class="visit-writeup placeholder">[ Write about the MaNiTou gravitational waves summer school — what topics were covered, who taught, what Marseille was like. ]</div>
+          </div>
+        </div>
+
+        <!-- 2025 Obs Paris M2 -->
+        <div class="visit-entry">
+          <div class="visit-left">
+            <div class="visit-dot current"></div>
+            <div class="visit-year">Now</div>
+            <div class="visit-line"></div>
+          </div>
+          <div class="visit-body">
+            <div class="visit-photo-placeholder">[ Add photo from Observatoire de Paris, Meudon ]</div>
+            <div class="visit-institution">Observatoire de Paris — Meudon</div>
+            <div class="visit-meta">Meudon, France &nbsp;·&nbsp; Sep 2025 – Present &nbsp;·&nbsp; M2 Internship · LESIA</div>
+            <div class="visit-writeup placeholder">[ Write about your current internship at the Observatoire — the Meudon campus, working with Dr. Corentin Louis, what a day in the lab looks like, Juno data on your screen. ]</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -183,7 +451,7 @@
   </footer>
 
   <script>
-    /* ── Star field ── */
+    /* ── Stars ── */
     const canvas=document.getElementById('starCanvas'),ctx=canvas.getContext('2d');
     function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
     resizeCanvas();window.addEventListener('resize',resizeCanvas);
@@ -191,149 +459,194 @@
     let frame=0;
     function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{const a=s.lo+(s.hi-s.lo)*(0.5+0.5*Math.sin(frame*s.speed*60+s.phase));ctx.beginPath();ctx.arc(s.x*canvas.width,s.y*canvas.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${a.toFixed(3)})`;ctx.fill();});frame++;requestAnimationFrame(drawStars);}
     drawStars();
+
+    /* ── Nav ── */
     document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+
+    /* ── Scroll reveal ── */
     const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.05});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     setTimeout(()=>document.querySelector('.page-header').classList.add('visible'),80);
 
-    /* ── Dark map tile layer ── */
-    const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-      attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
-    });
+    /* ── Dark map tiles ── */
+    const darkTiles=()=>L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19});
 
     /* ── Tourism map ── */
-    const tourismMap = L.map('tourismMap',{zoomControl:true,scrollWheelZoom:false}).setView([30,20],2);
-    darkTiles.addTo(tourismMap);
+    const tourismMap=L.map('tourismMap',{zoomControl:true,scrollWheelZoom:false}).setView([30,20],2);
+    darkTiles().addTo(tourismMap);
+    const goldIcon=L.divIcon({className:'',html:`<div style="width:10px;height:10px;border-radius:50%;background:#c9a84c;border:1.5px solid #e8c97a;box-shadow:0 0 6px rgba(201,168,76,0.5);"></div>`,iconSize:[10,10],iconAnchor:[5,5]});
 
-    const goldIcon = L.divIcon({
-      className:'',
-      html:`<div style="width:10px;height:10px;border-radius:50%;background:#c9a84c;border:1.5px solid #e8c97a;box-shadow:0 0 6px rgba(201,168,76,0.6);"></div>`,
-      iconSize:[10,10], iconAnchor:[5,5]
-    });
+    /* ── JSONbin city sync ── */
+    const MASTER_KEY_STORE = 'kartav_jsonbin_key';
+    const BIN_ID_STORE     = 'kartav_jsonbin_bin';
+    const GEOCACHE_STORE   = 'kartav_geocache';
 
-    /* ── City storage using localStorage ── */
-    // Geocode cache (city name -> [lat, lng])
-    const GEOCACHE_KEY = 'kartav_geocache';
-    const CITIES_KEY   = 'kartav_cities';
+    const getKey  = ()=>localStorage.getItem(MASTER_KEY_STORE)||'';
+    const getBinId= ()=>localStorage.getItem(BIN_ID_STORE)||'';
+    const getCache= ()=>{try{return JSON.parse(localStorage.getItem(GEOCACHE_STORE)||'{}');}catch(e){return{};}};
+    const saveCache=(c)=>localStorage.setItem(GEOCACHE_STORE,JSON.stringify(c));
 
-    function loadCache(){ try{ return JSON.parse(localStorage.getItem(GEOCACHE_KEY)||'{}'); }catch(e){return{};} }
-    function saveCache(c){ localStorage.setItem(GEOCACHE_KEY, JSON.stringify(c)); }
-    function loadCities(){ try{ return JSON.parse(localStorage.getItem(CITIES_KEY)||'[]'); }catch(e){return[];} }
-    function saveCities(arr){ localStorage.setItem(CITIES_KEY, JSON.stringify(arr)); }
+    function setStatus(msg,type=''){
+      const el=document.getElementById('cityStatus');
+      el.textContent=msg; el.className='city-status'+(type?' '+type:'');
+    }
 
-    let cityMarkers = {};
+    async function fetchBin(){
+      const key=getKey(), binId=getBinId();
+      if(!key||!binId) return [];
+      try{
+        const r=await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`,{headers:{'X-Master-Key':key}});
+        const d=await r.json();
+        return d.record?.cities||[];
+      }catch(e){return [];}
+    }
+
+    async function saveBin(cities){
+      const key=getKey(); let binId=getBinId();
+      if(!key) return false;
+      try{
+        if(!binId){
+          // Create bin on first save
+          const r=await fetch('https://api.jsonbin.io/v3/b',{
+            method:'POST',
+            headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'kartav-cities'},
+            body:JSON.stringify({cities})
+          });
+          const d=await r.json();
+          binId=d.metadata?.id;
+          if(!binId) return false;
+          localStorage.setItem(BIN_ID_STORE,binId);
+        } else {
+          await fetch(`https://api.jsonbin.io/v3/b/${binId}`,{
+            method:'PUT',
+            headers:{'Content-Type':'application/json','X-Master-Key':key},
+            body:JSON.stringify({cities})
+          });
+        }
+        return true;
+      }catch(e){return false;}
+    }
+
+    let cityMarkers={};
+    let allCities=[];
 
     async function geocodeCity(name){
-      const cache = loadCache();
+      const cache=getCache();
       if(cache[name]) return cache[name];
       try{
-        const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(name)}&format=json&limit=1`);
-        const data = await res.json();
-        if(data && data[0]){
-          const coords = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
-          cache[name] = coords;
-          saveCache(cache);
-          return coords;
-        }
+        const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(name)}&format=json&limit=1`);
+        const d=await r.json();
+        if(d&&d[0]){const coords=[parseFloat(d[0].lat),parseFloat(d[0].lon)];cache[name]=coords;saveCache(cache);return coords;}
       }catch(e){}
       return null;
     }
 
-    function renderCityTags(){
-      const cities = loadCities();
-      const container = document.getElementById('cityTags');
-      container.innerHTML = '';
-      cities.forEach(city => {
-        const tag = document.createElement('span');
-        tag.className = 'city-tag';
-        tag.innerHTML = `${city} <button onclick="removeCity('${city.replace(/'/g,"\\'")}')">×</button>`;
-        container.appendChild(tag);
-      });
-      document.getElementById('cityCount').textContent = cities.length;
-    }
-
-    async function addCityToMap(name){
+    async function addCityPin(name){
       if(cityMarkers[name]) return;
-      const coords = await geocodeCity(name);
+      const coords=await geocodeCity(name);
       if(coords){
-        const m = L.marker(coords, {icon: goldIcon}).addTo(tourismMap).bindPopup(`<span style="color:#c9a84c;font-family:'DM Sans',sans-serif;font-size:13px;">${name}</span>`);
-        cityMarkers[name] = m;
+        cityMarkers[name]=L.marker(coords,{icon:goldIcon}).addTo(tourismMap)
+          .bindPopup(`<span style="color:#c9a84c;font-family:'DM Sans',sans-serif;font-size:13px;">${name}</span>`);
       }
     }
 
-    async function initCities(){
-      const cities = loadCities();
-      for(const city of cities){ await addCityToMap(city); }
-      renderCityTags();
+    function renderTags(){
+      const container=document.getElementById('cityTags');
+      container.innerHTML='';
+      allCities.forEach(city=>{
+        const tag=document.createElement('span');
+        tag.className='city-tag';
+        const btn=document.createElement('button');
+        btn.className='city-remove'; btn.textContent='×';
+        btn.addEventListener('click',()=>removeCity(city));
+        tag.appendChild(document.createTextNode(city+' '));
+        tag.appendChild(btn);
+        container.appendChild(tag);
+      });
+      document.getElementById('cityCount').textContent=allCities.length||'—';
     }
 
-    window.removeCity = function(name){
-      const cities = loadCities().filter(c => c !== name);
-      saveCities(cities);
-      if(cityMarkers[name]){ tourismMap.removeLayer(cityMarkers[name]); delete cityMarkers[name]; }
-      renderCityTags();
-    };
+    async function removeCity(name){
+      allCities=allCities.filter(c=>c!==name);
+      if(cityMarkers[name]){tourismMap.removeLayer(cityMarkers[name]);delete cityMarkers[name];}
+      renderTags();
+      const ok=await saveBin(allCities);
+      setStatus(ok?'Saved.':'Saved locally only — check your API key.',ok?'success':'error');
+    }
 
-    document.getElementById('addCityBtn').addEventListener('click', async () => {
-      const input = document.getElementById('cityInput');
-      const name = input.value.trim();
-      if(!name) return;
-      const cities = loadCities();
-      if(cities.includes(name)){ input.value=''; return; }
-      cities.push(name);
-      saveCities(cities);
-      renderCityTags();
-      input.value = '';
-      await addCityToMap(name);
+    async function initCities(){
+      const key=getKey();
+      if(key){
+        document.getElementById('setupNotice').style.display='none';
+        setStatus('Loading your cities…');
+        allCities=await fetchBin();
+        setStatus('');
+      } else {
+        allCities=[];
+      }
+      renderTags();
+      for(const city of allCities) await addCityPin(city);
+    }
+
+    /* Save API key */
+    document.getElementById('saveKeyBtn').addEventListener('click',async()=>{
+      const key=document.getElementById('jsonbinKeyInput').value.trim();
+      if(!key){setStatus('Please paste a valid key.','error');return;}
+      localStorage.setItem(MASTER_KEY_STORE,key);
+      document.getElementById('setupNotice').style.display='none';
+      setStatus('Key saved! Loading cities…');
+      allCities=await fetchBin();
+      renderTags();
+      for(const city of allCities) await addCityPin(city);
+      setStatus('Ready.','success');
     });
 
-    document.getElementById('cityInput').addEventListener('keydown', e => {
-      if(e.key === 'Enter') document.getElementById('addCityBtn').click();
+    /* Add city */
+    document.getElementById('addCityBtn').addEventListener('click',async()=>{
+      const input=document.getElementById('cityInput');
+      const name=input.value.trim();
+      if(!name||allCities.includes(name)){input.value='';return;}
+      allCities.push(name);
+      renderTags();
+      input.value='';
+      setStatus('Geocoding…');
+      await addCityPin(name);
+      const ok=await saveBin(allCities);
+      setStatus(ok?'Saved across all your devices ✓':'Saved locally — connect JSONbin for cross-device sync.',ok?'success':'');
     });
+
+    document.getElementById('cityInput').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('addCityBtn').click();});
 
     initCities();
 
-    /* ── Science visits map ── */
-    const scienceMap = L.map('scienceMap',{zoomControl:true,scrollWheelZoom:false}).setView([25,60],2);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-      attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
-    }).addTo(scienceMap);
-
-    const sciIcon = L.divIcon({
-      className:'',
-      html:`<div style="width:11px;height:11px;border-radius:50%;background:#4a9fc8;border:1.5px solid #7cc8f0;box-shadow:0 0 7px rgba(74,159,200,0.6);"></div>`,
-      iconSize:[11,11], iconAnchor:[5.5,5.5]
-    });
-
-    const scienceVisits = [
-      { name:'IUCAA, Pune', coords:[18.5204, 73.8567] },
-      { name:'IIA, Bengaluru', coords:[12.9716, 77.5946] },
-      { name:'ICTS-TIFR, Bangalore', coords:[13.0202, 77.5032] },
-      { name:'IISc, Bangalore', coords:[13.0219, 77.5671] },
-      { name:'IISER Bhopal', coords:[23.2599, 77.4126] },
-      { name:'IISER Pune', coords:[18.5454, 73.8079] },
-      { name:'NISER, Bhubaneswar', coords:[20.2961, 85.8189] },
-      { name:'IIT Kanpur', coords:[26.5123, 80.2329] },
-      { name:'ISRO, Bangalore', coords:[13.0358, 77.5672] },
-      { name:'Miranda House, Delhi', coords:[28.6862, 77.2135] },
-      { name:'Stockholm University', coords:[59.3293, 18.0686] },
-      { name:'ASIAA, Taipei', coords:[25.0236, 121.5342] },
-      { name:'INAOE, Mexico', coords:[19.0414, -98.2063] },
-      { name:'Sorbonne Université, Paris', coords:[48.8480, 2.3549] },
-      { name:'Observatoire de Paris, Meudon', coords:[48.8053, 2.2300] },
-      { name:'Université Paris Cité', coords:[48.8272, 2.3818] },
-      { name:'Université Paris-Saclay', coords:[48.7077, 2.1703] },
-      { name:'IP Paris, Palaiseau', coords:[48.7130, 2.2107] },
-      { name:'IST Austria, Klosterneuburg', coords:[48.3069, 16.2610] },
-      { name:'Bulgarian Academy of Sciences, Sofia', coords:[42.6977, 23.3219] },
-      { name:'Aix-Marseille Université', coords:[43.2965, 5.3698] },
+    /* ── Science map ── */
+    const scienceMap=L.map('scienceMap',{zoomControl:true,scrollWheelZoom:false}).setView([25,60],2);
+    darkTiles().addTo(scienceMap);
+    const sciIcon=L.divIcon({className:'',html:`<div style="width:11px;height:11px;border-radius:50%;background:#4a9fc8;border:1.5px solid #7cc8f0;box-shadow:0 0 7px rgba(74,159,200,0.5);"></div>`,iconSize:[11,11],iconAnchor:[5.5,5.5]});
+    const scienceVisits=[
+      {name:'Miranda House, Delhi',coords:[28.6862,77.2135]},
+      {name:'IISER Pune',coords:[18.5454,73.8079]},
+      {name:'IIA, Bengaluru',coords:[12.9716,77.5946]},
+      {name:'IISc, Bengaluru',coords:[13.0219,77.5671]},
+      {name:'IUCAA, Pune',coords:[18.5204,73.8567]},
+      {name:'ICTS-TIFR, Bengaluru',coords:[13.0202,77.5032]},
+      {name:'IIT Kanpur',coords:[26.5123,80.2329]},
+      {name:'ISRO, Bengaluru',coords:[13.0358,77.5672]},
+      {name:'NISER, Bhubaneswar',coords:[20.2961,85.8189]},
+      {name:'IISER Bhopal',coords:[23.2599,77.4126]},
+      {name:'Stockholm University',coords:[59.3293,18.0686]},
+      {name:'ASIAA, Taipei',coords:[25.0236,121.5342]},
+      {name:'INAOE, Mexico',coords:[19.0414,-98.2063]},
+      {name:'Sorbonne Université, Paris',coords:[48.8480,2.3549]},
+      {name:'Université Paris Cité',coords:[48.8272,2.3818]},
+      {name:'Université Paris-Saclay',coords:[48.7077,2.1703]},
+      {name:'IP Paris, Palaiseau',coords:[48.7130,2.2107]},
+      {name:'Observatoire de Paris — Meudon',coords:[48.8053,2.2300]},
+      {name:'IST Austria, Klosterneuburg',coords:[48.3069,16.2610]},
+      {name:'Bulgarian Academy of Sciences, Sofia',coords:[42.6977,23.3219]},
+      {name:'Aix-Marseille Université',coords:[43.2965,5.3698]},
     ];
-
-    scienceVisits.forEach(v => {
-      L.marker(v.coords, {icon: sciIcon})
-        .addTo(scienceMap)
-        .bindPopup(`<span style="color:#4a9fc8;font-family:'DM Sans',sans-serif;font-size:13px;">${v.name}</span>`);
-    });
+    scienceVisits.forEach(v=>L.marker(v.coords,{icon:sciIcon}).addTo(scienceMap).bindPopup(`<span style="color:#4a9fc8;font-family:'DM Sans',sans-serif;font-size:13px;">${v.name}</span>`));
   </script>
 </body>
 </html>

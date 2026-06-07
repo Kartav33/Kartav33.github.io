@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Interests — Kartav Kesri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --space-dark:#090d1a;--space-card:#111827;--space-mid:#0e1628;
+      --gold:#c9a84c;--gold-dim:#8a6e2e;--gold-glow:#e8c97a;
+      --text-main:#e8e4d8;--text-muted:#8891aa;--text-dim:#4a5268;
+      --border:rgba(201,168,76,0.15);--border-bright:rgba(201,168,76,0.40);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--space-dark);color:var(--text-main);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    #starCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+    /* ── Nav ── */
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;border-bottom:0.5px solid var(--border);background:rgba(9,13,26,0.88);backdrop-filter:blur(14px);}
+    .nav-brand{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:300;color:var(--gold-glow);letter-spacing:0.04em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-size:11px;color:var(--text-muted);letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-toggle span{display:block;width:22px;height:0.5px;background:var(--text-muted);}
+
+    /* ── Page header ── */
+    .page-header{position:relative;z-index:1;padding:5rem 2.5rem 3rem;max-width:900px;}
+    .page-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+    .page-eyebrow::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+    .page-title{font-family:'Crimson Pro',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:300;line-height:1.1;}
+    .page-title em{font-style:italic;color:var(--gold-glow);}
+    .page-subtitle{font-size:14px;color:var(--text-muted);margin-top:1rem;max-width:560px;line-height:1.85;}
+
+    /* ── Topic nav sidebar ── */
+    .interests-layout{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 2.5rem 6rem;display:grid;grid-template-columns:200px 1fr;gap:4rem;align-items:start;}
+    .topic-nav{position:sticky;top:5rem;display:flex;flex-direction:column;gap:0;}
+    .topic-nav-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:0.5px solid var(--border);}
+    .topic-nav a{font-size:12px;color:var(--text-dim);padding:0.5rem 0;border-left:0.5px solid var(--border);padding-left:1rem;transition:all 0.2s;line-height:1.4;}
+    .topic-nav a:hover{color:var(--text-muted);border-color:var(--gold-dim);}
+    .topic-nav a.active-topic{color:var(--gold);border-color:var(--gold);}
+
+    /* ── Topic sections ── */
+    .topics{display:flex;flex-direction:column;gap:5rem;}
+
+    .topic-section{scroll-margin-top:5rem;}
+    .topic-header{margin-bottom:2rem;}
+    .topic-number{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.5rem;}
+    .topic-title{font-family:'Crimson Pro',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;line-height:1.1;color:var(--text-main);}
+    .topic-title em{font-style:italic;color:var(--gold-glow);}
+    .topic-rule{width:40px;height:0.5px;background:var(--border-bright);margin-top:1rem;}
+
+    /* Summary card */
+    .topic-summary{font-family:'Crimson Pro',serif;font-size:1.18rem;font-weight:300;font-style:italic;color:var(--text-muted);line-height:1.9;border-left:0.5px solid var(--border-bright);padding-left:1.5rem;margin-bottom:2rem;}
+
+    /* Body text */
+    .topic-body{font-size:14px;color:var(--text-muted);line-height:1.9;display:flex;flex-direction:column;gap:1.2rem;}
+    .topic-body p{max-width:640px;}
+
+    /* Expand/collapse */
+    .expand-toggle{display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.8rem;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-dim);cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;padding:0;transition:color 0.2s;}
+    .expand-toggle:hover{color:var(--gold);}
+    .expand-toggle .arrow{transition:transform 0.3s;}
+    .expand-toggle.open .arrow{transform:rotate(90deg);}
+    .expandable{max-height:0;overflow:hidden;transition:max-height 0.5s ease;}
+    .expandable.open{max-height:1200px;}
+
+    /* Open questions box */
+    .open-questions{background:var(--space-card);border:0.5px solid var(--border);padding:1.6rem 2rem;margin-top:2rem;}
+    .oq-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem;}
+    .oq-label::before{content:'?';display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border:0.5px solid var(--gold-dim);font-size:9px;color:var(--gold-dim);}
+    .oq-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem;}
+    .oq-list li{font-size:13px;color:var(--text-muted);padding-left:1.2rem;position:relative;line-height:1.65;}
+    .oq-list li::before{content:'—';position:absolute;left:0;color:var(--gold-dim);font-size:11px;}
+
+    /* Keywords */
+    .keyword-row{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.5rem;}
+    .keyword{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);border:0.5px solid var(--border);padding:0.25rem 0.7rem;}
+
+    /* Placeholder notice */
+    .placeholder-notice{background:rgba(201,168,76,0.05);border:0.5px dashed var(--gold-dim);padding:1rem 1.4rem;font-size:12px;color:var(--gold-dim);font-style:italic;line-height:1.7;margin-top:1rem;}
+
+    /* Divider between topics */
+    .topic-divider{height:0.5px;background:var(--border);width:100%;}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+
+    footer{position:relative;z-index:1;border-top:0.5px solid var(--border);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-left{font-family:'Crimson Pro',serif;font-size:0.9rem;color:var(--text-dim);}
+    .footer-links{display:flex;gap:1.6rem;flex-wrap:wrap;}
+    .footer-links a{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);transition:color 0.2s;}
+    .footer-links a:hover{color:var(--gold);}
+
+    @media(max-width:768px){
+      .interests-layout{grid-template-columns:1fr;gap:2rem;padding:0 1.2rem 5rem;}
+      .topic-nav{display:none;}
+      nav{padding:1rem 1.2rem;}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(9,13,26,0.97);padding:1.5rem;gap:1.2rem;border-bottom:0.5px solid var(--border);}
+      .nav-links.open{display:flex;}
+      .nav-toggle{display:flex;}
+      .page-header{padding:3.5rem 1.2rem 2rem;}
+      footer{padding:1.5rem 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starCanvas"></canvas>
+
+  <nav>
+    <div class="nav-brand">Kartav Kesri</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Experience</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="interests.html" class="active">Research Interests</a></li>
+      <li><a href="travel.html">Travel</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header reveal">
+    <div class="page-eyebrow">Research Interests</div>
+    <h1 class="page-title">The physics that <em>keeps me up at night</em></h1>
+    <p class="page-subtitle">A longer look at the problems I find most compelling — from the chromosphere of the Sun to the magnetosphere of Jupiter, and from neutron star interiors to the mathematics of curved spacetime.</p>
+  </header>
+
+  <div class="interests-layout">
+
+    <!-- Sidebar nav -->
+    <nav class="topic-nav" aria-label="Topic navigation">
+      <div class="topic-nav-label">Topics</div>
+      <a href="#jovian" class="active-topic">Jovian Magnetosphere</a>
+      <a href="#exoplanetary">Exoplanetary Magnetospheres</a>
+      <a href="#mhd">MHD Simulations</a>
+      <a href="#spicules">Solar Spicules</a>
+      <a href="#buchdahl">Buchdahl Stars</a>
+    </nav>
+
+    <!-- Topics -->
+    <div class="topics">
+
+      <!-- ══════════════════════════════════════════
+           1. JOVIAN MAGNETOSPHERE
+           ══════════════════════════════════════════ -->
+      <section class="topic-section reveal" id="jovian">
+        <div class="topic-header">
+          <div class="topic-number">01 — Current Research</div>
+          <h2 class="topic-title">Solar Wind &amp; the<br/><em>Jovian Magnetosphere</em></h2>
+          <div class="topic-rule"></div>
+        </div>
+
+        <div class="topic-summary">
+          <!-- EDIT ME: 2–3 sentence italic summary of the topic -->
+          Jupiter hosts the largest magnetosphere in the solar system, shaped not only by its own rapid rotation and volcanic moon Io, but also by the ever-changing pressure of the solar wind. Understanding how these two drivers interact is central to planetary space weather.
+        </div>
+
+        <div class="topic-body">
+          <p>
+            <!-- EDIT ME: Your main introductory paragraph about Jovian magnetosphere work -->
+            [Write a short paragraph here about what you are doing at LESIA — bKOM radio emissions, Juno/Waves data, MMESH solar wind model, dynamic pressure as a proxy, the Cyclotron Maser Instability, Poynting flux scaling etc. This is where you describe the actual science in your own words.]
+          </p>
+
+          <div class="placeholder-notice">
+            ✦ &nbsp;This section is reserved for your detailed write-up. Replace the bracketed text above and below with your own description of the science. Keep it conversational but precise.
+          </div>
+
+          <button class="expand-toggle" data-target="jovian-more">
+            <span class="arrow">▶</span> Read more
+          </button>
+          <div class="expandable" id="jovian-more">
+            <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
+              <p>
+                <!-- EDIT ME: Deeper technical paragraph — methods, data, analysis -->
+                [Write about the specific methods you use — how you extract bKOM emission from Juno/Waves dynamic spectra, how you cross-correlate with MMESH solar wind propagation, what coordinate systems (JSE) you work in, what you find.]
+              </p>
+              <p>
+                <!-- EDIT ME: Context / broader significance -->
+                [Why does this matter? Connection to space weather, upstream solar wind conditions, comparison with other planetary magnetospheres, future JUICE mission context.]
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="open-questions">
+          <div class="oq-label">Open Questions</div>
+          <ul class="oq-list">
+            <li>How exactly does the dynamic pressure of the solar wind modulate the occurrence rate and intensity of Jovian kilometric radiation (bKOM)?</li>
+            <li>What is the relative contribution of solar wind compression vs. rotational effects in triggering auroral radio emissions?</li>
+            <li>Can Juno/Waves in-situ measurements be used to directly calibrate solar wind propagation models like MMESH?</li>
+            <!-- EDIT ME: Add or replace with your own open questions -->
+          </ul>
+        </div>
+
+        <div class="keyword-row">
+          <span class="keyword">Jovian magnetosphere</span>
+          <span class="keyword">bKOM</span>
+          <span class="keyword">Solar wind</span>
+          <span class="keyword">Cyclotron Maser Instability</span>
+          <span class="keyword">Juno/Waves</span>
+          <span class="keyword">MMESH</span>
+          <span class="keyword">JSE coordinates</span>
+          <span class="keyword">Poynting flux</span>
+        </div>
+      </section>
+
+      <div class="topic-divider reveal"></div>
+
+      <!-- ══════════════════════════════════════════
+           2. EXOPLANETARY MAGNETOSPHERES
+           ══════════════════════════════════════════ -->
+      <section class="topic-section reveal" id="exoplanetary">
+        <div class="topic-header">
+          <div class="topic-number">02 — Extension of Current Work</div>
+          <h2 class="topic-title">Exoplanetary<br/><em>Magnetospheres</em></h2>
+          <div class="topic-rule"></div>
+        </div>
+
+        <div class="topic-summary">
+          <!-- EDIT ME -->
+          The same physical mechanisms that govern radio emission from Jupiter may be at work around planets orbiting distant stars. Detecting and characterising exoplanetary magnetic fields via radio emission is one of the most exciting frontiers in modern observational astrophysics.
+        </div>
+
+        <div class="topic-body">
+          <p>
+            <!-- EDIT ME: Why this interests you as an extension of your Jovian work -->
+            [Write about the natural extension from Jovian radio physics to exoplanetary radio emission — star-planet interactions, the analogy between Jupiter-Io and hot Jupiter systems, what facilities like LOFAR and SKA are looking for, and what scaling laws (like Zarka 2007) predict for exoplanetary radio flux.]
+          </p>
+
+          <button class="expand-toggle" data-target="exo-more">
+            <span class="arrow">▶</span> Read more
+          </button>
+          <div class="expandable" id="exo-more">
+            <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
+              <p>
+                <!-- EDIT ME: Technical detail -->
+                [Discuss specific systems of interest, detection challenges, what constraints on planetary magnetic fields would tell us about interior structure and habitability.]
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="open-questions">
+          <div class="oq-label">Open Questions</div>
+          <ul class="oq-list">
+            <li>Can the Jovian Poynting flux scaling law be reliably extended to predict radio emission from exoplanetary systems?</li>
+            <li>What stellar wind conditions are required to produce detectable radio emission from an Earth-like exoplanet?</li>
+            <li>How does a strong planetary magnetic field affect atmospheric retention and long-term habitability?</li>
+            <!-- EDIT ME -->
+          </ul>
+        </div>
+
+        <div class="keyword-row">
+          <span class="keyword">Exoplanets</span>
+          <span class="keyword">Star-planet interaction</span>
+          <span class="keyword">Radio emission</span>
+          <span class="keyword">LOFAR</span>
+          <span class="keyword">SKA</span>
+          <span class="keyword">Magnetic fields</span>
+          <span class="keyword">Habitability</span>
+        </div>
+      </section>
+
+      <div class="topic-divider reveal"></div>
+
+      <!-- ══════════════════════════════════════════
+           3. MHD SIMULATIONS
+           ══════════════════════════════════════════ -->
+      <section class="topic-section reveal" id="mhd">
+        <div class="topic-header">
+          <div class="topic-number">03 — Computational Interest</div>
+          <h2 class="topic-title">MHD &amp; Fluid Dynamics<br/><em>Simulations</em></h2>
+          <div class="topic-rule"></div>
+        </div>
+
+        <div class="topic-summary">
+          <!-- EDIT ME -->
+          Magnetohydrodynamics is the language in which much of plasma astrophysics is written. From the convection zone of the Sun to the magnetotail of Jupiter, numerical MHD simulations are an indispensable tool for connecting theory to observation.
+        </div>
+
+        <div class="topic-body">
+          <p>
+            <!-- EDIT ME: Your experience and interest in MHD codes -->
+            [Write about your hands-on experience with MHD simulations — Pencil Code for the spicule work, PLUTO from the IISc workshop, what you found interesting about each, what physical regimes they cover (compressible vs incompressible, resistive vs ideal MHD), and where you want to go with this.]
+          </p>
+
+          <button class="expand-toggle" data-target="mhd-more">
+            <span class="arrow">▶</span> Read more
+          </button>
+          <div class="expandable" id="mhd-more">
+            <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
+              <p>
+                <!-- EDIT ME: Deeper interest — what aspects of MHD fascinate you -->
+                [Discuss instabilities you find interesting — Kelvin-Helmholtz, Rayleigh-Taylor, reconnection? What about turbulence in magnetised plasmas? What open problems in numerical MHD would you like to work on?]
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="open-questions">
+          <div class="oq-label">Open Questions</div>
+          <ul class="oq-list">
+            <li>How do we correctly model the transition from the collisional solar interior to the collisionless solar wind in a single simulation framework?</li>
+            <li>What is the role of magnetic reconnection in heating the solar corona to millions of degrees?</li>
+            <li>How do turbulent MHD cascades behave in anisotropic, strongly magnetised plasmas like those found near compact objects?</li>
+            <!-- EDIT ME -->
+          </ul>
+        </div>
+
+        <div class="keyword-row">
+          <span class="keyword">MHD</span>
+          <span class="keyword">Pencil Code</span>
+          <span class="keyword">PLUTO</span>
+          <span class="keyword">Plasma instabilities</span>
+          <span class="keyword">Magnetic reconnection</span>
+          <span class="keyword">Turbulence</span>
+          <span class="keyword">Numerical methods</span>
+        </div>
+      </section>
+
+      <div class="topic-divider reveal"></div>
+
+      <!-- ══════════════════════════════════════════
+           4. SOLAR SPICULES
+           ══════════════════════════════════════════ -->
+      <section class="topic-section reveal" id="spicules">
+        <div class="topic-header">
+          <div class="topic-number">04 — Lead Author Work</div>
+          <h2 class="topic-title">Solar Spicules &amp;<br/><em>Chromospheric Dynamics</em></h2>
+          <div class="topic-rule"></div>
+        </div>
+
+        <div class="topic-summary">
+          <!-- EDIT ME -->
+          Spicules are needle-like jets of magnetised plasma that pepper the solar chromosphere at any given moment — ubiquitous, short-lived, and surprisingly poorly understood despite decades of observation. Their role in mass and energy transport between the photosphere and corona remains an open question.
+        </div>
+
+        <div class="topic-body">
+          <p>
+            <!-- EDIT ME: Summary of your published work and what you found -->
+            [Describe your IIA internship work and the resulting ApJ paper. What was the key question — how does the imposed magnetic field strength affect spicule height, velocity, lifetime? What did you find — the scaling relations, which properties were most sensitive to field strength? What code did you use (Pencil Code) and at what resolution (16 km)?]
+          </p>
+
+          <button class="expand-toggle" data-target="spicule-more">
+            <span class="arrow">▶</span> Read more
+          </button>
+          <div class="expandable" id="spicule-more">
+            <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
+              <p>
+                <!-- EDIT ME: What you find most fascinating about spicules -->
+                [The forest of spicules, the chromosphere as a boundary layer, what drives them — magnetoconvection undulations, the role of Alfvén waves, type I vs type II spicules. What would you want to study next in this area?]
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="open-questions">
+          <div class="oq-label">Open Questions</div>
+          <ul class="oq-list">
+            <li>Do spicules carry enough energy flux to sustain coronal heating, or is their contribution marginal compared to wave-based mechanisms?</li>
+            <li>What is the precise physical trigger for type II spicules — ambipolar diffusion, torsional Alfvén waves, or something else?</li>
+            <li>How do spicule properties vary systematically across different magnetic regions of the Sun (active regions, quiet Sun, coronal holes)?</li>
+            <!-- EDIT ME -->
+          </ul>
+        </div>
+
+        <div class="keyword-row">
+          <span class="keyword">Solar spicules</span>
+          <span class="keyword">Chromosphere</span>
+          <span class="keyword">Radiative MHD</span>
+          <span class="keyword">Pencil Code</span>
+          <span class="keyword">Magnetoconvection</span>
+          <span class="keyword">Solar corona</span>
+          <span class="keyword">ApJ 973 49</span>
+        </div>
+      </section>
+
+      <div class="topic-divider reveal"></div>
+
+      <!-- ══════════════════════════════════════════
+           5. BUCHDAHL STARS
+           ══════════════════════════════════════════ -->
+      <section class="topic-section reveal" id="buchdahl">
+        <div class="topic-header">
+          <div class="topic-number">05 — Compact Objects</div>
+          <h2 class="topic-title">Compact Stars &amp; the<br/><em>Buchdahl Limit</em></h2>
+          <div class="topic-rule"></div>
+        </div>
+
+        <div class="topic-summary">
+          <!-- EDIT ME -->
+          General relativity places a fundamental lower bound on the radius of a self-gravitating perfect fluid sphere — the Buchdahl limit at 9M/4. Objects approaching this limit represent some of the most extreme environments in the universe, sitting at the boundary between neutron stars and black holes.
+        </div>
+
+        <div class="topic-body">
+          <p>
+            <!-- EDIT ME: Summary of your IUCAA work on compact stars in the Buchdahl limit -->
+            [Describe your IUCAA internship — what you studied, what approach you used, what physically happens to a star as it approaches the Buchdahl limit, what your findings were. Who were your supervisors (Debarati Chatterjee, Naresh Dadhich) and how did this shape your interest in GR?]
+          </p>
+
+          <button class="expand-toggle" data-target="buchdahl-more">
+            <span class="arrow">▶</span> Read more
+          </button>
+          <div class="expandable" id="buchdahl-more">
+            <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
+              <p>
+                <!-- EDIT ME: Broader interest in GR, compact objects, gravitational waves -->
+                [Write about what draws you to the GR side of astrophysics — the elegance of the TOV equation, the equation of state problem for dense nuclear matter, how gravitational wave detections (LIGO, Virgo) are constraining neutron star interiors, and what the MaNiTou GW summer school taught you about this field.]
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="open-questions">
+          <div class="oq-label">Open Questions</div>
+          <ul class="oq-list">
+            <li>Can a compact object exist stably arbitrarily close to the Buchdahl limit without crossing the event horizon?</li>
+            <li>What does the equation of state of ultra-dense nuclear matter actually look like — and can gravitational wave observations constrain it sufficiently?</li>
+            <li>Is there an observational signature that distinguishes a near-Buchdahl compact star from a black hole?</li>
+            <!-- EDIT ME -->
+          </ul>
+        </div>
+
+        <div class="keyword-row">
+          <span class="keyword">Compact stars</span>
+          <span class="keyword">Buchdahl limit</span>
+          <span class="keyword">General relativity</span>
+          <span class="keyword">TOV equation</span>
+          <span class="keyword">Neutron stars</span>
+          <span class="keyword">Gravitational waves</span>
+          <span class="keyword">Equation of state</span>
+        </div>
+      </section>
+
+    </div><!-- /topics -->
+  </div><!-- /interests-layout -->
+
+  <footer>
+    <div class="footer-left">© 2025 Kartav Kesri</div>
+    <div class="footer-links">
+      <a href="https://github.com/Kartav33" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kartav-kesri-622718219/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/KartavK87350" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://orcid.org/0009-0000-2813-4508" target="_blank" rel="noopener">ORCID</a>
+      <a href="mailto:kartavkesri@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    /* Star field */
+    const canvas=document.getElementById('starCanvas'),ctx=canvas.getContext('2d');
+    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+    resizeCanvas();window.addEventListener('resize',resizeCanvas);
+    const stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.2,lo:Math.random()*0.18+0.04,hi:Math.random()*0.6+0.3,speed:Math.random()*0.006+0.002,phase:Math.random()*Math.PI*2}));
+    let frame=0;
+    function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{const a=s.lo+(s.hi-s.lo)*(0.5+0.5*Math.sin(frame*s.speed*60+s.phase));ctx.beginPath();ctx.arc(s.x*canvas.width,s.y*canvas.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${a.toFixed(3)})`;ctx.fill();});frame++;requestAnimationFrame(drawStars);}
+    drawStars();
+
+    /* Mobile nav */
+    document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+
+    /* Scroll reveal */
+    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.05});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    setTimeout(()=>document.querySelector('.page-header').classList.add('visible'),80);
+
+    /* Expand/collapse */
+    document.querySelectorAll('.expand-toggle').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const target=document.getElementById(btn.dataset.target);
+        const isOpen=target.classList.contains('open');
+        target.classList.toggle('open',!isOpen);
+        btn.classList.toggle('open',!isOpen);
+        btn.querySelector('.arrow').textContent=isOpen?'▶':'▼';
+        btn.childNodes[1].textContent=isOpen?' Read more':' Show less';
+      });
+    });
+
+    /* Sidebar active topic on scroll */
+    const sections=document.querySelectorAll('.topic-section');
+    const navLinks=document.querySelectorAll('.topic-nav a');
+    const scrollObs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          navLinks.forEach(l=>l.classList.remove('active-topic'));
+          const link=document.querySelector(`.topic-nav a[href="#${e.target.id}"]`);
+          if(link) link.classList.add('active-topic');
+        }
+      });
+    },{threshold:0.4});
+    sections.forEach(s=>scrollObs.observe(s));
+  </script>
+</body>
+</html>
