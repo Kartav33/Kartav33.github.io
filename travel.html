@@ -189,34 +189,36 @@
 
       <!-- City manager -->
       <div class="city-manager">
-        <div class="city-manager-title">✦ &nbsp;My Cities — add or remove anytime, syncs across all devices</div>
+        <div class="city-manager-title">✦ &nbsp;My Cities</div>
 
-        <!-- JSONbin setup (shown only until configured) -->
-        <div class="setup-notice" id="setupNotice">
-          <strong>One-time setup required for cross-device sync.</strong><br/>
-          This uses a free service called JSONbin to store your city list online so it works on every device.<br/>
-          1. Go to <strong>jsonbin.io</strong> → Sign up free → Go to API Keys → copy your <strong>Master Key</strong><br/>
-          2. Paste it below and click Save. That's it — your cities will sync everywhere.
-          <div class="setup-key-row">
-            <input class="setup-input" id="jsonbinKeyInput" type="password" placeholder="Paste your JSONbin Master Key here" />
-            <button class="setup-btn" id="saveKeyBtn">Save Key</button>
-          </div>
-        </div>
-
-        <div class="city-input-row" style="margin-top:1rem;">
-          <input class="city-input" id="cityInput" type="text" placeholder="Type a city name, e.g. Hanoi" />
-          <button class="city-btn" id="addCityBtn">Add City</button>
-        </div>
+        <!-- Public view: city tags always visible, edit locked -->
         <div class="city-tags" id="cityTags"></div>
-        <div class="city-status" id="cityStatus"></div>
-      </div>
-    </section>
 
-    <!-- Science map -->
-    <section class="reveal">
-      <div class="section-rule"><span class="section-label">Scientific Visits Map</span></div>
-      <div class="map-wrap">
-        <div id="scienceMap" class="science-map-container"></div>
+        <!-- Lock bar -->
+        <div class="city-lock-bar" style="margin-top:1rem;">
+          <span class="city-lock-info" id="lockInfo">🔒 City list is locked</span>
+          <button class="edit-btn" id="editBtn">Edit</button>
+        </div>
+
+        <!-- Password prompt (shown when Edit clicked) -->
+        <div id="passwordRow" style="display:none;">
+          <div class="password-row">
+            <input class="pass-input" id="passInput" type="password" placeholder="Enter password to edit" />
+            <button class="pass-btn" id="unlockBtn">Unlock</button>
+          </div>
+          <div class="pass-error" id="passError"></div>
+        </div>
+
+        <!-- Edit controls — hidden until unlocked -->
+        <div class="edit-controls" id="editControls">
+          <div class="city-input-row" style="margin-top:0.8rem;">
+            <input class="city-input" id="cityInput" type="text" placeholder="Type a city name, e.g. Hanoi" />
+            <button class="city-btn" id="addCityBtn">Add City</button>
+          </div>
+          <button class="edit-btn" id="lockBtn" style="margin-top:0.8rem;color:var(--text-dim);">🔒 Lock</button>
+        </div>
+
+        <div class="city-status" id="cityStatus"></div>
       </div>
     </section>
 
@@ -429,11 +431,19 @@
           <div class="visit-body">
             <div class="visit-photo-placeholder">[ Add photo from Observatoire de Paris, Meudon ]</div>
             <div class="visit-institution">Observatoire de Paris — Meudon</div>
-            <div class="visit-meta">Meudon, France &nbsp;·&nbsp; Sep 2025 – Present &nbsp;·&nbsp; M2 Internship · LIRA</div>
+            <div class="visit-meta">Meudon, France &nbsp;·&nbsp; Sep 2025 – Present &nbsp;·&nbsp; M2 Internship · LESIA</div>
             <div class="visit-writeup placeholder">[ Write about your current internship at the Observatoire — the Meudon campus, working with Dr. Corentin Louis, what a day in the lab looks like, Juno data on your screen. ]</div>
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- Science map -->
+    <section class="reveal">
+      <div class="section-rule"><span class="section-label">Scientific Visits Map</span></div>
+      <div class="map-wrap">
+        <div id="scienceMap" class="science-map-container"></div>
       </div>
     </section>
 
@@ -556,11 +566,13 @@
       allCities.forEach(city=>{
         const tag=document.createElement('span');
         tag.className='city-tag';
-        const btn=document.createElement('button');
-        btn.className='city-remove'; btn.textContent='×';
-        btn.addEventListener('click',()=>removeCity(city));
-        tag.appendChild(document.createTextNode(city+' '));
-        tag.appendChild(btn);
+        tag.appendChild(document.createTextNode(city));
+        if(isUnlocked){
+          const btn=document.createElement('button');
+          btn.className='city-remove'; btn.textContent=' ×';
+          btn.addEventListener('click',()=>removeCity(city));
+          tag.appendChild(btn);
+        }
         container.appendChild(tag);
       });
       document.getElementById('cityCount').textContent=allCities.length||'—';
@@ -588,17 +600,43 @@
       for(const city of allCities) await addCityPin(city);
     }
 
-    /* Save API key */
-    document.getElementById('saveKeyBtn').addEventListener('click',async()=>{
-      const key=document.getElementById('jsonbinKeyInput').value.trim();
-      if(!key){setStatus('Please paste a valid key.','error');return;}
-      localStorage.setItem(JSONBIN_KEY,key);
-      document.getElementById('setupNotice').style.display='none';
-      setStatus('Key saved! Loading cities…');
-      allCities=await fetchBin();
-      renderTags();
-      for(const city of allCities) await addCityPin(city);
-      setStatus('Ready.','success');
+    /* ── Password lock ── */
+    // SET YOUR PASSWORD HERE — change 'astrophysics2025' to whatever you want
+    const SITE_PASSWORD = 'astrophysics2025';
+
+    let isUnlocked = false;
+
+    document.getElementById('editBtn').addEventListener('click',()=>{
+      document.getElementById('passwordRow').style.display='block';
+      document.getElementById('passInput').focus();
+      document.getElementById('editBtn').style.display='none';
+    });
+
+    function attemptUnlock(){
+      const val=document.getElementById('passInput').value;
+      if(val===SITE_PASSWORD){
+        isUnlocked=true;
+        document.getElementById('passwordRow').style.display='none';
+        document.getElementById('editControls').classList.add('unlocked');
+        document.getElementById('lockInfo').textContent='🔓 Editing enabled';
+        document.getElementById('passError').textContent='';
+        document.getElementById('passInput').value='';
+      } else {
+        document.getElementById('passError').textContent='Incorrect password.';
+        document.getElementById('passInput').value='';
+        document.getElementById('passInput').focus();
+      }
+    }
+
+    document.getElementById('unlockBtn').addEventListener('click', attemptUnlock);
+    document.getElementById('passInput').addEventListener('keydown',e=>{if(e.key==='Enter') attemptUnlock();});
+
+    document.getElementById('lockBtn').addEventListener('click',()=>{
+      isUnlocked=false;
+      document.getElementById('editControls').classList.remove('unlocked');
+      document.getElementById('passwordRow').style.display='none';
+      document.getElementById('editBtn').style.display='';
+      document.getElementById('lockInfo').textContent='🔒 City list is locked';
     });
 
     /* Add city */
