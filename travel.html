@@ -487,12 +487,13 @@
     const goldIcon=L.divIcon({className:'',html:`<div style="width:10px;height:10px;border-radius:50%;background:#c9a84c;border:1.5px solid #e8c97a;box-shadow:0 0 6px rgba(201,168,76,0.5);"></div>`,iconSize:[10,10],iconAnchor:[5,5]});
 
     /* ── JSONbin city sync ── */
-    const JSONBIN_KEY = '$2a$10$fYQrGc52Afa8cFaP.YMEoea6.jge9ZHRWHmuOKtYx0L74vmjD6V2m';
-    const JSONBIN_BIN = '6a255661f5f4af5e29c5fef3';
-    const GEOCACHE_STORE   = 'kartav_geocache';
+    // Hardcoded credentials — same on every device
+    const JSONBIN_KEY = '$2a$10$onyjtcJm7QhHHctci02izecgN9FfhSdvEZxTgz8cVVCk9afNYjOna';
+    const JSONBIN_BIN = '6a2558d2da38895dfe948615';
+    const GEOCACHE_STORE = 'kartav_geocache';
 
-    const getKey  = ()=>localStorage.getItem(JSONBIN_KEY)||'';
-    const getBinId= ()=>localStorage.getItem(JSONBIN_BIN)||'';
+    const getKey  = ()=>JSONBIN_KEY;
+    const getBinId= ()=>JSONBIN_BIN;
     const getCache= ()=>{try{return JSON.parse(localStorage.getItem(GEOCACHE_STORE)||'{}');}catch(e){return{};}};
     const saveCache=(c)=>localStorage.setItem(GEOCACHE_STORE,JSON.stringify(c));
 
@@ -512,27 +513,12 @@
     }
 
     async function saveBin(cities){
-      const key=getKey(); let binId=getBinId();
-      if(!key) return false;
       try{
-        if(!binId){
-          // Create bin on first save
-          const r=await fetch('https://api.jsonbin.io/v3/b',{
-            method:'POST',
-            headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'kartav-cities'},
-            body:JSON.stringify({cities})
-          });
-          const d=await r.json();
-          binId=d.metadata?.id;
-          if(!binId) return false;
-          localStorage.setItem(JSONBIN_BIN,binId);
-        } else {
-          await fetch(`https://api.jsonbin.io/v3/b/${binId}`,{
-            method:'PUT',
-            headers:{'Content-Type':'application/json','X-Master-Key':key},
-            body:JSON.stringify({cities})
-          });
-        }
+        await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN}`,{
+          method:'PUT',
+          headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},
+          body:JSON.stringify({cities})
+        });
         return true;
       }catch(e){return false;}
     }
@@ -589,7 +575,7 @@
     async function initCities(){
       const key=getKey();
       if(key){
-        document.getElementById('setupNotice').style.display='none';
+        
         setStatus('Loading your cities…');
         allCities=await fetchBin();
         setStatus('');
