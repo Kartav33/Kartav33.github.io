@@ -1,0 +1,200 @@
+/* 2026 immersive visual redesign */
+:root {
+  --ink: #fbfaf6;
+  --muted-ink: #d9deec;
+  --quiet-ink: #aeb8cf;
+  --glass: rgba(7, 13, 28, .54);
+  --glass-strong: rgba(7, 13, 28, .72);
+  --glass-soft: rgba(7, 13, 28, .34);
+  --hairline: rgba(240, 204, 114, .28);
+}
+
+body.site-solar,
+body.site-nature {
+  min-height: 100vh;
+  color: var(--ink) !important;
+  background: #050914 !important;
+  isolation: isolate;
+}
+
+body.site-solar::before,
+body.site-nature::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -3 !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  filter: none !important;
+  transform: scale(1.015) !important;
+}
+body.site-solar::before { background-image: url('../images/solar_system.jpg') !important; }
+body.site-nature::before { background-image: url('../images/pic07.jpg') !important; background-position: center 42% !important; }
+
+body.site-solar::after,
+body.site-nature::after {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -2 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, rgba(3, 6, 15, .46) 0%, rgba(3, 6, 15, .16) 36%, rgba(3, 6, 15, .12) 67%, rgba(3, 6, 15, .38) 100%),
+    linear-gradient(180deg, rgba(3, 6, 15, .35) 0%, rgba(3, 6, 15, .04) 38%, rgba(3, 6, 15, .48) 100%) !important;
+}
+body.site-nature::after {
+  background:
+    linear-gradient(90deg, rgba(4, 11, 10, .58), rgba(4, 11, 10, .18) 55%, rgba(4, 11, 10, .32)),
+    linear-gradient(180deg, rgba(3, 8, 8, .42), rgba(3, 8, 8, .08) 38%, rgba(3, 8, 8, .58)) !important;
+}
+
+#starCanvas { display: none !important; }
+body, p, li, .hero-desc, .page-subtitle, .timeline-degree, .rcard-inst,
+.paper-authors, .paper-abstract, .poster-venue, .topic-body, .topic-summary,
+.visit-desc, .contact-item { color: var(--muted-ink); }
+.hero-name, .page-title, .timeline-institution, .rcard-title, .paper-title,
+.poster-title, .topic-title, .visit-title { color: var(--ink) !important; }
+
+nav:not(.topic-nav) {
+  background: rgba(4, 8, 18, .64) !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  backdrop-filter: blur(18px) saturate(1.15) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.15) !important;
+}
+
+.hero, .page-header {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,.72);
+}
+.hero { min-height: 88vh !important; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 8% 28% 8% 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 20% 50%, rgba(3,7,17,.66), rgba(3,7,17,.28) 46%, transparent 74%);
+  pointer-events: none;
+}
+.page-header { max-width: 960px !important; }
+
+.currently-card, .tile, .rcard, .paper-card, .poster-card, .ref-card,
+.interest-item, .open-questions, .city-manager, .stat-box, .bio-text,
+.photo-frame, .setup-notice, .visit-photo-placeholder {
+  background: linear-gradient(135deg, rgba(10,19,38,.64), rgba(5,10,22,.46)) !important;
+  border-color: var(--hairline) !important;
+  backdrop-filter: blur(12px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
+  box-shadow: 0 16px 45px rgba(0,0,0,.16);
+}
+.tile:hover, .rcard:hover, .poster-card:hover, .interest-item:hover {
+  background: linear-gradient(135deg, rgba(15,28,51,.78), rgba(6,12,25,.62)) !important;
+}
+
+.main-content, .pub-layout, .research-layout, .travel-layout, .interests-layout {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.section-rule, .research-group, .content > section, .topics > section,
+.travel-layout > section, .pub-layout > section {
+  position: relative;
+}
+.section-rule::after { background: rgba(240,204,114,.34) !important; }
+
+footer {
+  background: rgba(4,8,18,.66) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+/* Interest page: reading column + immersive sticky artwork */
+body.page-interests .interests-layout {
+  max-width: 1380px !important;
+  grid-template-columns: 190px minmax(0, 680px) minmax(300px, 1fr) !important;
+  gap: clamp(2rem, 4vw, 4.5rem) !important;
+}
+body.page-interests .topic-nav {
+  top: 6.25rem !important;
+  padding: 1rem 0;
+  border-radius: 2px;
+}
+body.page-interests .topic-nav a {
+  text-shadow: 0 1px 12px rgba(0,0,0,.9);
+}
+body.page-interests .topic-section {
+  padding: 2rem;
+  border: 1px solid rgba(240,204,114,.16);
+  background: linear-gradient(135deg, rgba(7,14,29,.66), rgba(6,12,25,.48)) !important;
+  backdrop-filter: blur(12px) saturate(1.08) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.08) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.2);
+}
+.interest-visual {
+  position: sticky;
+  top: 6.25rem;
+  height: calc(100vh - 8rem);
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid rgba(240,204,114,.24);
+  background: rgba(5,10,22,.55);
+  box-shadow: 0 25px 80px rgba(0,0,0,.28);
+}
+.interest-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .42s ease, transform .8s ease;
+  filter: saturate(.9) contrast(1.06) brightness(.86);
+}
+.interest-visual.is-changing img { opacity: .12; transform: scale(1.035); }
+.interest-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4,8,18,.08), rgba(4,8,18,.08) 48%, rgba(4,8,18,.88));
+  pointer-events: none;
+}
+.interest-visual-copy {
+  position: absolute;
+  z-index: 2;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.35rem;
+  text-shadow: 0 2px 15px rgba(0,0,0,.9);
+}
+.interest-visual-kicker { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.interest-visual-title { font-family: 'Crimson Pro', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.15; color: #fff; margin-top: .35rem; }
+.interest-visual-credit { font-size: 10px; color: #cbd3e6; margin-top: .45rem; }
+
+/* Travel gets a warmer, photographic atmosphere */
+body.site-nature .page-title em, body.site-nature .page-eyebrow,
+body.site-nature .section-label { color: #f3d38a !important; }
+body.site-nature .stat-box, body.site-nature .city-manager,
+body.site-nature .visit-body, body.site-nature .setup-notice {
+  background: linear-gradient(135deg, rgba(9,20,18,.66), rgba(4,11,11,.48)) !important;
+}
+
+@media (max-width: 1050px) {
+  body.page-interests .interests-layout {
+    grid-template-columns: 170px minmax(0, 1fr) !important;
+  }
+  .interest-visual { display: none; }
+}
+@media (max-width: 768px) {
+  body.site-solar::before { background-position: 61% center !important; }
+  body.site-nature::before { background-position: 58% center !important; }
+  body.site-solar::after, body.site-nature::after {
+    background: linear-gradient(180deg, rgba(3,6,15,.55), rgba(3,6,15,.24) 35%, rgba(3,6,15,.62)) !important;
+  }
+  .hero::before { inset: 0; background: linear-gradient(90deg, rgba(3,7,17,.72), rgba(3,7,17,.34)); }
+  .hero { min-height: 80vh !important; }
+  body.page-interests .interests-layout { grid-template-columns: 1fr !important; }
+  body.page-interests .topic-section { padding: 1.35rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

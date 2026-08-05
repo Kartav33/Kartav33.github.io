@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travel — Kartav Kesri</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel — Kartav Kesri</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
     :root{--space-dark:#080c18;--space-mid:#0d1628;--space-card:#0f1e35;--space-glass:rgba(10,18,36,0.82);--gold:#d4a843;--gold-dim:#96732a;--gold-glow:#f0cc72;--text-main:#f4f1ea;--text-muted:#c8cfe8;--text-dim:#8a94b0;--border:rgba(212,168,67,0.20);--border-bright:rgba(212,168,67,0.50);}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -322,342 +323,311 @@
     /* Section rules — slightly brighter */
     .section-rule::after { background: rgba(212,168,67,0.28) !important; }
   </style>
-</head>
-<body>
-  <canvas id="starCanvas"></canvas>
-
-  <nav>
-    <div class="nav-brand">Kartav Kesri</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Experience</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="interests.html">Research Interests</a></li>
-      <li><a href="travel.html" class="active">Travel</a></li>
-    </ul>
-  </nav>
-
-  <header class="page-header reveal">
-    <div class="page-eyebrow">Travel</div>
-    <h1 class="page-title">Life beyond <em>the telescope</em></h1>
-    <p class="page-subtitle">13 countries, countless cities — physics as an excuse to explore the world.</p>
-  </header>
-
-  <div class="travel-layout">
-
-    <!-- Stats -->
-    <section class="reveal">
-      <div class="stats-row">
-        <div class="stat-box"><div class="stat-num">13</div><div class="stat-label">Countries</div></div>
-        <div class="stat-box"><div class="stat-num" id="cityCount">—</div><div class="stat-label">Cities</div></div>
-        <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Continents</div></div>
-        <div class="stat-box"><div class="stat-num">9+</div><div class="stat-label">Science Institutions</div></div>
-      </div>
-    </section>
-
-    <!-- Countries -->
-    <section class="reveal">
-      <div class="section-rule"><span class="section-label">Countries Visited</span></div>
-      <div class="country-list">
-        <span class="country-pill">🇮🇳 India</span>
-        <span class="country-pill">🇫🇷 France</span>
-        <span class="country-pill">🇩🇪 Germany</span>
-        <span class="country-pill">🇨🇭 Switzerland</span>
-        <span class="country-pill">🇧🇪 Belgium</span>
-        <span class="country-pill">🇳🇱 Netherlands</span>
-        <span class="country-pill">🇸🇪 Sweden</span>
-        <span class="country-pill">🇩🇰 Denmark</span>
-        <span class="country-pill">🇦🇹 Austria</span>
-        <span class="country-pill">🇻🇳 Vietnam</span>
-        <span class="country-pill">🇪🇸 Spain</span>
-        <span class="country-pill">🇧🇬 Bulgaria</span>
-        <span class="country-pill">🇨🇿 Czechia</span>
-      </div>
-    </section>
-
-    <!-- Tourism map -->
-    <section class="reveal">
-      <div class="section-rule"><span class="section-label">Tourism Map</span></div>
-      <div class="map-wrap">
-        <div id="tourismMap" class="map-container"></div>
-      </div>
-
-      <!-- City manager -->
-      <div class="city-manager">
-        <div class="city-manager-title">✦ &nbsp;My Cities</div>
-
-        <!-- Public view: city tags always visible, edit locked -->
-        <div class="city-tags" id="cityTags"></div>
-
-        <!-- Lock bar -->
-        <div class="city-lock-bar" style="margin-top:1rem;">
-          <span class="city-lock-info" id="lockInfo">🔒 City list is locked</span>
-          <button class="edit-btn" id="editBtn">Edit</button>
-        </div>
-
-        <!-- Password prompt (shown when Edit clicked) -->
-        <div id="passwordRow" style="display:none;">
-          <div class="password-row">
-            <input class="pass-input" id="passInput" type="password" placeholder="Enter password to edit" />
-            <button class="pass-btn" id="unlockBtn">Unlock</button>
-          </div>
-          <div class="pass-error" id="passError"></div>
-        </div>
-
-        <!-- Edit controls — hidden until unlocked -->
-        <div class="edit-controls" id="editControls">
-          <div class="city-input-row" style="margin-top:0.8rem;">
-            <input class="city-input" id="cityInput" type="text" placeholder="Type a city name, e.g. Hanoi" />
-            <button class="city-btn" id="addCityBtn">Add City</button>
-          </div>
-          <button class="edit-btn" id="lockBtn" style="margin-top:0.8rem;color:var(--text-dim);">🔒 Lock</button>
-        </div>
-
-        <div class="city-status" id="cityStatus"></div>
-      </div>
-    </section>
-
-    <!-- Scientific visits timeline -->
-    <section class="reveal">
-      <div class="section-rule"><span class="section-label">Scientific Visits — A Field Journal</span></div>
-      <div class="visits-timeline">
-
-        <!-- 2021 -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year">2021</div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo-placeholder">[ Add photo: assets/images/visit/miranda.jpeg ]</div>
-            <div class="visit-institution">Miranda House, University of Delhi</div>
-            <div class="visit-meta">Delhi, India &nbsp;·&nbsp; Jun – Sep 2021 &nbsp;·&nbsp; Remote Internship</div>
-            <div class="visit-writeup placeholder">[ Write a short note about this visit — what you worked on, what you remember, what you took away. ]</div>
-          </div>
-        </div>
-
-        <!-- 2022 -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year">2022</div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo-placeholder">[ Add photo: assets/images/visit/iiser-a.jpg ]</div>
-            <div class="visit-institution">IISER Pune</div>
-            <div class="visit-meta">Pune, India &nbsp;·&nbsp; Jun – Jul 2022 &nbsp;·&nbsp; Reading Project</div>
-            <div class="visit-writeup placeholder">[ Write a short note about this visit. ]</div>
-          </div>
-        </div>
-
-        <!-- 2023 IIA -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year">2023</div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo">
-              <img src="assets/images/visit/iia-a.jpg" alt="IIA Bangalore" loading="lazy" />
-            </div>
-            <div class="visit-institution">Indian Institute of Astrophysics (IIA)</div>
-            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; May – Jul 2023 &nbsp;·&nbsp; On-site Internship</div>
-            <div class="visit-writeup placeholder">[ Write about your time at IIA — working with Dr. Piyali Chatterjee on solar spicule simulations, what the campus was like, what this internship meant for your research trajectory. ]</div>
-          </div>
-        </div>
-
-        <!-- 2023 IISc MHD workshop -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year"></div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo">
-              <img src="assets/images/visit/iisc-a.jpg" alt="IISc Bangalore" loading="lazy" />
-            </div>
-            <div class="visit-institution">Indian Institute of Science (IISc)</div>
-            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; Jul 2023 &nbsp;·&nbsp; MHD/PLUTO Workshop</div>
-            <div class="visit-writeup placeholder">[ Write about the PLUTO code workshop — what you learned, who you met, how it shaped your understanding of MHD simulations. ]</div>
-          </div>
-        </div>
-
-        <!-- 2023 IUCAA -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year"></div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo">
-              <img src="assets/images/visit/iucaa-c.JPEG" alt="IUCAA Pune" loading="lazy" />
-            </div>
-            <div class="visit-institution">Inter-University Centre for Astronomy and Astrophysics (IUCAA)</div>
-            <div class="visit-meta">Pune, India &nbsp;·&nbsp; Oct 2023 – Jan 2024 &nbsp;·&nbsp; Hybrid Internship</div>
-            <div class="visit-writeup placeholder">[ Write about working on compact stars in the Buchdahl limit with Dr. Debarati Chatterjee and Dr. Naresh Dadhich. What was the IUCAA environment like? ]</div>
-          </div>
-        </div>
-
-        <!-- 2023 IITK -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year"></div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo">
-              <img src="assets/images/visit/iit-a.jpg" alt="IIT Kanpur" loading="lazy" />
-            </div>
-            <div class="visit-institution">Indian Institute of Technology Kanpur (IITK)</div>
-            <div class="visit-meta">Kanpur, India &nbsp;·&nbsp; Oct – Nov 2023 &nbsp;·&nbsp; Solar Physics Workshop</div>
-            <div class="visit-writeup placeholder">[ Write about the Aditya-L1 and solar physics workshop at IITK. ]</div>
-          </div>
-        </div>
-
-        <!-- 2024 ASI IISc -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year">2024</div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo">
-              <img src="assets/images/visit/iisc-poster.jpg" alt="ASI Conference IISc" loading="lazy" />
-            </div>
-            <div class="visit-institution">Indian Institute of Science (IISc) — ASI Conference</div>
-            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; Jan – Feb 2024 &nbsp;·&nbsp; 42nd ASI Annual Meeting</div>
-            <div class="visit-writeup placeholder">[ Write about presenting your poster at the ASI conference — first time presenting at a national conference, what the experience was like, who you met. ]</div>
-          </div>
-        </div>
-
-        <!-- 2024 ICTS -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year"></div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo">
-              <img src="assets/images/visit/icts-a.jpg" alt="ICTS-TIFR" loading="lazy" />
-            </div>
-            <div class="visit-institution">International Centre for Theoretical Sciences (ICTS-TIFR)</div>
-            <div class="visit-meta">Bengaluru, India &nbsp;·&nbsp; May 2024 &nbsp;·&nbsp; Geophysical Fluid Dynamics Conference</div>
-            <div class="visit-writeup placeholder">[ Write about the ICTS conference — what the programme covered, your poster presentation, the ICTS campus, and what you got out of it scientifically. ]</div>
-          </div>
-        </div>
-
-        <!-- 2024 Sorbonne / Paris M1 -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year"></div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo">
-              <img src="assets/images/visit/su-a.jpg" alt="Sorbonne Université" loading="lazy" />
-            </div>
-            <div class="visit-institution">Sorbonne Université &amp; Université Paris Cité</div>
-            <div class="visit-meta">Paris, France &nbsp;·&nbsp; Sep 2024 – Jul 2025 &nbsp;·&nbsp; M1 Paris Physics Master</div>
-            <div class="visit-writeup placeholder">[ Write about arriving in Paris for the M1, the transition from India to France, studying at Jussieu, and what the first year of the master's was like. ]</div>
-          </div>
-        </div>
-
-        <!-- 2025 ISTA -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year">2025</div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo-placeholder">[ Add photo from IST Austria visit ]</div>
-            <div class="visit-institution">Institute of Science and Technology Austria (ISTA)</div>
-            <div class="visit-meta">Klosterneuburg, Austria &nbsp;·&nbsp; May 2025 &nbsp;·&nbsp; XShootU Discussion Meeting</div>
-            <div class="visit-writeup placeholder">[ Write about the XShootU meeting at ISTA — what was discussed, what ISTA's campus near Vienna was like, who you met. ]</div>
-          </div>
-        </div>
-
-        <!-- 2025 BAS Sofia -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year"></div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo-placeholder">[ Add photo from Bulgarian Academy of Sciences visit ]</div>
-            <div class="visit-institution">Bulgarian Academy of Sciences (BAS)</div>
-            <div class="visit-meta">Sofia, Bulgaria &nbsp;·&nbsp; Jun 2025 &nbsp;·&nbsp; Conference Poster</div>
-            <div class="visit-writeup placeholder">[ Write about the conference in Sofia — your poster presentation, what Sofia was like, the scientific atmosphere. ]</div>
-          </div>
-        </div>
-
-        <!-- 2025 Marseille MaNiTou -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot"></div>
-            <div class="visit-year"></div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo-placeholder">[ Add photo from Aix-Marseille visit ]</div>
-            <div class="visit-institution">Aix-Marseille Université</div>
-            <div class="visit-meta">Marseille, France &nbsp;·&nbsp; Summer 2025 &nbsp;·&nbsp; MaNiTou GW Summer School</div>
-            <div class="visit-writeup placeholder">[ Write about the MaNiTou gravitational waves summer school — what topics were covered, who taught, what Marseille was like. ]</div>
-          </div>
-        </div>
-
-        <!-- 2025 Obs Paris M2 -->
-        <div class="visit-entry">
-          <div class="visit-left">
-            <div class="visit-dot current"></div>
-            <div class="visit-year">Now</div>
-            <div class="visit-line"></div>
-          </div>
-          <div class="visit-body">
-            <div class="visit-photo-placeholder">[ Add photo from Observatoire de Paris, Meudon ]</div>
-            <div class="visit-institution">Observatoire de Paris — Meudon</div>
-            <div class="visit-meta">Meudon, France &nbsp;·&nbsp; Sep 2025 – Present &nbsp;·&nbsp; M2 Internship · LESIA</div>
-            <div class="visit-writeup placeholder">[ Write about your current internship at the Observatoire — the Meudon campus, working with Dr. Corentin Louis, what a day in the lab looks like, Juno data on your screen. ]</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Science map -->
-    <section class="reveal">
-      <div class="section-rule"><span class="section-label">Scientific Visits Map</span></div>
-      <div class="map-wrap">
-        <div id="scienceMap" class="science-map-container"></div>
-      </div>
-    </section>
-
-  </div>
-
-  <footer>
-    <div class="footer-left">© 2025 Kartav Kesri</div>
-    <div class="footer-links">
-      <a href="https://github.com/Kartav33" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/kartav-kesri-622718219/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://twitter.com/KartavK87350" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://orcid.org/0009-0000-2813-4508" target="_blank" rel="noopener">ORCID</a>
-      <a href="mailto:kartavkesri@gmail.com">Email</a>
-    </div>
-  </footer>
-
-  <script>
+<link href="assets/css/redesign.css" rel="stylesheet"/></head>
+<body class="site-nature page-travel">
+<canvas id="starCanvas"></canvas>
+<nav>
+<div class="nav-brand">Kartav Kesri</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="research.html">Experience</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="interests.html">Research Interests</a></li>
+<li><a class="active" href="travel.html">Travel</a></li>
+</ul>
+</nav>
+<header class="page-header reveal">
+<div class="page-eyebrow">Travel</div>
+<h1 class="page-title">Life beyond <em>the telescope</em></h1>
+<p class="page-subtitle">13 countries, countless cities — physics as an excuse to explore the world.</p>
+</header>
+<div class="travel-layout">
+<!-- Stats -->
+<section class="reveal">
+<div class="stats-row">
+<div class="stat-box"><div class="stat-num">13</div><div class="stat-label">Countries</div></div>
+<div class="stat-box"><div class="stat-num" id="cityCount">—</div><div class="stat-label">Cities</div></div>
+<div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Continents</div></div>
+<div class="stat-box"><div class="stat-num">9+</div><div class="stat-label">Science Institutions</div></div>
+</div>
+</section>
+<!-- Countries -->
+<section class="reveal">
+<div class="section-rule"><span class="section-label">Countries Visited</span></div>
+<div class="country-list">
+<span class="country-pill">🇮🇳 India</span>
+<span class="country-pill">🇫🇷 France</span>
+<span class="country-pill">🇩🇪 Germany</span>
+<span class="country-pill">🇨🇭 Switzerland</span>
+<span class="country-pill">🇧🇪 Belgium</span>
+<span class="country-pill">🇳🇱 Netherlands</span>
+<span class="country-pill">🇸🇪 Sweden</span>
+<span class="country-pill">🇩🇰 Denmark</span>
+<span class="country-pill">🇦🇹 Austria</span>
+<span class="country-pill">🇻🇳 Vietnam</span>
+<span class="country-pill">🇪🇸 Spain</span>
+<span class="country-pill">🇧🇬 Bulgaria</span>
+<span class="country-pill">🇨🇿 Czechia</span>
+</div>
+</section>
+<!-- Tourism map -->
+<section class="reveal">
+<div class="section-rule"><span class="section-label">Tourism Map</span></div>
+<div class="map-wrap">
+<div class="map-container" id="tourismMap"></div>
+</div>
+<!-- City manager -->
+<div class="city-manager">
+<div class="city-manager-title">✦  My Cities</div>
+<!-- Public view: city tags always visible, edit locked -->
+<div class="city-tags" id="cityTags"></div>
+<!-- Lock bar -->
+<div class="city-lock-bar" style="margin-top:1rem;">
+<span class="city-lock-info" id="lockInfo">🔒 City list is locked</span>
+<button class="edit-btn" id="editBtn">Edit</button>
+</div>
+<!-- Password prompt (shown when Edit clicked) -->
+<div id="passwordRow" style="display:none;">
+<div class="password-row">
+<input class="pass-input" id="passInput" placeholder="Enter password to edit" type="password"/>
+<button class="pass-btn" id="unlockBtn">Unlock</button>
+</div>
+<div class="pass-error" id="passError"></div>
+</div>
+<!-- Edit controls — hidden until unlocked -->
+<div class="edit-controls" id="editControls">
+<div class="city-input-row" style="margin-top:0.8rem;">
+<input class="city-input" id="cityInput" placeholder="Type a city name, e.g. Hanoi" type="text"/>
+<button class="city-btn" id="addCityBtn">Add City</button>
+</div>
+<button class="edit-btn" id="lockBtn" style="margin-top:0.8rem;color:var(--text-dim);">🔒 Lock</button>
+</div>
+<div class="city-status" id="cityStatus"></div>
+</div>
+</section>
+<!-- Scientific visits timeline -->
+<section class="reveal">
+<div class="section-rule"><span class="section-label">Scientific Visits — A Field Journal</span></div>
+<div class="visits-timeline">
+<!-- 2021 -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year">2021</div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo-placeholder">[ Add photo: assets/images/visit/miranda.jpeg ]</div>
+<div class="visit-institution">Miranda House, University of Delhi</div>
+<div class="visit-meta">Delhi, India  ·  Jun – Sep 2021  ·  Remote Internship</div>
+<div class="visit-writeup placeholder">[ Write a short note about this visit — what you worked on, what you remember, what you took away. ]</div>
+</div>
+</div>
+<!-- 2022 -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year">2022</div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo-placeholder">[ Add photo: assets/images/visit/iiser-a.jpg ]</div>
+<div class="visit-institution">IISER Pune</div>
+<div class="visit-meta">Pune, India  ·  Jun – Jul 2022  ·  Reading Project</div>
+<div class="visit-writeup placeholder">[ Write a short note about this visit. ]</div>
+</div>
+</div>
+<!-- 2023 IIA -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year">2023</div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo">
+<img alt="IIA Bangalore" loading="lazy" src="assets/images/visit/iia-a.jpg"/>
+</div>
+<div class="visit-institution">Indian Institute of Astrophysics (IIA)</div>
+<div class="visit-meta">Bengaluru, India  ·  May – Jul 2023  ·  On-site Internship</div>
+<div class="visit-writeup placeholder">[ Write about your time at IIA — working with Dr. Piyali Chatterjee on solar spicule simulations, what the campus was like, what this internship meant for your research trajectory. ]</div>
+</div>
+</div>
+<!-- 2023 IISc MHD workshop -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year"></div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo">
+<img alt="IISc Bangalore" loading="lazy" src="assets/images/visit/iisc-a.jpg"/>
+</div>
+<div class="visit-institution">Indian Institute of Science (IISc)</div>
+<div class="visit-meta">Bengaluru, India  ·  Jul 2023  ·  MHD/PLUTO Workshop</div>
+<div class="visit-writeup placeholder">[ Write about the PLUTO code workshop — what you learned, who you met, how it shaped your understanding of MHD simulations. ]</div>
+</div>
+</div>
+<!-- 2023 IUCAA -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year"></div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo">
+<img alt="IUCAA Pune" loading="lazy" src="assets/images/visit/iucaa-c.JPEG"/>
+</div>
+<div class="visit-institution">Inter-University Centre for Astronomy and Astrophysics (IUCAA)</div>
+<div class="visit-meta">Pune, India  ·  Oct 2023 – Jan 2024  ·  Hybrid Internship</div>
+<div class="visit-writeup placeholder">[ Write about working on compact stars in the Buchdahl limit with Dr. Debarati Chatterjee and Dr. Naresh Dadhich. What was the IUCAA environment like? ]</div>
+</div>
+</div>
+<!-- 2023 IITK -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year"></div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo">
+<img alt="IIT Kanpur" loading="lazy" src="assets/images/visit/iit-a.jpg"/>
+</div>
+<div class="visit-institution">Indian Institute of Technology Kanpur (IITK)</div>
+<div class="visit-meta">Kanpur, India  ·  Oct – Nov 2023  ·  Solar Physics Workshop</div>
+<div class="visit-writeup placeholder">[ Write about the Aditya-L1 and solar physics workshop at IITK. ]</div>
+</div>
+</div>
+<!-- 2024 ASI IISc -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year">2024</div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo">
+<img alt="ASI Conference IISc" loading="lazy" src="assets/images/visit/iisc-poster.jpg"/>
+</div>
+<div class="visit-institution">Indian Institute of Science (IISc) — ASI Conference</div>
+<div class="visit-meta">Bengaluru, India  ·  Jan – Feb 2024  ·  42nd ASI Annual Meeting</div>
+<div class="visit-writeup placeholder">[ Write about presenting your poster at the ASI conference — first time presenting at a national conference, what the experience was like, who you met. ]</div>
+</div>
+</div>
+<!-- 2024 ICTS -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year"></div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo">
+<img alt="ICTS-TIFR" loading="lazy" src="assets/images/visit/icts-a.jpg"/>
+</div>
+<div class="visit-institution">International Centre for Theoretical Sciences (ICTS-TIFR)</div>
+<div class="visit-meta">Bengaluru, India  ·  May 2024  ·  Geophysical Fluid Dynamics Conference</div>
+<div class="visit-writeup placeholder">[ Write about the ICTS conference — what the programme covered, your poster presentation, the ICTS campus, and what you got out of it scientifically. ]</div>
+</div>
+</div>
+<!-- 2024 Sorbonne / Paris M1 -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year"></div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo">
+<img alt="Sorbonne Université" loading="lazy" src="assets/images/visit/su-a.jpg"/>
+</div>
+<div class="visit-institution">Sorbonne Université &amp; Université Paris Cité</div>
+<div class="visit-meta">Paris, France  ·  Sep 2024 – Jul 2025  ·  M1 Paris Physics Master</div>
+<div class="visit-writeup placeholder">[ Write about arriving in Paris for the M1, the transition from India to France, studying at Jussieu, and what the first year of the master's was like. ]</div>
+</div>
+</div>
+<!-- 2025 ISTA -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year">2025</div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo-placeholder">[ Add photo from IST Austria visit ]</div>
+<div class="visit-institution">Institute of Science and Technology Austria (ISTA)</div>
+<div class="visit-meta">Klosterneuburg, Austria  ·  May 2025  ·  XShootU Discussion Meeting</div>
+<div class="visit-writeup placeholder">[ Write about the XShootU meeting at ISTA — what was discussed, what ISTA's campus near Vienna was like, who you met. ]</div>
+</div>
+</div>
+<!-- 2025 BAS Sofia -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year"></div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo-placeholder">[ Add photo from Bulgarian Academy of Sciences visit ]</div>
+<div class="visit-institution">Bulgarian Academy of Sciences (BAS)</div>
+<div class="visit-meta">Sofia, Bulgaria  ·  Jun 2025  ·  Conference Poster</div>
+<div class="visit-writeup placeholder">[ Write about the conference in Sofia — your poster presentation, what Sofia was like, the scientific atmosphere. ]</div>
+</div>
+</div>
+<!-- 2025 Marseille MaNiTou -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot"></div>
+<div class="visit-year"></div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo-placeholder">[ Add photo from Aix-Marseille visit ]</div>
+<div class="visit-institution">Aix-Marseille Université</div>
+<div class="visit-meta">Marseille, France  ·  Summer 2025  ·  MaNiTou GW Summer School</div>
+<div class="visit-writeup placeholder">[ Write about the MaNiTou gravitational waves summer school — what topics were covered, who taught, what Marseille was like. ]</div>
+</div>
+</div>
+<!-- 2025 Obs Paris M2 -->
+<div class="visit-entry">
+<div class="visit-left">
+<div class="visit-dot current"></div>
+<div class="visit-year">Now</div>
+<div class="visit-line"></div>
+</div>
+<div class="visit-body">
+<div class="visit-photo-placeholder">[ Add photo from Observatoire de Paris, Meudon ]</div>
+<div class="visit-institution">Observatoire de Paris — Meudon</div>
+<div class="visit-meta">Meudon, France  ·  Sep 2025 – Present  ·  M2 Internship · LESIA</div>
+<div class="visit-writeup placeholder">[ Write about your current internship at the Observatoire — the Meudon campus, working with Dr. Corentin Louis, what a day in the lab looks like, Juno data on your screen. ]</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Science map -->
+<section class="reveal">
+<div class="section-rule"><span class="section-label">Scientific Visits Map</span></div>
+<div class="map-wrap">
+<div class="science-map-container" id="scienceMap"></div>
+</div>
+</section>
+</div>
+<footer>
+<div class="footer-left">© 2025 Kartav Kesri</div>
+<div class="footer-links">
+<a href="https://github.com/Kartav33" rel="noopener" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/kartav-kesri-622718219/" rel="noopener" target="_blank">LinkedIn</a>
+<a href="https://twitter.com/KartavK87350" rel="noopener" target="_blank">Twitter</a>
+<a href="https://orcid.org/0009-0000-2813-4508" rel="noopener" target="_blank">ORCID</a>
+<a href="mailto:kartavkesri@gmail.com">Email</a>
+</div>
+</footer>
+<script>
     /* ── Stars ── */
     const canvas=document.getElementById('starCanvas'),ctx=canvas.getContext('2d');
     function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}

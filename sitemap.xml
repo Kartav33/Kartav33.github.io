@@ -1,37 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://kartav33.github.io/</loc>
-  <lastmod>2024-07-01T12:49:20+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://kartav33.github.io/Page1.html</loc>
-  <lastmod>2024-07-01T12:49:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kartav33.github.io/Page2.html</loc>
-  <lastmod>2024-07-01T12:49:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kartav33.github.io/Page3.html</loc>
-  <lastmod>2024-07-01T12:49:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kartav33.github.io/landing.html</loc>
-  <lastmod>2024-07-01T12:49:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kartav33.github.io/</loc><lastmod>2026-08-05</lastmod><priority>1.00</priority></url>
+  <url><loc>https://kartav33.github.io/about.html</loc><lastmod>2026-08-05</lastmod><priority>0.90</priority></url>
+  <url><loc>https://kartav33.github.io/research.html</loc><lastmod>2026-08-05</lastmod><priority>0.90</priority></url>
+  <url><loc>https://kartav33.github.io/publications.html</loc><lastmod>2026-08-05</lastmod><priority>0.85</priority></url>
+  <url><loc>https://kartav33.github.io/interests.html</loc><lastmod>2026-08-05</lastmod><priority>0.85</priority></url>
+  <url><loc>https://kartav33.github.io/travel.html</loc><lastmod>2026-08-05</lastmod><priority>0.75</priority></url>
 </urlset>

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research — Kartav Kesri</title>
-  <meta name="description" content="Research experience of Kartav Kesri — internships, conferences and projects in astrophysics." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Research — Kartav Kesri</title>
+<meta content="Research experience of Kartav Kesri — internships, conferences and projects in astrophysics." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --space-dark:#0d1220;--space-card:#151f30;--gold:#c9a84c;--gold-dim:#8a6e2e;--gold-glow:#e8c97a;
       --text-main:#f0ede6;--text-muted:#b0b8d0;--text-dim:#7a8299;
@@ -288,331 +289,297 @@
     /* Section rules — slightly brighter */
     .section-rule::after { background: rgba(212,168,67,0.28) !important; }
   </style>
-</head>
-<body>
-  <canvas id="starCanvas"></canvas>
-
-  <nav>
-    <div class="nav-brand">Kartav Kesri</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html" class="active">Experience</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="interests.html">Research Interests</a></li>
-      <li><a href="travel.html">Travel</a></li>
-    </ul>
-  </nav>
-
-  <header class="page-header reveal">
-    <div class="page-eyebrow">Research Experience &amp; Projects</div>
-    <h1 class="page-title">From solar spicules<br/>to <em>Jovian magnetospheres</em></h1>
-    <p class="page-subtitle">A record of internships, conferences, workshops and course projects spanning plasma physics, compact stars, observational astronomy and numerical methods.</p>
-  </header>
-
-  <div class="filter-bar reveal">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="intern">Internships</button>
-    <button class="filter-btn" data-filter="conf">Conferences &amp; Workshops</button>
-    <button class="filter-btn" data-filter="project">Course Projects</button>
-  </div>
-
-  <div class="research-layout">
-
-    <!-- INTERNSHIPS -->
-    <div class="research-group reveal" data-group="intern">
-      <div class="section-rule"><span class="section-label">Internships</span></div>
-      <div class="research-cards">
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-current">Current</span><span class="tag tag-intern">Internship</span><span class="rcard-mode">On-site</span>
-            </div>
-            <div class="rcard-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
-            <div class="rcard-inst">LESIA — Observatoire de Paris, Meudon · PSL, Paris, France</div>
-            <div class="rcard-advisor">Supervisor: Dr. Corentin K. Louis, CNRS Researcher</div>
-          </div>
-          <div class="rcard-right">
-            <div class="current-indicator"><div class="pulse-dot-sm"></div> Ongoing</div>
-            <div class="rcard-date">Sep 2025 — Present</div>
-          </div>
-        </div>
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-intern">Internship</span><span class="rcard-mode">On-site</span>
-            </div>
-            <div class="rcard-title">Relativistic Collisionless Shocks</div>
-            <div class="rcard-inst">LUX Lab — Observatoire de Paris Jussieu · PSL · Sorbonne Université, Paris, France</div>
-            <div class="rcard-advisor">Supervisor: Dr. Arno Vanthieghem, CNRS Researcher</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Nov 2024 — Aug 2025</div></div>
-        </div>
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-intern">Internship</span><span class="rcard-mode">Remote</span>
-            </div>
-            <div class="rcard-title">Explorations of Numerical Codes and Solvers in Astrophysical Systems</div>
-            <div class="rcard-inst">Academia Sinica Institute of Astronomy and Astrophysics (ASIAA), Taiwan</div>
-            <div class="rcard-advisor">Supervisor: Dr. Hsien Shang, Research Fellow</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Jul 2024 — Aug 2024</div></div>
-        </div>
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-intern">Internship</span><span class="rcard-mode">Hybrid</span>
-            </div>
-            <div class="rcard-title">Study of Compact Stars in the Buchdahl Limit</div>
-            <div class="rcard-inst">Inter-University Centre for Astronomy and Astrophysics (IUCAA), Pune, India</div>
-            <div class="rcard-advisor">Supervisors: Dr. Debarati Chatterjee &amp; Dr. Naresh Dadhich, Emeritus Professor</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Oct 2023 — Jan 2024</div></div>
-        </div>
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-intern">Internship</span><span class="rcard-mode">Remote</span>
-            </div>
-            <div class="rcard-title">Analyzing JWST/HST Data using DS9 and Python</div>
-            <div class="rcard-inst">Instituto Nacional de Astrofísica, Óptica y Electrónica (INAOE), Mexico</div>
-            <div class="rcard-advisor">Supervisor: Dr. Yalia Divakara Mayya, Professor &amp; Senior Researcher C</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">May 2023 — Dec 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-intern">Internship</span><span class="rcard-mode">On-site + Extended Remote</span>
-            </div>
-            <div class="rcard-title">Dependence of the Properties of Simulated Solar Spicules on Imposed Magnetic Field</div>
-            <div class="rcard-inst">Indian Institute of Astrophysics (IIA), Bengaluru, India</div>
-            <div class="rcard-advisor">Supervisor: Dr. Piyali Chatterjee, Associate Professor</div>
-            <div class="rcard-links">
-              <a class="rcard-link" href="https://drive.google.com/file/d/1Rm5TE16ZV34OoNVVI_8i64qSaOgeykiZ/view" target="_blank" rel="noopener">Certificate →</a>
-            </div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">May 2023 — Jul 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-intern">Internship</span><span class="rcard-mode">Hybrid</span>
-            </div>
-            <div class="rcard-title">Stellar Spectrum, Atmospheres, Structures, Polytropic Models and the Lane-Emden Equation</div>
-            <div class="rcard-inst">National Institute of Science Education and Research (NISER), Bhubaneswar, India</div>
-            <div class="rcard-advisor">Supervisor: Dr. Nishikanta Khandai, Associate Professor</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Apr 2022 — Mar 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="intern">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-intern">Internship</span><span class="rcard-mode">Remote</span>
-            </div>
-            <div class="rcard-title">Constraining the λCDM Model using SLSNe Type-Ic</div>
-            <div class="rcard-inst">Miranda House, University of Delhi, Delhi, India</div>
-            <div class="rcard-advisor">Supervisors: Dr. AbhaDev Habib &amp; Dr. Nisha Rani, Assistant Professor</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Jun 2021 — Sep 2021</div></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- CONFERENCES & WORKSHOPS -->
-    <div class="research-group reveal" data-group="conf">
-      <div class="section-rule"><span class="section-label">Conferences &amp; Workshops</span></div>
-      <div class="research-cards">
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Workshop</span><span class="rcard-mode">On-site</span>
-            </div>
-            <div class="rcard-title">X-Shooting Ulysses (XShootU) Project Meeting</div>
-            <div class="rcard-inst">Institute of Science and Technology Austria (ISTA), Klosterneuburg, Austria</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">May 2025</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Conference</span><span class="rcard-mode">On-site · Poster</span>
-            </div>
-            <div class="rcard-title">Theoretical and Observational Astrophysics Conference</div>
-            <div class="rcard-inst">Bulgarian Academy of Sciences (BAS), Sofia, Bulgaria</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Jun 2025</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Summer School</span><span class="rcard-mode">On-site</span>
-            </div>
-            <div class="rcard-title">MaNiTou Gravitational Waves Summer School</div>
-            <div class="rcard-inst">Aix-Marseille Université, Marseille, France</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Summer 2025</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Conference</span><span class="rcard-mode">On-site · Poster</span>
-            </div>
-            <div class="rcard-title">Theoretical and Practical Perspectives in Geophysical Fluid Dynamics</div>
-            <div class="rcard-inst">International Centre for Theoretical Sciences (ICTS-TIFR), Bangalore, India</div>
-            <div class="rcard-links">
-              <a class="rcard-link" href="https://www.icts.res.in/program/gfd2024" target="_blank" rel="noopener">Program →</a>
-            </div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">20–31 May 2024</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Conference</span><span class="rcard-mode">On-site · Poster</span>
-            </div>
-            <div class="rcard-title">42nd Annual Meeting of the Astronomical Society of India (ASI)</div>
-            <div class="rcard-inst">Indian Institute of Science (IISc), Bangalore, India</div>
-            <div class="rcard-links">
-              <a class="rcard-link" href="https://www.astron-soc.in/asi2024/" target="_blank" rel="noopener">Program →</a>
-            </div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">31 Jan — 4 Feb 2024</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Workshop</span><span class="rcard-mode">On-site</span>
-            </div>
-            <div class="rcard-title">Solar Physics and Aditya-L1</div>
-            <div class="rcard-inst">Indian Institute of Technology Kanpur (IITK), Kanpur, India</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">30 Oct — 1 Nov 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Workshop</span><span class="rcard-mode">On-site</span>
-            </div>
-            <div class="rcard-title">MHD Simulations using PLUTO Code</div>
-            <div class="rcard-inst">Indian Institute of Science (IISc), Bengaluru, India</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">10–14 Jul 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Workshop</span><span class="rcard-mode">Remote</span>
-            </div>
-            <div class="rcard-title">Exoplanets and Starlight Suppression</div>
-            <div class="rcard-inst">Collaborative online workshop — NExSCi, IPAC, Caltech</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">8–10 Aug 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="conf">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-conf">Workshop</span><span class="rcard-mode">Remote</span>
-            </div>
-            <div class="rcard-title">Handling FITS Files</div>
-            <div class="rcard-inst">Collaborative workshop — RAD@home &amp; IIT Mandi</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">15–16 Jun 2021</div></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- COURSE PROJECTS -->
-    <div class="research-group reveal" data-group="project">
-      <div class="section-rule"><span class="section-label">Course &amp; Reading Projects</span></div>
-      <div class="research-cards">
-
-        <div class="rcard" data-type="project">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-project">Course Project</span><span class="rcard-mode">On-site</span>
-            </div>
-            <div class="rcard-title">RFI Mitigation Algorithms: RFIClean vs. IQRM</div>
-            <div class="rcard-inst">IISER Bhopal — PHY312: Numerical Methods and Programming</div>
-            <div class="rcard-advisor">Supervisors: Dr. Mayuresh Surnis &amp; Dr. Nirmal Ganguli, IISERB</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Jan 2023 — Apr 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="project">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-project">Reading Project</span><span class="rcard-mode">Hybrid</span>
-            </div>
-            <div class="rcard-title">Cosmic Rays, Particle Acceleration Models and Supernovae Remnants</div>
-            <div class="rcard-inst">Indian Institute of Astrophysics (IIA), Bengaluru, India</div>
-            <div class="rcard-advisor">Supervisor: Dr. Nayana AJ, DST INSPIRE Faculty</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Sep 2022 — Mar 2023</div></div>
-        </div>
-
-        <div class="rcard" data-type="project">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-project">Reading Project</span><span class="rcard-mode">Remote</span>
-            </div>
-            <div class="rcard-title">Properties of Laplacian, Harmonic Functions and Maximum Principles</div>
-            <div class="rcard-inst">Indian Institute of Science Education and Research, Pune</div>
-            <div class="rcard-advisor">Supervisor: Dr. Anisa Chorwadwala, Assistant Professor</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Jun 2022 — Jul 2022</div></div>
-        </div>
-
-        <div class="rcard" data-type="project">
-          <div class="rcard-left">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
-              <span class="tag tag-project">Reading Project</span><span class="rcard-mode">Remote</span>
-            </div>
-            <div class="rcard-title">Intermediate Luminous Red Transients (ILRT)</div>
-            <div class="rcard-inst">Stockholm University, Sweden</div>
-            <div class="rcard-advisor">Supervisor: Dr. Shuai Zha, Prize Post-doctoral Fellow</div>
-          </div>
-          <div class="rcard-right"><div class="rcard-date">Sep 2021 — Feb 2022</div></div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <footer>
-    <div class="footer-left">© 2025 Kartav Kesri</div>
-    <div class="footer-links">
-      <a href="https://github.com/Kartav33" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/kartav-kesri-622718219/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://twitter.com/KartavK87350" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://orcid.org/0009-0000-2813-4508" target="_blank" rel="noopener">ORCID</a>
-      <a href="mailto:kartavkesri@gmail.com">Email</a>
-    </div>
-  </footer>
-
-  <script>
+<link href="assets/css/redesign.css" rel="stylesheet"/></head>
+<body class="site-solar page-research">
+<canvas id="starCanvas"></canvas>
+<nav>
+<div class="nav-brand">Kartav Kesri</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a class="active" href="research.html">Experience</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="interests.html">Research Interests</a></li>
+<li><a href="travel.html">Travel</a></li>
+</ul>
+</nav>
+<header class="page-header reveal">
+<div class="page-eyebrow">Research Experience &amp; Projects</div>
+<h1 class="page-title">From solar spicules<br/>to <em>Jovian magnetospheres</em></h1>
+<p class="page-subtitle">A record of internships, conferences, workshops and course projects spanning plasma physics, compact stars, observational astronomy and numerical methods.</p>
+</header>
+<div class="filter-bar reveal">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="intern">Internships</button>
+<button class="filter-btn" data-filter="conf">Conferences &amp; Workshops</button>
+<button class="filter-btn" data-filter="project">Course Projects</button>
+</div>
+<div class="research-layout">
+<!-- INTERNSHIPS -->
+<div class="research-group reveal" data-group="intern">
+<div class="section-rule"><span class="section-label">Internships</span></div>
+<div class="research-cards">
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-current">Current</span><span class="tag tag-intern">Internship</span><span class="rcard-mode">On-site</span>
+</div>
+<div class="rcard-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
+<div class="rcard-inst">LESIA — Observatoire de Paris, Meudon · PSL, Paris, France</div>
+<div class="rcard-advisor">Supervisor: Dr. Corentin K. Louis, CNRS Researcher</div>
+</div>
+<div class="rcard-right">
+<div class="current-indicator"><div class="pulse-dot-sm"></div> Ongoing</div>
+<div class="rcard-date">Sep 2025 — Present</div>
+</div>
+</div>
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-intern">Internship</span><span class="rcard-mode">On-site</span>
+</div>
+<div class="rcard-title">Relativistic Collisionless Shocks</div>
+<div class="rcard-inst">LUX Lab — Observatoire de Paris Jussieu · PSL · Sorbonne Université, Paris, France</div>
+<div class="rcard-advisor">Supervisor: Dr. Arno Vanthieghem, CNRS Researcher</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Nov 2024 — Aug 2025</div></div>
+</div>
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-intern">Internship</span><span class="rcard-mode">Remote</span>
+</div>
+<div class="rcard-title">Explorations of Numerical Codes and Solvers in Astrophysical Systems</div>
+<div class="rcard-inst">Academia Sinica Institute of Astronomy and Astrophysics (ASIAA), Taiwan</div>
+<div class="rcard-advisor">Supervisor: Dr. Hsien Shang, Research Fellow</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Jul 2024 — Aug 2024</div></div>
+</div>
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-intern">Internship</span><span class="rcard-mode">Hybrid</span>
+</div>
+<div class="rcard-title">Study of Compact Stars in the Buchdahl Limit</div>
+<div class="rcard-inst">Inter-University Centre for Astronomy and Astrophysics (IUCAA), Pune, India</div>
+<div class="rcard-advisor">Supervisors: Dr. Debarati Chatterjee &amp; Dr. Naresh Dadhich, Emeritus Professor</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Oct 2023 — Jan 2024</div></div>
+</div>
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-intern">Internship</span><span class="rcard-mode">Remote</span>
+</div>
+<div class="rcard-title">Analyzing JWST/HST Data using DS9 and Python</div>
+<div class="rcard-inst">Instituto Nacional de Astrofísica, Óptica y Electrónica (INAOE), Mexico</div>
+<div class="rcard-advisor">Supervisor: Dr. Yalia Divakara Mayya, Professor &amp; Senior Researcher C</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">May 2023 — Dec 2023</div></div>
+</div>
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-intern">Internship</span><span class="rcard-mode">On-site + Extended Remote</span>
+</div>
+<div class="rcard-title">Dependence of the Properties of Simulated Solar Spicules on Imposed Magnetic Field</div>
+<div class="rcard-inst">Indian Institute of Astrophysics (IIA), Bengaluru, India</div>
+<div class="rcard-advisor">Supervisor: Dr. Piyali Chatterjee, Associate Professor</div>
+<div class="rcard-links">
+<a class="rcard-link" href="https://drive.google.com/file/d/1Rm5TE16ZV34OoNVVI_8i64qSaOgeykiZ/view" rel="noopener" target="_blank">Certificate →</a>
+</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">May 2023 — Jul 2023</div></div>
+</div>
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-intern">Internship</span><span class="rcard-mode">Hybrid</span>
+</div>
+<div class="rcard-title">Stellar Spectrum, Atmospheres, Structures, Polytropic Models and the Lane-Emden Equation</div>
+<div class="rcard-inst">National Institute of Science Education and Research (NISER), Bhubaneswar, India</div>
+<div class="rcard-advisor">Supervisor: Dr. Nishikanta Khandai, Associate Professor</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Apr 2022 — Mar 2023</div></div>
+</div>
+<div class="rcard" data-type="intern">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-intern">Internship</span><span class="rcard-mode">Remote</span>
+</div>
+<div class="rcard-title">Constraining the λCDM Model using SLSNe Type-Ic</div>
+<div class="rcard-inst">Miranda House, University of Delhi, Delhi, India</div>
+<div class="rcard-advisor">Supervisors: Dr. AbhaDev Habib &amp; Dr. Nisha Rani, Assistant Professor</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Jun 2021 — Sep 2021</div></div>
+</div>
+</div>
+</div>
+<!-- CONFERENCES & WORKSHOPS -->
+<div class="research-group reveal" data-group="conf">
+<div class="section-rule"><span class="section-label">Conferences &amp; Workshops</span></div>
+<div class="research-cards">
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Workshop</span><span class="rcard-mode">On-site</span>
+</div>
+<div class="rcard-title">X-Shooting Ulysses (XShootU) Project Meeting</div>
+<div class="rcard-inst">Institute of Science and Technology Austria (ISTA), Klosterneuburg, Austria</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">May 2025</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Conference</span><span class="rcard-mode">On-site · Poster</span>
+</div>
+<div class="rcard-title">Theoretical and Observational Astrophysics Conference</div>
+<div class="rcard-inst">Bulgarian Academy of Sciences (BAS), Sofia, Bulgaria</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Jun 2025</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Summer School</span><span class="rcard-mode">On-site</span>
+</div>
+<div class="rcard-title">MaNiTou Gravitational Waves Summer School</div>
+<div class="rcard-inst">Aix-Marseille Université, Marseille, France</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Summer 2025</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Conference</span><span class="rcard-mode">On-site · Poster</span>
+</div>
+<div class="rcard-title">Theoretical and Practical Perspectives in Geophysical Fluid Dynamics</div>
+<div class="rcard-inst">International Centre for Theoretical Sciences (ICTS-TIFR), Bangalore, India</div>
+<div class="rcard-links">
+<a class="rcard-link" href="https://www.icts.res.in/program/gfd2024" rel="noopener" target="_blank">Program →</a>
+</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">20–31 May 2024</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Conference</span><span class="rcard-mode">On-site · Poster</span>
+</div>
+<div class="rcard-title">42nd Annual Meeting of the Astronomical Society of India (ASI)</div>
+<div class="rcard-inst">Indian Institute of Science (IISc), Bangalore, India</div>
+<div class="rcard-links">
+<a class="rcard-link" href="https://www.astron-soc.in/asi2024/" rel="noopener" target="_blank">Program →</a>
+</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">31 Jan — 4 Feb 2024</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Workshop</span><span class="rcard-mode">On-site</span>
+</div>
+<div class="rcard-title">Solar Physics and Aditya-L1</div>
+<div class="rcard-inst">Indian Institute of Technology Kanpur (IITK), Kanpur, India</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">30 Oct — 1 Nov 2023</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Workshop</span><span class="rcard-mode">On-site</span>
+</div>
+<div class="rcard-title">MHD Simulations using PLUTO Code</div>
+<div class="rcard-inst">Indian Institute of Science (IISc), Bengaluru, India</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">10–14 Jul 2023</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Workshop</span><span class="rcard-mode">Remote</span>
+</div>
+<div class="rcard-title">Exoplanets and Starlight Suppression</div>
+<div class="rcard-inst">Collaborative online workshop — NExSCi, IPAC, Caltech</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">8–10 Aug 2023</div></div>
+</div>
+<div class="rcard" data-type="conf">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-conf">Workshop</span><span class="rcard-mode">Remote</span>
+</div>
+<div class="rcard-title">Handling FITS Files</div>
+<div class="rcard-inst">Collaborative workshop — RAD@home &amp; IIT Mandi</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">15–16 Jun 2021</div></div>
+</div>
+</div>
+</div>
+<!-- COURSE PROJECTS -->
+<div class="research-group reveal" data-group="project">
+<div class="section-rule"><span class="section-label">Course &amp; Reading Projects</span></div>
+<div class="research-cards">
+<div class="rcard" data-type="project">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-project">Course Project</span><span class="rcard-mode">On-site</span>
+</div>
+<div class="rcard-title">RFI Mitigation Algorithms: RFIClean vs. IQRM</div>
+<div class="rcard-inst">IISER Bhopal — PHY312: Numerical Methods and Programming</div>
+<div class="rcard-advisor">Supervisors: Dr. Mayuresh Surnis &amp; Dr. Nirmal Ganguli, IISERB</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Jan 2023 — Apr 2023</div></div>
+</div>
+<div class="rcard" data-type="project">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-project">Reading Project</span><span class="rcard-mode">Hybrid</span>
+</div>
+<div class="rcard-title">Cosmic Rays, Particle Acceleration Models and Supernovae Remnants</div>
+<div class="rcard-inst">Indian Institute of Astrophysics (IIA), Bengaluru, India</div>
+<div class="rcard-advisor">Supervisor: Dr. Nayana AJ, DST INSPIRE Faculty</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Sep 2022 — Mar 2023</div></div>
+</div>
+<div class="rcard" data-type="project">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-project">Reading Project</span><span class="rcard-mode">Remote</span>
+</div>
+<div class="rcard-title">Properties of Laplacian, Harmonic Functions and Maximum Principles</div>
+<div class="rcard-inst">Indian Institute of Science Education and Research, Pune</div>
+<div class="rcard-advisor">Supervisor: Dr. Anisa Chorwadwala, Assistant Professor</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Jun 2022 — Jul 2022</div></div>
+</div>
+<div class="rcard" data-type="project">
+<div class="rcard-left">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.3rem;">
+<span class="tag tag-project">Reading Project</span><span class="rcard-mode">Remote</span>
+</div>
+<div class="rcard-title">Intermediate Luminous Red Transients (ILRT)</div>
+<div class="rcard-inst">Stockholm University, Sweden</div>
+<div class="rcard-advisor">Supervisor: Dr. Shuai Zha, Prize Post-doctoral Fellow</div>
+</div>
+<div class="rcard-right"><div class="rcard-date">Sep 2021 — Feb 2022</div></div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="footer-left">© 2025 Kartav Kesri</div>
+<div class="footer-links">
+<a href="https://github.com/Kartav33" rel="noopener" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/kartav-kesri-622718219/" rel="noopener" target="_blank">LinkedIn</a>
+<a href="https://twitter.com/KartavK87350" rel="noopener" target="_blank">Twitter</a>
+<a href="https://orcid.org/0009-0000-2813-4508" rel="noopener" target="_blank">ORCID</a>
+<a href="mailto:kartavkesri@gmail.com">Email</a>
+</div>
+</footer>
+<script>
     const canvas=document.getElementById('starCanvas'),ctx=canvas.getContext('2d');
     function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
     resizeCanvas();window.addEventListener('resize',resizeCanvas);

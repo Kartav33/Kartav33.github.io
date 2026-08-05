@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Publications — Kartav Kesri</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publications — Kartav Kesri</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{--space-dark:#080c18;--space-mid:#0d1628;--space-card:#0f1e35;--space-glass:rgba(10,18,36,0.82);--gold:#d4a843;--gold-dim:#96732a;--gold-glow:#f0cc72;--text-main:#f4f1ea;--text-muted:#c8cfe8;--text-dim:#8a94b0;--border:rgba(212,168,67,0.20);--border-bright:rgba(212,168,67,0.50);}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -281,122 +282,108 @@
     /* Section rules — slightly brighter */
     .section-rule::after { background: rgba(212,168,67,0.28) !important; }
   </style>
-</head>
-<body>
-  <canvas id="starCanvas"></canvas>
-  <nav>
-    <div class="nav-brand">Kartav Kesri</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Experience</a></li>
-      <li><a href="publications.html" class="active">Publications</a></li>
-      <li><a href="interests.html">Research Interests</a></li>
-      <li><a href="travel.html">Travel</a></li>
-    </ul>
-  </nav>
-
-  <header class="page-header reveal">
-    <div class="page-eyebrow">Publications &amp; Posters</div>
-    <h1 class="page-title">Written contributions to <em>the literature</em></h1>
-  </header>
-
-  <div class="pub-layout">
-
-    <!-- PAPERS -->
-    <section class="reveal">
-      <div class="section-rule"><span class="section-label">Peer-reviewed Papers</span></div>
-
-      <!-- ApJ spicules -->
-      <div class="paper-card">
-        <div class="paper-meta">
-          <span class="paper-tag">Lead Author</span>
-          <span class="paper-journal">The Astrophysical Journal · ApJ 973, 49 · Sep 2024</span>
-        </div>
-        <div class="paper-title">Dependence of Spicule Properties on the Magnetic Field — Results from Magnetohydrodynamics Simulations</div>
-        <div class="paper-authors"><strong>Kartav Kesri</strong>, Sahel Dey, Piyali Chatterjee, Dipankar Banerjee</div>
-        <div class="paper-abstract">Solar spicules are plasma jets observed in the interface region between the visible solar surface and the corona. We solve the radiative MHD equations using Pencil Code at 16 km resolution under various magnetic field strengths to investigate how the imposed field governs spicule properties such as height, velocity, and lifetime.</div>
-        <div class="paper-links">
-          <a class="paper-link" href="https://iopscience.iop.org/article/10.3847/1538-4357/ad67d8" target="_blank" rel="noopener">IOPscience →</a>
-          <a class="paper-link" href="https://doi.org/10.3847/1538-4357/ad67d8" target="_blank" rel="noopener">DOI →</a>
-          <a class="paper-link" href="https://github.com/Kartav33/Spicules_Analysis_Codes" target="_blank" rel="noopener">Code →</a>
-        </div>
-      </div>
-
-      <!-- Upcoming -->
-      <div class="paper-card" style="margin-top:1px;border-color:rgba(74,222,128,0.25);">
-        <div class="paper-meta">
-          <span class="paper-tag paper-tag-upcoming">In Preparation</span>
-          <span class="paper-journal">Observatoire de Paris · 2026</span>
-        </div>
-        <div class="paper-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
-        <div class="paper-authors"><strong>Kartav Kesri</strong>, Corentin K. Louis et al.</div>
-        <div class="paper-abstract" style="color:var(--text-dim);font-style:italic;">Manuscript in preparation. Work conducted at LESIA, Observatoire de Paris — Meudon, under the supervision of Dr. Corentin K. Louis.</div>
-      </div>
-    </section>
-
-    <!-- POSTERS -->
-    <section class="reveal">
-      <div class="section-rule"><span class="section-label">Conference Posters</span></div>
-      <div class="poster-cards">
-
-        <div class="poster-card">
-          <div style="display:flex;flex-direction:column;gap:0.35rem;">
-            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.2rem;">
-              <span class="poster-tag-upcoming">Upcoming</span>
-            </div>
-            <div class="poster-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
-            <div class="poster-venue">Magnétosphères, Ondes et Plasmas (MOP) 2026 — Toulouse, France</div>
-            <div class="poster-note">Poster presentation — work from M2 internship at LESIA</div>
-          </div>
-          <div class="poster-date">Jul 2026</div>
-        </div>
-
-        <div class="poster-card">
-          <div style="display:flex;flex-direction:column;gap:0.35rem;">
-            <div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
-            <div class="poster-venue">Theoretical and Observational Astrophysics Conference — Bulgarian Academy of Sciences, Sofia</div>
-            <div class="poster-note">Related to ApJ 973, 49 (2024)</div>
-          </div>
-          <div class="poster-date">Jun 2025</div>
-        </div>
-
-        <div class="poster-card">
-          <div style="display:flex;flex-direction:column;gap:0.35rem;">
-            <div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
-            <div class="poster-venue">Theoretical and Practical Perspectives in Geophysical Fluid Dynamics — ICTS-TIFR, Bangalore</div>
-            <div class="poster-note">Related to ApJ 973, 49 (2024)</div>
-          </div>
-          <div class="poster-date">May 2024</div>
-        </div>
-
-        <div class="poster-card">
-          <div style="display:flex;flex-direction:column;gap:0.35rem;">
-            <div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
-            <div class="poster-venue">42nd Annual Meeting of the Astronomical Society of India — IISc, Bangalore</div>
-            <div class="poster-note">Related to ApJ 973, 49 (2024)</div>
-          </div>
-          <div class="poster-date">Feb 2024</div>
-        </div>
-
-      </div>
-    </section>
-
-  </div>
-
-  <footer>
-    <div class="footer-left">© 2025 Kartav Kesri</div>
-    <div class="footer-links">
-      <a href="https://github.com/Kartav33" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/kartav-kesri-622718219/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://twitter.com/KartavK87350" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://orcid.org/0009-0000-2813-4508" target="_blank" rel="noopener">ORCID</a>
-      <a href="mailto:kartavkesri@gmail.com">Email</a>
-    </div>
-  </footer>
-
-  <script>
+<link href="assets/css/redesign.css" rel="stylesheet"/></head>
+<body class="site-solar page-publications">
+<canvas id="starCanvas"></canvas>
+<nav>
+<div class="nav-brand">Kartav Kesri</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="research.html">Experience</a></li>
+<li><a class="active" href="publications.html">Publications</a></li>
+<li><a href="interests.html">Research Interests</a></li>
+<li><a href="travel.html">Travel</a></li>
+</ul>
+</nav>
+<header class="page-header reveal">
+<div class="page-eyebrow">Publications &amp; Posters</div>
+<h1 class="page-title">Written contributions to <em>the literature</em></h1>
+</header>
+<div class="pub-layout">
+<!-- PAPERS -->
+<section class="reveal">
+<div class="section-rule"><span class="section-label">Peer-reviewed Papers</span></div>
+<!-- ApJ spicules -->
+<div class="paper-card">
+<div class="paper-meta">
+<span class="paper-tag">Lead Author</span>
+<span class="paper-journal">The Astrophysical Journal · ApJ 973, 49 · Sep 2024</span>
+</div>
+<div class="paper-title">Dependence of Spicule Properties on the Magnetic Field — Results from Magnetohydrodynamics Simulations</div>
+<div class="paper-authors"><strong>Kartav Kesri</strong>, Sahel Dey, Piyali Chatterjee, Dipankar Banerjee</div>
+<div class="paper-abstract">Solar spicules are plasma jets observed in the interface region between the visible solar surface and the corona. We solve the radiative MHD equations using Pencil Code at 16 km resolution under various magnetic field strengths to investigate how the imposed field governs spicule properties such as height, velocity, and lifetime.</div>
+<div class="paper-links">
+<a class="paper-link" href="https://iopscience.iop.org/article/10.3847/1538-4357/ad67d8" rel="noopener" target="_blank">IOPscience →</a>
+<a class="paper-link" href="https://doi.org/10.3847/1538-4357/ad67d8" rel="noopener" target="_blank">DOI →</a>
+<a class="paper-link" href="https://github.com/Kartav33/Spicules_Analysis_Codes" rel="noopener" target="_blank">Code →</a>
+</div>
+</div>
+<!-- Upcoming -->
+<div class="paper-card" style="margin-top:1px;border-color:rgba(74,222,128,0.25);">
+<div class="paper-meta">
+<span class="paper-tag paper-tag-upcoming">In Preparation</span>
+<span class="paper-journal">Observatoire de Paris · 2026</span>
+</div>
+<div class="paper-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
+<div class="paper-authors"><strong>Kartav Kesri</strong>, Corentin K. Louis et al.</div>
+<div class="paper-abstract" style="color:var(--text-dim);font-style:italic;">Manuscript in preparation. Work conducted at LESIA, Observatoire de Paris — Meudon, under the supervision of Dr. Corentin K. Louis.</div>
+</div>
+</section>
+<!-- POSTERS -->
+<section class="reveal">
+<div class="section-rule"><span class="section-label">Conference Posters</span></div>
+<div class="poster-cards">
+<div class="poster-card">
+<div style="display:flex;flex-direction:column;gap:0.35rem;">
+<div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.2rem;">
+<span class="poster-tag-upcoming">Upcoming</span>
+</div>
+<div class="poster-title">Interactions of Solar Wind with the Jovian Magnetosphere</div>
+<div class="poster-venue">Magnétosphères, Ondes et Plasmas (MOP) 2026 — Toulouse, France</div>
+<div class="poster-note">Poster presentation — work from M2 internship at LESIA</div>
+</div>
+<div class="poster-date">Jul 2026</div>
+</div>
+<div class="poster-card">
+<div style="display:flex;flex-direction:column;gap:0.35rem;">
+<div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
+<div class="poster-venue">Theoretical and Observational Astrophysics Conference — Bulgarian Academy of Sciences, Sofia</div>
+<div class="poster-note">Related to ApJ 973, 49 (2024)</div>
+</div>
+<div class="poster-date">Jun 2025</div>
+</div>
+<div class="poster-card">
+<div style="display:flex;flex-direction:column;gap:0.35rem;">
+<div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
+<div class="poster-venue">Theoretical and Practical Perspectives in Geophysical Fluid Dynamics — ICTS-TIFR, Bangalore</div>
+<div class="poster-note">Related to ApJ 973, 49 (2024)</div>
+</div>
+<div class="poster-date">May 2024</div>
+</div>
+<div class="poster-card">
+<div style="display:flex;flex-direction:column;gap:0.35rem;">
+<div class="poster-title">Dependence of Spicule Properties on the Magnetic Field</div>
+<div class="poster-venue">42nd Annual Meeting of the Astronomical Society of India — IISc, Bangalore</div>
+<div class="poster-note">Related to ApJ 973, 49 (2024)</div>
+</div>
+<div class="poster-date">Feb 2024</div>
+</div>
+</div>
+</section>
+</div>
+<footer>
+<div class="footer-left">© 2025 Kartav Kesri</div>
+<div class="footer-links">
+<a href="https://github.com/Kartav33" rel="noopener" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/kartav-kesri-622718219/" rel="noopener" target="_blank">LinkedIn</a>
+<a href="https://twitter.com/KartavK87350" rel="noopener" target="_blank">Twitter</a>
+<a href="https://orcid.org/0009-0000-2813-4508" rel="noopener" target="_blank">ORCID</a>
+<a href="mailto:kartavkesri@gmail.com">Email</a>
+</div>
+</footer>
+<script>
     const canvas=document.getElementById('starCanvas'),ctx=canvas.getContext('2d');
     function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
     resizeCanvas();window.addEventListener('resize',resizeCanvas);
