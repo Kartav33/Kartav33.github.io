@@ -156,6 +156,137 @@
       background: rgba(12,22,40,0.50);
       padding: 1.2rem 1.5rem;
     }
+
+    /* ══════════════════════════════════════════
+       BACKGROUND — NASA Solar System image
+       Public domain: NASA/JPL-Caltech
+       ══════════════════════════════════════════ */
+
+    /* The image layer — sits behind everything */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url('https://science.nasa.gov/wp-content/uploads/2023/05/solar-system-lineup-full-res.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      /* Darken and slightly blur so content is always readable */
+      filter: brightness(0.28) saturate(1.3) blur(0px);
+      transform: scale(1.02); /* prevents blur edge artifacts */
+    }
+
+    /* Dark gradient overlay — adds depth and contrast */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(20,10,40,0.45) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(5,8,20,0.55) 0%, rgba(5,8,20,0.30) 40%, rgba(5,8,20,0.65) 100%);
+      pointer-events: none;
+    }
+
+    /* iOS Safari fix — fixed attachment breaks on mobile */
+    @media (max-width: 768px) {
+      body::before {
+        position: fixed;
+        background-attachment: scroll;
+        /* On mobile we use a slightly more zoomed/repositioned crop
+           so Jupiter is still visible in portrait orientation */
+        background-position: 60% center;
+        filter: brightness(0.30) saturate(1.2) blur(0px);
+      }
+    }
+
+    /* Fallback background colour if image fails to load */
+    body {
+      background-color: #060b18;
+    }
+
+    /* Star canvas hidden — replaced by NASA background image */
+    #starCanvas { display: none !important; }
+
+    /* ── Strengthened glass panels for image background ── */
+    nav {
+      background: rgba(5,10,25,0.88) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+      border-bottom: 0.5px solid rgba(212,168,67,0.25) !important;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(5,10,25,0.78) 0%, rgba(5,10,25,0.50) 100%) !important;
+      backdrop-filter: blur(3px) !important;
+      border-radius: 0;
+      padding: 6rem 2.5rem 4rem !important;
+    }
+    .currently-card,
+    .tile,
+    .rcard,
+    .paper-card,
+    .poster-card,
+    .ref-card,
+    .interest-item,
+    .open-questions,
+    .city-manager,
+    .stat-box,
+    .photo-frame,
+    .award-list,
+    .timeline-body,
+    .topic-section,
+    .visit-body {
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+    }
+    .currently-card { background: rgba(8,15,32,0.88) !important; }
+    .tile           { background: rgba(7,13,28,0.82) !important; }
+    .tile:hover     { background: rgba(10,18,38,0.94) !important; }
+    .rcard          { background: rgba(7,13,28,0.82) !important; }
+    .rcard:hover    { background: rgba(10,20,40,0.94) !important; }
+    .paper-card     { background: rgba(8,15,32,0.88) !important; }
+    .poster-card    { background: rgba(7,13,28,0.80) !important; }
+    .poster-card:hover { background: rgba(10,20,40,0.94) !important; }
+    .ref-card       { background: rgba(8,15,32,0.88) !important; }
+    .interest-item  { background: rgba(7,13,28,0.80) !important; }
+    .open-questions { background: rgba(6,12,26,0.88) !important; }
+    .city-manager   { background: rgba(8,15,32,0.88) !important; }
+    .stat-box       { background: rgba(8,15,32,0.85) !important; }
+    .awards-grid, .refs-grid { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+
+    /* Main layout sections get a very subtle glass wash */
+    .main-content, .pub-layout, .research-layout, .interests-layout, .travel-layout {
+      background: rgba(5,8,20,0.35);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    /* Footer glass */
+    footer {
+      background: rgba(5,8,20,0.88) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+    }
+
+    /* Page header fades from dark to transparent so image shows through below */
+    .page-header {
+      background: linear-gradient(180deg, rgba(5,8,20,0.72) 0%, rgba(5,8,20,0.0) 100%) !important;
+    }
+
+    /* Bio quote panel */
+    .bio-text {
+      background: rgba(8,15,32,0.60) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border-left: 0.5px solid rgba(212,168,67,0.45) !important;
+    }
+
+    /* Visits grid thumbnails */
+    .visit-thumb { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+
+    /* Section rules — slightly brighter */
+    .section-rule::after { background: rgba(212,168,67,0.28) !important; }
   </style>
 </head>
 <body>
