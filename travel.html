@@ -558,43 +558,6 @@
       }
     }
 
-
-
-    /* ═══════════════════════════════════════════════════════
-       TRAVEL GALLERY — reveal the complete photograph on hover
-       ═══════════════════════════════════════════════════════ */
-    .visit-gallery.featured figure {
-      background: rgba(3, 7, 16, 0.96);
-      isolation: isolate;
-    }
-
-    .visit-gallery.featured img {
-      transition:
-        object-fit 0s,
-        transform 0.35s ease,
-        filter 0.35s ease,
-        opacity 0.25s ease;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .visit-gallery.featured figure:hover {
-        z-index: 5;
-        border-color: rgba(212,168,67,0.5);
-      }
-
-      .visit-gallery.featured figure:hover img {
-        object-fit: contain;
-        object-position: center;
-        transform: none;
-        filter: saturate(1) brightness(1);
-      }
-
-      .visit-gallery.featured figure:hover figcaption {
-        opacity: 1;
-      }
-    }
-
-
     /* City list stays private until edit mode is unlocked */
     .private-city-list {
       display: none !important;
@@ -606,23 +569,6 @@
 </style>
 <link href="assets/css/redesign.css" rel="stylesheet"/>
 
-<style>
-/* Final gallery-hover override: loaded after redesign.css */
-@media (hover: hover) and (pointer: fine) {
-  .page-travel .visit-gallery.featured figure:hover img {
-    object-fit: contain !important;
-    object-position: center !important;
-    transform: none !important;
-    filter: saturate(1) brightness(1) !important;
-    background: rgba(3,7,16,0.98);
-  }
-  .page-travel .visit-gallery.featured figure:hover {
-    z-index: 5;
-    background: rgba(3,7,16,0.98) !important;
-    border-color: rgba(212,168,67,0.5) !important;
-  }
-}
-</style>
 </head>
 <body class="site-nature page-travel">
 <canvas id="starCanvas"></canvas>
