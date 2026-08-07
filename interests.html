@@ -305,8 +305,99 @@
 
     /* Section rules — slightly brighter */
     .section-rule::after { background: rgba(212,168,67,0.28) !important; }
-  </style>
-<link href="assets/css/redesign.css" rel="stylesheet"/></head>
+  
+
+    /* ═══════════════════════════════════════════════════════
+       RESEARCH INTERESTS — aligned sidebar and stable toggles
+       ═══════════════════════════════════════════════════════ */
+    .interests-layout {
+      max-width: 1320px;
+      grid-template-columns: 230px minmax(0, 1fr) minmax(280px, 360px);
+      gap: 2.5rem;
+    }
+    .topic-nav {
+      width: 100%;
+      top: 6rem;
+      align-self: start;
+      padding: 1rem 0;
+    }
+    .topic-nav-label {
+      width: 100%;
+      margin: 0 0 0.65rem;
+      padding: 0 1rem 0.7rem;
+    }
+    .topic-nav a {
+      width: 100%;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0.7rem 1rem;
+      border-left: 2px solid var(--border);
+      line-height: 1.35;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+    .topic-nav a + a { margin-top: 0.15rem; }
+    .topic-nav a.active-topic { background: rgba(201,168,76,0.06); }
+    .expand-toggle { min-width: 118px; justify-content: flex-start; white-space: nowrap; }
+    .expand-toggle .toggle-label { display: inline-block; }
+    .expandable { transition: max-height 0.45s ease, opacity 0.3s ease; opacity: 0; }
+    .expandable.open { opacity: 1; }
+    @media (max-width: 1100px) {
+      .interests-layout { grid-template-columns: 210px minmax(0, 1fr); }
+      .interest-visual { display: none; }
+    }
+    @media (max-width: 768px) {
+      .interests-layout { grid-template-columns: 1fr; }
+    }
+
+</style>
+<link href="assets/css/redesign.css" rel="stylesheet"/>
+<style>
+/* Final layout overrides: loaded after redesign.css */
+.page-interests .interests-layout {
+  max-width: 1320px !important;
+  grid-template-columns: 230px minmax(0, 1fr) minmax(280px, 360px) !important;
+  gap: 2.5rem !important;
+  align-items: start !important;
+}
+.page-interests .topic-nav {
+  width: 100% !important;
+  top: 6rem !important;
+  align-self: start !important;
+  padding: 1rem 0 !important;
+}
+.page-interests .topic-nav-label {
+  width: 100% !important;
+  margin: 0 0 0.65rem !important;
+  padding: 0 1rem 0.7rem !important;
+}
+.page-interests .topic-nav a {
+  width: 100% !important;
+  min-height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0.7rem 1rem !important;
+  border-left-width: 2px !important;
+  line-height: 1.35 !important;
+  text-align: left !important;
+}
+.page-interests .topic-nav a + a { margin-top: 0.15rem !important; }
+.page-interests .topic-nav a.active-topic { background: rgba(201,168,76,0.06) !important; }
+@media (max-width: 1100px) {
+  .page-interests .interests-layout {
+    grid-template-columns: 210px minmax(0, 1fr) !important;
+  }
+  .page-interests .interest-visual { display: none !important; }
+}
+@media (max-width: 768px) {
+  .page-interests .interests-layout { grid-template-columns: 1fr !important; }
+  .page-interests .topic-nav { display: none !important; }
+}
+</style>
+</head>
 <body class="site-solar page-interests">
 <canvas id="starCanvas"></canvas>
 <nav>
@@ -360,8 +451,7 @@
             ✦  This section is reserved for your detailed write-up. Replace the bracketed text above and below with your own description of the science. Keep it conversational but precise.
           </div>
 <button class="expand-toggle" data-target="jovian-more">
-<span class="arrow">▶</span> Read more
-          </button>
+<span class="arrow">▶</span> <span class="toggle-label">Read more</span></button>
 <div class="expandable" id="jovian-more">
 <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
 <p>
@@ -415,8 +505,7 @@
             [Write about the natural extension from Jovian radio physics to exoplanetary radio emission — star-planet interactions, the analogy between Jupiter-Io and hot Jupiter systems, what facilities like LOFAR and SKA are looking for, and what scaling laws (like Zarka 2007) predict for exoplanetary radio flux.]
           </p>
 <button class="expand-toggle" data-target="exo-more">
-<span class="arrow">▶</span> Read more
-          </button>
+<span class="arrow">▶</span> <span class="toggle-label">Read more</span></button>
 <div class="expandable" id="exo-more">
 <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
 <p>
@@ -465,8 +554,7 @@
             [Write about your hands-on experience with MHD simulations — Pencil Code for the spicule work, PLUTO from the IISc workshop, what you found interesting about each, what physical regimes they cover (compressible vs incompressible, resistive vs ideal MHD), and where you want to go with this.]
           </p>
 <button class="expand-toggle" data-target="mhd-more">
-<span class="arrow">▶</span> Read more
-          </button>
+<span class="arrow">▶</span> <span class="toggle-label">Read more</span></button>
 <div class="expandable" id="mhd-more">
 <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
 <p>
@@ -515,8 +603,7 @@
             [Describe your IIA internship work and the resulting ApJ paper. What was the key question — how does the imposed magnetic field strength affect spicule height, velocity, lifetime? What did you find — the scaling relations, which properties were most sensitive to field strength? What code did you use (Pencil Code) and at what resolution (16 km)?]
           </p>
 <button class="expand-toggle" data-target="spicule-more">
-<span class="arrow">▶</span> Read more
-          </button>
+<span class="arrow">▶</span> <span class="toggle-label">Read more</span></button>
 <div class="expandable" id="spicule-more">
 <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
 <p>
@@ -565,8 +652,7 @@
             [Describe your IUCAA internship — what you studied, what approach you used, what physically happens to a star as it approaches the Buchdahl limit, what your findings were. Who were your supervisors (Debarati Chatterjee, Naresh Dadhich) and how did this shape your interest in GR?]
           </p>
 <button class="expand-toggle" data-target="buchdahl-more">
-<span class="arrow">▶</span> Read more
-          </button>
+<span class="arrow">▶</span> <span class="toggle-label">Read more</span></button>
 <div class="expandable" id="buchdahl-more">
 <div style="padding-top:1.2rem;display:flex;flex-direction:column;gap:1.2rem;">
 <p>
@@ -626,14 +712,20 @@
     setTimeout(()=>document.querySelector('.page-header').classList.add('visible'),80);
 
     /* Expand/collapse */
-    document.querySelectorAll('.expand-toggle').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const target=document.getElementById(btn.dataset.target);
-        const isOpen=target.classList.contains('open');
-        target.classList.toggle('open',!isOpen);
-        btn.classList.toggle('open',!isOpen);
-        btn.querySelector('.arrow').textContent=isOpen?'▶':'▼';
-        btn.childNodes[1].textContent=isOpen?' Read more':' Show less';
+    document.querySelectorAll('.expand-toggle').forEach(btn => {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        const opening = !target.classList.contains('open');
+        target.classList.toggle('open', opening);
+        btn.classList.toggle('open', opening);
+        btn.setAttribute('aria-expanded', String(opening));
+        const arrow = btn.querySelector('.arrow');
+        const label = btn.querySelector('.toggle-label');
+        if (arrow) arrow.textContent = opening ? '▼' : '▶';
+        if (label) label.textContent = opening ? 'Show less' : 'Read more';
+        target.style.maxHeight = opening ? target.scrollHeight + 'px' : '0px';
       });
     });
 

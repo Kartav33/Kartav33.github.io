@@ -558,8 +558,71 @@
       }
     }
 
+
+
+    /* ═══════════════════════════════════════════════════════
+       TRAVEL GALLERY — reveal the complete photograph on hover
+       ═══════════════════════════════════════════════════════ */
+    .visit-gallery.featured figure {
+      background: rgba(3, 7, 16, 0.96);
+      isolation: isolate;
+    }
+
+    .visit-gallery.featured img {
+      transition:
+        object-fit 0s,
+        transform 0.35s ease,
+        filter 0.35s ease,
+        opacity 0.25s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .visit-gallery.featured figure:hover {
+        z-index: 5;
+        border-color: rgba(212,168,67,0.5);
+      }
+
+      .visit-gallery.featured figure:hover img {
+        object-fit: contain;
+        object-position: center;
+        transform: none;
+        filter: saturate(1) brightness(1);
+      }
+
+      .visit-gallery.featured figure:hover figcaption {
+        opacity: 1;
+      }
+    }
+
+
+    /* City list stays private until edit mode is unlocked */
+    .private-city-list {
+      display: none !important;
+    }
+    .private-city-list.unlocked {
+      display: flex !important;
+    }
+
 </style>
 <link href="assets/css/redesign.css" rel="stylesheet"/>
+
+<style>
+/* Final gallery-hover override: loaded after redesign.css */
+@media (hover: hover) and (pointer: fine) {
+  .page-travel .visit-gallery.featured figure:hover img {
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    filter: saturate(1) brightness(1) !important;
+    background: rgba(3,7,16,0.98);
+  }
+  .page-travel .visit-gallery.featured figure:hover {
+    z-index: 5;
+    background: rgba(3,7,16,0.98) !important;
+    border-color: rgba(212,168,67,0.5) !important;
+  }
+}
+</style>
 </head>
 <body class="site-nature page-travel">
 <canvas id="starCanvas"></canvas>
@@ -618,8 +681,8 @@
 <!-- City manager -->
 <div class="city-manager">
 <div class="city-manager-title">✦  My Cities</div>
-<!-- Public view: city tags always visible, edit locked -->
-<div class="city-tags" id="cityTags"></div>
+<!-- Private city list — revealed only after unlocking edit mode -->
+<div class="city-tags private-city-list" id="cityTags"></div>
 <!-- Lock bar -->
 <div class="city-lock-bar" style="margin-top:1rem;">
 <span class="city-lock-info" id="lockInfo">🔒 City list is locked</span>
@@ -683,7 +746,7 @@
 <div class="visit-line"></div>
 </div>
 <div class="visit-body">
-<div class="visit-gallery featured"><figure><img src="assets/images/visit/Paris-Saclay.webp" alt="Université Paris-Saclay" loading="lazy" decoding="async" /> <figcaption>Université Paris-Saclay</figcaption> </figure>  <figure><img src="assets/images/visit/Ecole.webp" lt="Institut Polytechnique de Paris" loading="lazy" decoding="async" /> <figcaption>Institut Polytechnique de Paris</figcaption> </figure> </div>
+<div class="visit-gallery featured"><figure><img src="assets/images/visit/Paris-Saclay.webp" alt="Université Paris-Saclay" loading="lazy" decoding="async" /> <figcaption>Université Paris-Saclay</figcaption> </figure>  <figure><img src="assets/images/visit/Ecole.webp" alt="Institut Polytechnique de Paris" loading="lazy" decoding="async" /> <figcaption>Institut Polytechnique de Paris</figcaption> </figure> </div>
 <div class="visit-institution">Sorbonne Université - Institut Polytechnique de Paris - Université Paris-Saclay</div>
 <div class="visit-meta">Paris, France  ·  Sept 2025 - Sept 2026  ·  M2: Plasma Physics and Fusion.</div>
 <div class="visit-writeup placeholder">[ Joined the consortium of three prestigious institutions for my M2 studies in plasma physics and fusion. ]</div>
@@ -782,7 +845,7 @@
 <div class="visit-line"></div>
 </div>
 <div class="visit-body">
-<div class="visit-gallery featured"><figure><img alt="Inter-University Centre for Astronomy and Astrophysics (IUCAA) — IUCAA campus" loading="lazy" src="assets/images/visit/iucaa-e.webp"/ decoding="async"><figcaption>IUCAA campus</figcaption></figure><figure><img alt="Inter-University Centre for Astronomy and Astrophysics (IUCAA) — Research visit" loading="lazy" src="assets/images/visit/iucaa-d.webp"/ decoding="async"><figcaption>Research visit</figcaption></figure><figure><img alt="Inter-University Centre for Astronomy and Astrophysics (IUCAA) — Pune, 2023" loading="lazy" src="assets/images/visit/iucaa-d.webp"/ decoding="async"><figcaption>Pune, 2023</figcaption></figure></div>
+<div class="visit-gallery featured"><figure><img alt="Inter-University Centre for Astronomy and Astrophysics (IUCAA) — IUCAA campus" loading="lazy" src="assets/images/visit/iucaa-e.webp" decoding="async"/><figcaption>IUCAA campus</figcaption></figure><figure><img alt="Inter-University Centre for Astronomy and Astrophysics (IUCAA) — Research visit" loading="lazy" src="assets/images/visit/iucaa-d.webp" decoding="async"/><figcaption>Research visit</figcaption></figure><figure><img alt="Inter-University Centre for Astronomy and Astrophysics (IUCAA) — Pune, 2023" loading="lazy" src="assets/images/visit/iucaa-d.webp" decoding="async"/><figcaption>Pune, 2023</figcaption></figure></div>
 <div class="visit-institution">Inter-University Centre for Astronomy and Astrophysics (IUCAA)</div>
 <div class="visit-meta">Pune, India  ·  Oct 2023 – Jan 2024  ·  Hybrid Internship</div>
 <div class="visit-writeup placeholder">[ Arrived at IUCAA Pune to work on compact stars with Dr. Debarati Chatterjee and and Dr. Naresh Dadhich. The campus is itself a smaller portion of Pune university which also host NCRA-TIFR, the parent institute of Giant Metre-wave Radio Telescope GMRT. ]</div>
@@ -810,7 +873,7 @@
 <div class="visit-line"></div>
 </div>
 <div class="visit-body">
-<div class="visit-gallery featured"><figure><img alt="Indian Institute of Science (IISc) — IISc campus" loading="lazy" src="assets/images/visit/iisc-mhd.webp"/ decoding="async"><figcaption>IISc campus</figcaption></figure><figure><img alt="Indian Institute of Science (IISc) — MHD workshop" loading="lazy" src="assets/images/visit/iisc-b.webp"/ decoding="async"><figcaption>MHD workshop</figcaption></figure><figure><img alt="Indian Institute of Science (IISc) — Bengaluru, 2023" loading="lazy" src="assets/images/visit/iisc.webp"/ decoding="async"><figcaption>Bengaluru, 2023</figcaption></figure></div>
+<div class="visit-gallery featured"><figure><img alt="Indian Institute of Science (IISc) — IISc campus" loading="lazy" src="assets/images/visit/iisc-mhd.webp" decoding="async"/><figcaption>IISc campus</figcaption></figure><figure><img alt="Indian Institute of Science (IISc) — MHD workshop" loading="lazy" src="assets/images/visit/iisc-b.webp" decoding="async"/><figcaption>MHD workshop</figcaption></figure><figure><img alt="Indian Institute of Science (IISc) — Bengaluru, 2023" loading="lazy" src="assets/images/visit/iisc.webp" decoding="async"/><figcaption>Bengaluru, 2023</figcaption></figure></div>
 <div class="visit-institution">Indian Institute of Science (IISc)</div>
 <div class="visit-meta">Bengaluru, India  ·  Jul 2023  ·  MHD/PLUTO Workshop</div>
 <div class="visit-writeup placeholder">[ So luckily I was around IISc when this wonderful workshop happened. Got formally introduced to the MHD fluid simulations and the community  ]</div>
@@ -953,19 +1016,25 @@
     function renderTags(){
       const container=document.getElementById('cityTags');
       container.innerHTML='';
+
+      document.getElementById('cityCount').textContent=allCities.length||'—';
+
+      // Keep the full city list hidden from the normal public view.
+      if(!isUnlocked) return;
+
       allCities.forEach(city=>{
         const tag=document.createElement('span');
         tag.className='city-tag';
         tag.appendChild(document.createTextNode(city));
-        if(isUnlocked){
-          const btn=document.createElement('button');
-          btn.className='city-remove'; btn.textContent=' ×';
-          btn.addEventListener('click',()=>removeCity(city));
-          tag.appendChild(btn);
-        }
+
+        const btn=document.createElement('button');
+        btn.className='city-remove';
+        btn.textContent=' ×';
+        btn.addEventListener('click',()=>removeCity(city));
+        tag.appendChild(btn);
+
         container.appendChild(tag);
       });
-      document.getElementById('cityCount').textContent=allCities.length||'—';
     }
 
     async function removeCity(name){
@@ -1008,9 +1077,11 @@
         isUnlocked=true;
         document.getElementById('passwordRow').style.display='none';
         document.getElementById('editControls').classList.add('unlocked');
+        document.getElementById('cityTags').classList.add('unlocked');
         document.getElementById('lockInfo').textContent='🔓 Editing enabled';
         document.getElementById('passError').textContent='';
         document.getElementById('passInput').value='';
+        renderTags();
       } else {
         document.getElementById('passError').textContent='Incorrect password.';
         document.getElementById('passInput').value='';
@@ -1024,6 +1095,8 @@
     document.getElementById('lockBtn').addEventListener('click',()=>{
       isUnlocked=false;
       document.getElementById('editControls').classList.remove('unlocked');
+      document.getElementById('cityTags').classList.remove('unlocked');
+      document.getElementById('cityTags').innerHTML='';
       document.getElementById('passwordRow').style.display='none';
       document.getElementById('editBtn').style.display='';
       document.getElementById('lockInfo').textContent='🔒 City list is locked';
