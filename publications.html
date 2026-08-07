@@ -281,7 +281,18 @@
 
     /* Section rules — slightly brighter */
     .section-rule::after { background: rgba(212,168,67,0.28) !important; }
-  </style>
+  
+/* Footer profile icons — matched to homepage */
+.footer-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+.footer-links a {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+.footer-links a:hover { color: var(--gold); }
+</style>
 <link href="assets/css/redesign.css" rel="stylesheet"/></head>
 <body class="site-solar page-publications">
 <canvas id="starCanvas"></canvas>
